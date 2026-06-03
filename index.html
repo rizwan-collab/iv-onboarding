@@ -790,7 +790,7 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); co
               <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">3. Adapt to Growth & Change</strong><br><span style="color:var(--text-muted);">Address the evolving needs of the IV organization while respecting the Jamat's legacy and tradition</span></div>
               <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">4. Strengthen Teamwork & Collaboration</strong><br><span style="color:var(--text-muted);">Foster trust and cooperation among all volunteers, creating mutual respect and harmony</span></div>
               <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">5. Commit to Professionalism & Excellence</strong><br><span style="color:var(--text-muted);">Uphold the values of our faith — accountability, ethical behavior, and integrity in all service</span></div>
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">6. Set Clear Expectations</strong><br><span style="color:var(--text-muted);">Outline what is expected from all volunteers, reducing misunderstandings and ensuring consistency</span"></div>
+              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">6. Set Clear Expectations</strong><br><span style="color:var(--text-muted);">Outline what is expected from all volunteers, reducing misunderstandings and ensuring consistency</span></div>
               <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">7. Foster Inclusion</strong><br><span style="color:var(--text-muted);">Create a safe, inclusive, respectful space reflecting the pluralism in the Jamat and our communities</span></div>
               <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">8. Provide Conflict Resolution Framework</strong><br><span style="color:var(--text-muted);">Establish a basis for addressing misconduct, misunderstandings, or conflicts fairly and consistently</span></div>
             </div>
@@ -2444,83 +2444,334 @@ function openWaiver() {
   );
 }
 
+// ── QUIZ PERFORMANCE DRILLDOWN ──
 function showModuleQuizDetail(num, avg) {
   const details = {
-    'I':  {name:'Welcome, Identity & Khidma', hardest:'Visual identity motif question (63% correct)', tip:'Add a visual of the badge in the module content'},
-    'II': {name:'Service Areas & Roles', hardest:'Jura scenario question (71% correct)', tip:'Add more real-world JK scenario examples'},
-    'III':{name:'Uniform Standards', hardest:'Polo badge placement (68% correct)', tip:'Add a diagram showing badge placement rules'},
-    'IV': {name:'Code of Conduct', hardest:'CoC scope (uniform vs operational) (65%)', tip:'Volunteers confuse uniform requirement with operational scope'},
-    'V':  {name:'Safety Awareness', hardest:'OADA acronym recall (81% correct)', tip:'OADA is strong — consider adding a scenario question'}
+    'I':  {name:'Welcome, Identity & Khidma',   hardest:'Visual identity motif question (63% correct)', tip:'Add a visual of the badge in the module content'},
+    'II': {name:'Service Areas & Roles',          hardest:'Jura scenario question (71% correct)',          tip:'Add more real-world JK scenario examples'},
+    'III':{name:'Uniform Standards',              hardest:'Polo badge placement (68% correct)',             tip:'Add a diagram showing badge placement rules'},
+    'IV': {name:'Code of Conduct',                hardest:'CoC scope (uniform vs operational) (65%)',       tip:'Volunteers confuse uniform requirement with operational scope'},
+    'V':  {name:'Safety Awareness',               hardest:'OADA acronym recall (81% correct)',              tip:'OADA is strong — consider adding a scenario question'}
   };
   const d = details[num]||details['I'];
   const color = avg>=85?'var(--success)':avg>=75?'var(--warn)':'var(--error)';
-  openModal('📊 Module '+num+' Quiz Performance',`<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;"><div style="background:var(--bg2);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:28px;font-weight:700;color:${color};">${avg}%</div><div style="font-size:11px;color:var(--text-muted);">Region Average</div></div><div style="background:var(--bg2);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:28px;font-weight:700;color:var(--navy);">${Math.round(avg*0.88)}%</div><div style="font-size:11px;color:var(--text-muted);">Pass Rate</div></div><div style="background:var(--bg2);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:28px;font-weight:700;color:var(--navy);">2.3</div><div style="font-size:11px;color:var(--text-muted);">Avg Attempts</div></div></div><div style="font-size:13px;padding:8px 0;border-bottom:1px solid var(--border);"><strong>Module:</strong> ${d.name}</div><div style="font-size:13px;padding:8px 0;border-bottom:1px solid var(--border);"><strong>Hardest:</strong> ${d.hardest}</div><div style="margin-top:12px;padding:12px 14px;background:var(--warn-bg);border-radius:8px;font-size:13px;color:var(--warn);">💡 <strong>Tip:</strong> ${d.tip}</div>`); }
+  openModal('📊 Module '+num+' Quiz Performance',
+    `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
+      <div style="background:var(--bg2);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:28px;font-weight:700;color:${color};">${avg}%</div><div style="font-size:11px;color:var(--text-muted);">Region Average</div></div>
+      <div style="background:var(--bg2);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:28px;font-weight:700;color:var(--navy);">${Math.round(avg*0.88)}%</div><div style="font-size:11px;color:var(--text-muted);">Pass Rate (≥80%)</div></div>
+      <div style="background:var(--bg2);border-radius:8px;padding:12px;text-align:center;"><div style="font-size:28px;font-weight:700;color:var(--navy);">2.3</div><div style="font-size:11px;color:var(--text-muted);">Avg Attempts</div></div>
+    </div>
+    <div style="font-size:13px;padding:8px 0;border-bottom:1px solid var(--border);"><strong>Module:</strong> ${d.name}</div>
+    <div style="font-size:13px;padding:8px 0;border-bottom:1px solid var(--border);"><strong>Hardest question:</strong> ${d.hardest}</div>
+    <div style="margin-top:12px;padding:12px 14px;background:var(--warn-bg);border-radius:8px;font-size:13px;color:var(--warn);">💡 <strong>Tip:</strong> ${d.tip}</div>`
+  );
+}
 
+// ── ADMIN USER SEARCH ──
 function adminUserSearch() {
   const inputs = document.querySelectorAll('#panel-users input[type="text"]');
   const val = inputs.length ? inputs[0].value.trim() : '';
   if(!val) { showNotif('Enter a name or email to search'); return; }
   const rows = document.querySelectorAll('#panel-users .data-table tbody tr');
   let found = 0;
-  rows.forEach(row => { const match = row.textContent.toLowerCase().includes(val.toLowerCase()); row.style.display = match ? '' : 'none'; if(match) found++; });
+  rows.forEach(row => {
+    const match = row.textContent.toLowerCase().includes(val.toLowerCase());
+    row.style.display = match ? '' : 'none';
+    if(match) found++;
+  });
   showNotif('Found '+found+' result'+(found!==1?'s':'')+' for "'+val+'"');
 }
 
+// ── NAV ACTIVE STATE ──
 function setNavActive(el, navId) {
   document.querySelectorAll('#'+navId+' .nav-link').forEach(n => n.classList.remove('active'));
   el.classList.add('active');
 }
 
+// ── NAV CONTENT (Resources, Help, Volunteers, Reports, Audit Log) ──
 function showNavContent(section) {
   const contents = {
-    'resources': { title: '📚 Resources & Documents', body: `<p style="margin-bottom:16px;">All official Ismaili Volunteers documents, forms, and reference materials in one place.</p><div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:2px solid var(--gold);border-radius:10px;background:linear-gradient(135deg,#fffef9,#fdf6e3);margin-bottom:18px;cursor:pointer;" onclick="closeModal();showNotif('Downloading SOP...')"><span style="font-size:32px;">📘</span><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--navy);">IV Onboarding Platform SOP</div><div style="font-size:12px;color:var(--text-muted);">Full SOP for Volunteers, JK Leads, Admins · v1.0 · June 2026</div></div><div style="font-size:11px;font-weight:700;padding:4px 12px;background:var(--navy);color:#fff;border-radius:20px;">⬇ Download PDF</div></div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">📋 Required Forms</div>${[['Code of Conduct Acknowledgement Form','Complete via Machform link from your JK Lead','Required'],['Adult Volunteer Waiver','For all volunteers 18+','Required'],['Minor Volunteer Waiver','For youth volunteers ages 8–18 (parent signature)','Required'],['Transportation Volunteer Waiver','Additional waiver for shuttle volunteers','If applicable'],['S&S Gatekeeper Certification Form','Register for upcoming CPR/First Aid session','S&S only']].map(([n,d,t])=>'<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;" onclick="showNotif(\"Opening '+n+'...\")">📄 <div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--navy)">'+n+'</div><div style="font-size:11px;color:var(--text-muted)">'+d+'</div></div><span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px;background:'+(t==='Required'?'var(--error-bg)':'var(--warn-bg)')+';color:'+(t==='Required'?'var(--error)':'var(--warn)')+'">'+t+'</span></div>').join('')}<div style="font-size:13px;font-weight:700;color:var(--navy);margin:16px 0 10px;">📖 Reference Documents</div>${[['Uniform Standards Guide','Full PDF with all outfit options'],['IV Code of Conduct (Full Version)','12-page official document'],['Escalation Hierarchy Chart','Quick reference card'],['Emergency Response Protocols','Shelter-in-place & evacuation']].map(([n,d])=>'<div style="padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;" onclick="showNotif(\"Downloading '+n+'...\")"><div style="font-size:13px;font-weight:600;color:var(--navy)">📎 '+n+'</div><div style="font-size:11px;color:var(--text-muted)">'+d+'</div></div>').join('')}` },
-    'vol-help': { title: '❓ Help & FAQ', body: `<p style="margin-bottom:16px;">Common questions from new Ismaili Volunteers.</p>${[['How long does the orientation take?','Most volunteers complete it in 45–60 minutes. Progress is saved automatically.'],['I completed a module but my progress bar did not update.','Make sure you click the "Complete Module" button at the bottom. Scrolling alone does not mark it complete.'],['When do I need to complete this orientation?','Within 30 days of registration. Reminders at Day 7 and Day 14.'],['Where do I sign the waiver and CoC form?','Your JK Lead will send a Machform link. Both must be signed before your first duty shift.'],['I am a Youth volunteer. Does my parent need to do anything?','Yes — a parent or guardian must complete the Minor Volunteer Waiver.'],['I passed all quizzes but did not receive a certificate.','Click "Complete Module" at the bottom of Module V. Once all 5 are marked complete the certificate appears.'],['Who do I contact if I have a question?','Contact your JK Team Lead first, then your JK Facilitator. Email: support@ismailivolunteers.org.']].map(([q,a])=>'<div style="border:1.5px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;"><div style="padding:12px 16px;background:var(--bg2);font-size:13px;font-weight:700;color:var(--navy);cursor:pointer;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'block\':\'none\'">'+q+' <span style="float:right;opacity:.5;">▾</span></div><div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#374151;display:none;">'+a+'</div></div>').join('')}<div style="margin-top:16px;padding:14px 16px;background:var(--bg2);border-radius:8px;font-size:13px;">Still need help? <strong>Email:</strong> support@ismailivolunteers.org</div>` },
-    'reg-volunteers': { title: '👥 Volunteer Management', body: `<p style="margin-bottom:16px;">Full roster for Greater Houston Region.</p><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${[['Send Bulk Reminders','Email all incomplete','📧'],['Export Full Roster','Download CSV','📊'],['Add Volunteer','Register manually','➕'],['Import Spreadsheet','Bulk upload CSV','📥'],['Assign Team Leads','Map to leads','👤'],['Archive Inactive','Remove 90+ day inactive','🗄']].map(([l,d,i])=>'<div style="border:1.5px solid var(--border);border-radius:8px;padding:12px;cursor:pointer;text-align:center;" onclick="closeModal();showNotif(\''+l+'...\')"><div style="font-size:24px;margin-bottom:6px;">'+i+'</div><div style="font-size:13px;font-weight:700;color:var(--navy);">'+l+'</div><div style="font-size:11px;color:var(--text-muted);">'+d+'</div></div>').join('')}</div>` },
-    'reg-reports': { title: '📊 Reports & Analytics', body: `<p style="margin-bottom:16px;">Generate, schedule, and export compliance reports.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">${[['Weekly Compliance Report','Auto every Sunday','📋','Generate Now'],['Overdue Volunteer Report','23 volunteers 14+ days','🚨','Export CSV'],['Module Completion Breakdown','Where volunteers drop off','📈','View Report'],['Waiver & Form Status','14 unsigned waivers','📄','Send Reminders'],['S&S Certification Tracker','5 overdue, next session Jun 8','🛡','View List'],['Quarterly Summary Q2 2026','Due June 30','📅','Start Draft']].map(([n,d,i,a])=>'<div style="border:1.5px solid var(--border);border-radius:8px;padding:14px;"><div style="display:flex;gap:10px;margin-bottom:10px;"><span style="font-size:22px;">'+i+'</span><div><div style="font-size:13px;font-weight:700;color:var(--navy);">'+n+'</div><div style="font-size:11px;color:var(--text-muted);">'+d+'</div></div></div><button onclick="closeModal();showNotif(\''+a+': '+n+'\')" style="width:100%;padding:7px;background:var(--navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;">'+a+'</button></div>').join('')}</div>` },
-    'audit-log': { title: '🕵️ Audit Log', body: `<p style="margin-bottom:14px;">All platform actions logged for compliance.</p><div style="display:flex;gap:10px;margin-bottom:14px;"><select style="border:1.5px solid var(--border);border-radius:6px;padding:7px 12px;font-size:13px;"><option>All Actions</option><option>Settings Changed</option><option>Content Edited</option><option>Users Added</option></select><button onclick="showNotif('Audit log exported')" style="padding:7px 16px;background:var(--navy);color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;">Export</button></div><table style="width:100%;border-collapse:collapse;font-size:12px;"><thead><tr style="background:var(--bg);"><th style="padding:8px 12px;text-align:left;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">Time</th><th style="padding:8px 12px;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">User</th><th style="padding:8px 12px;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">Action</th><th style="padding:8px 12px;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">Detail</th></tr></thead><tbody>${[['May 31 09:14','Rizwan Ali','Settings changed','Theme updated to Navy'],['May 31 09:12','Rizwan Ali','Module edited','Module I updated'],['May 30 18:02','System','Report generated','Weekly report sent to 4 JK Directors'],['May 30 15:43','Rania Hassanali','Escalation filed','Rahim Tejani — Katy JK — overdue'],['May 30 11:20','Rania Hassanali','Reminder sent','Bulk reminder to 23 volunteers'],['May 28 09:30','System','Volunteer completed','Farida Hassanali — 100% — Houston JK']].map(([t,u,a,d])=>'<tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 12px;color:var(--text-muted);">'+t+'</td><td style="padding:9px 12px;font-weight:600;color:var(--navy);">'+u+'</td><td style="padding:9px 12px;">'+a+'</td><td style="padding:9px 12px;color:var(--text-muted);">'+d+'</td></tr>').join('')}</tbody></table>` },
-    'adm-help': { title: '❓ Admin Help', body: `<p style="margin-bottom:16px;">Platform documentation for administrators.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">${[['Getting Started Guide','Platform overview, setup','📖'],['Managing Modules & Quizzes','Edit content and questions','📚'],['User & Permission Management','Roles, users, access','👥'],['Branding & Theming','Colors, fonts, certificate','🎨'],['Notification Setup','Email triggers, escalation','🔔'],['Report Configuration','Scheduling and formats','📊']].map(([n,d,i])=>'<div style="border:1.5px solid var(--border);border-radius:8px;padding:14px;cursor:pointer;" onclick="showNotif(\'Opening: '+n+'\')"><div style="font-size:22px;margin-bottom:8px;">'+i+'</div><div style="font-size:13px;font-weight:700;color:var(--navy);">'+n+'</div><div style="font-size:11px;color:var(--text-muted);">'+d+'</div></div>').join('')}</div><div style="padding:14px 16px;background:var(--bg2);border-radius:8px;font-size:13px;"><strong>Support:</strong> admin@ismailivolunteers.org</div>` }
+
+    'resources': {
+      title: '📚 Resources & Documents',
+      body: `
+        <p style="margin-bottom:16px;">All official Ismaili Volunteers documents, forms, and reference materials in one place.</p>
+
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:2px solid var(--gold);border-radius:10px;background:linear-gradient(135deg,#fffef9,#fdf6e3);margin-bottom:18px;cursor:pointer;" onclick="closeModal();showNotif('Downloading SOP document...')">
+          <span style="font-size:32px;">📘</span>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:700;color:var(--navy);">IV Onboarding Platform — Standard Operating Procedure</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:3px;">Full SOP for Volunteers · JK Leads · Admins · v1.0 · June 2026</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px;font-weight:700;padding:4px 12px;background:var(--navy);color:#fff;border-radius:20px;">⬇ Download PDF</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Word & PDF</div>
+          </div>
+        </div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">📋 Required Forms</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+          ${[['Code of Conduct Acknowledgement Form','Complete via Machform link from your JK Lead','Required'],
+             ['Adult Volunteer Waiver','For all volunteers 18+','Required'],
+             ['Minor Volunteer Waiver','For youth volunteers ages 8–18 (parent signature)','Required'],
+             ['Transportation Volunteer Waiver','Additional waiver for shuttle volunteers','If applicable'],
+             ['S&S Gatekeeper Certification Form','Register for upcoming CPR/First Aid session','S&S only']
+            ].map(([name,desc,tag]) => `
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;" onclick="showNotif('Opening ${name}...')">
+            <div style="font-size:20px;">📄</div>
+            <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--navy);">${name}</div><div style="font-size:11px;color:var(--text-muted);">${desc}</div></div>
+            <span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px;background:${tag==='Required'?'var(--error-bg)':'var(--warn-bg)'};color:${tag==='Required'?'var(--error)':'var(--warn)'};">${tag}</span>
+          </div>`).join('')}
+        </div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">🎥 Videos & Training Materials</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+          ${[['New IV Motto, Badge & Uniform Reveal','2 min · Official IV video from the.ismaili'],
+             ['Jamatkhana Safety & Emergency Procedures','8 min · Required for all S&S volunteers'],
+             ['Empathy in Action — Customer Service Skills','12 min · Recommended for all volunteers'],
+             ['New Volunteer Welcome Message','4 min · Message from Regional Leadership']
+            ].map(([name,desc]) => `
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;" onclick="showNotif('Playing: ${name}')">
+            <div style="font-size:20px;">▶️</div>
+            <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--navy);">${name}</div><div style="font-size:11px;color:var(--text-muted);">${desc}</div></div>
+          </div>`).join('')}
+        </div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">📖 Reference Documents</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          ${[['Uniform Standards Guide','Full PDF with all outfit options'],
+             ['Local JK Standard Operating Procedure (SOP)','Contact your JK Lead for access'],
+             ['IV Code of Conduct (Full Version)','12-page official document'],
+             ['Escalation Hierarchy Chart','Quick reference card'],
+             ['Emergency Response Protocols','Shelter-in-place & evacuation'],
+             ['Volunteer Schedule & Duty Roster Template','For team leads']
+            ].map(([name,desc]) => `
+          <div style="padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;" onclick="showNotif('Downloading ${name}...')">
+            <div style="font-size:13px;font-weight:600;color:var(--navy);">📎 ${name}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">${desc}</div>
+          </div>`).join('')}
+        </div>`
+    },
+
+    'vol-help': {
+      title: '❓ Help & FAQ',
+      body: `
+        <p style="margin-bottom:16px;">Common questions from new Ismaili Volunteers.</p>
+        ${[
+          ['How long does the orientation take?', 'Most volunteers complete it in 45–60 minutes. You can pause and resume at any time — your progress is saved automatically.'],
+          ['I completed a module but my progress bar did not update.', 'Make sure you click the "Complete Module" button at the bottom of each module. Scrolling through the content alone does not mark it complete.'],
+          ['When do I need to complete this orientation?', 'Within 30 days of registration. You will receive automated reminders at Day 7 and Day 14. After Day 30, your JK Lead will be notified.'],
+          ['Where do I sign the waiver and Code of Conduct form?', 'Your JK Lead will send you a Machform link via email. Both must be signed before your first duty shift.'],
+          ['I am a Youth volunteer (under 18). Does my parent need to do anything?', 'Yes — a parent or guardian must complete the Minor Volunteer Waiver via the Machform link sent to your registration email.'],
+          ['How do I order my uniform and badges?', 'Uniform items are ordered through Central Ordering. Your JK Lead will provide the ordering link and process after your orientation is complete.'],
+          ['I passed all the quizzes but did not receive a certificate.', 'Click "Complete Module" at the bottom of Module V (Safety). Once all 5 are marked complete, the certificate screen appears automatically.'],
+          ['Who do I contact if I have a question not answered here?', 'Contact your JK Team Lead first. If unresolved, escalate to your JK Facilitator. You can also email support@ismailivolunteers.org.'],
+        ].map(([q,a]) => `
+        <div style="border:1.5px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+          <div style="padding:12px 16px;background:var(--bg2);font-size:13px;font-weight:700;color:var(--navy);cursor:pointer;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+            ${q} <span style="float:right;opacity:.5;">▾</span>
+          </div>
+          <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#374151;display:none;">${a}</div>
+        </div>`).join('')}
+        <div style="margin-top:16px;padding:14px 16px;background:var(--bg2);border-radius:8px;font-size:13px;">
+          Still need help? <strong>Email:</strong> support@ismailivolunteers.org &nbsp;|&nbsp; <strong>Phone:</strong> Available via your JK Lead
+        </div>`
+    },
+
+    'reg-volunteers': {
+      title: '👥 Volunteer Management',
+      body: `
+        <p style="margin-bottom:16px;">Full volunteer roster for Greater Houston Region — search, filter, and take bulk actions.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+          ${[['Send Bulk Reminders','Email all incomplete volunteers','📧'],
+             ['Export Full Roster','Download CSV with all fields','📊'],
+             ['Add Volunteer','Register a new volunteer manually','➕'],
+             ['Import from Spreadsheet','Bulk upload via CSV template','📥'],
+             ['Assign Team Leads','Map volunteers to team leads','👤'],
+             ['Archive Inactive','Remove volunteers inactive 90+ days','🗄']
+            ].map(([label,desc,icon]) => `
+          <div style="border:1.5px solid var(--border);border-radius:8px;padding:12px;cursor:pointer;text-align:center;" onclick="closeModal();showNotif('${label}...')">
+            <div style="font-size:24px;margin-bottom:6px;">${icon}</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">${label}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">${desc}</div>
+          </div>`).join('')}
+        </div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Volunteers by Role</div>
+        ${[['Safety & Security','48 total — 38 complete (79%)','#166534','var(--success-bg)'],
+           ['Adult JK Volunteer','109 total — 81 complete (74%)','#92400E','var(--warn-bg)'],
+           ['Youth JK Volunteer','71 total — 51 complete (72%)','#1E40AF','#DBEAFE'],
+           ['Transportation','19 total — 13 complete (68%)','#6B21A8','#F3E8FF']
+          ].map(([role,stats,color,bg]) => `
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:8px;background:${bg};margin-bottom:8px;cursor:pointer;" onclick="showNotif('Filtering by ${role}...')">
+          <div style="flex:1;font-size:13px;font-weight:700;color:${color};">${role}</div>
+          <div style="font-size:12px;color:${color};">${stats}</div>
+        </div>`).join('')}`
+    },
+
+    'reg-reports': {
+      title: '📊 Reports & Analytics',
+      body: `
+        <p style="margin-bottom:16px;">Generate, schedule, and export compliance reports for your JK and region.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          ${[['Weekly Compliance Report','Auto-generated every Sunday. Last sent: May 26, 2026','📋','Generate Now'],
+             ['Overdue Volunteer Report','23 volunteers — 14+ days no activity','🚨','Export CSV'],
+             ['Module Completion Breakdown','See where volunteers are dropping off by module','📈','View Report'],
+             ['Waiver & Form Status','14 unsigned waivers flagged this week','📄','Send Reminders'],
+             ['S&S Certification Tracker','5 overdue on CPR/Gatekeeper. Next session: Jun 8','🛡','View List'],
+             ['Quarterly Summary (Q2 2026)','Due June 30. Data collection in progress','📅','Start Draft']
+            ].map(([name,desc,icon,action]) => `
+          <div style="border:1.5px solid var(--border);border-radius:8px;padding:14px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
+              <span style="font-size:22px;">${icon}</span>
+              <div><div style="font-size:13px;font-weight:700;color:var(--navy);">${name}</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">${desc}</div></div>
+            </div>
+            <button onclick="closeModal();showNotif('${action}: ${name}')" style="width:100%;padding:7px;background:var(--navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;">${action}</button>
+          </div>`).join('')}
+        </div>
+        <div style="padding:14px 16px;background:var(--bg2);border-radius:8px;font-size:13px;">
+          <strong>Scheduled reports:</strong> Weekly Sunday summary → jk-director@ismailivolunteers.org &nbsp;·&nbsp;
+          <span style="color:var(--navy);cursor:pointer;font-weight:600;" onclick="closeModal();showNotif('Opening schedule settings...')">Edit schedule</span>
+        </div>`
+    },
+
+    'audit-log': {
+      title: '🕵️ Audit Log',
+      body: `
+        <p style="margin-bottom:16px;">All platform actions are logged for compliance and accountability.</p>
+        <div style="display:flex;gap:10px;margin-bottom:14px;">
+          <select style="border:1.5px solid var(--border);border-radius:6px;padding:7px 12px;font-size:13px;font-family:inherit;">
+            <option>All Actions</option><option>Settings Changed</option><option>Content Edited</option><option>Users Added</option><option>Reports Generated</option>
+          </select>
+          <select style="border:1.5px solid var(--border);border-radius:6px;padding:7px 12px;font-size:13px;font-family:inherit;">
+            <option>Last 7 days</option><option>Last 30 days</option><option>This quarter</option>
+          </select>
+          <button onclick="showNotif('Audit log exported')" style="padding:7px 16px;background:var(--navy);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;">Export</button>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead><tr style="background:var(--bg);">
+            <th style="padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);border-bottom:2px solid var(--border);">Timestamp</th>
+            <th style="padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--border);">User</th>
+            <th style="padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--border);">Action</th>
+            <th style="padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--border);">Details</th>
+          </tr></thead>
+          <tbody>
+          ${[
+            ['May 31, 2026 09:14','Rizwan Ali','Settings changed','Theme updated to Navy (default)'],
+            ['May 31, 2026 09:12','Rizwan Ali','Module edited','Module I title updated'],
+            ['May 30, 2026 18:02','System','Report generated','Weekly compliance report sent to 4 JK Directors'],
+            ['May 30, 2026 15:43','Rania Hassanali','Escalation filed','Rahim Tejani — Katy JK — overdue 21 days'],
+            ['May 30, 2026 11:20','Rania Hassanali','Reminder sent','Bulk reminder to 23 incomplete volunteers'],
+            ['May 29, 2026 14:05','Rania Hassanali','User edited','Shirin Alibhai role updated to S&S Volunteer'],
+            ['May 28, 2026 09:30','System','Volunteer completed','Farida Hassanali — 100% — Houston JK'],
+            ['May 27, 2026 16:44','Rizwan Ali','User added','Hassan Dewji — Sugarland JK — invited'],
+            ['May 26, 2026 10:00','System','Report generated','Weekly compliance report auto-sent (Sunday)'],
+            ['May 25, 2026 13:18','Rania Hassanali','JK settings updated','Katy JK target adjusted to 75%'],
+          ].map(([ts,user,action,detail]) => `
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:9px 12px;color:var(--text-muted);">${ts}</td>
+            <td style="padding:9px 12px;font-weight:600;color:var(--navy);">${user}</td>
+            <td style="padding:9px 12px;">${action}</td>
+            <td style="padding:9px 12px;color:var(--text-muted);">${detail}</td>
+          </tr>`).join('')}
+          </tbody>
+        </table>`
+    },
+
+    'adm-help': {
+      title: '❓ Admin Help & Documentation',
+      body: `
+        <p style="margin-bottom:16px;">Platform documentation for administrators and regional leads.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
+          ${[['Getting Started Guide','Platform overview, user setup, first-time configuration','📖'],
+             ['Managing Modules & Quizzes','How to edit content, add questions, set pass scores','📚'],
+             ['User & Permission Management','Role definitions, adding users, revoking access','👥'],
+             ['Report Configuration','Scheduling, formats, delivery settings','📊'],
+             ['Branding & Theming','Colors, fonts, logo upload, certificate text','🎨'],
+             ['Notification Setup','Email triggers, reminder cadence, escalation rules','🔔'],
+            ].map(([name,desc,icon]) => `
+          <div style="border:1.5px solid var(--border);border-radius:8px;padding:14px;cursor:pointer;" onclick="showNotif('Opening: ${name}')">
+            <div style="font-size:22px;margin-bottom:8px;">${icon}</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">${name}</div>
+            <div style="font-size:11px;color:var(--text-muted);">${desc}</div>
+          </div>`).join('')}
+        </div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Quick Admin Actions</div>
+        ${[['Force re-run orientation for a volunteer','Use this when a volunteer needs to redo their training'],
+           ['Reset a volunteer\'s quiz attempts','Clears submitted answers and resets the module'],
+           ['Manually mark orientation complete','Override for volunteers who completed training offline'],
+           ['Bulk import volunteers via CSV','Download the template, fill in data, upload'],
+          ].map(([action,desc]) => `
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:8px;border:1.5px solid var(--border);margin-bottom:8px;cursor:pointer;" onclick="closeModal();showNotif('${action}')">
+          <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--navy);">${action}</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${desc}</div></div>
+          <span style="color:var(--navy);font-size:13px;font-weight:700;">→</span>
+        </div>`).join('')}
+        <div style="margin-top:16px;padding:14px 16px;background:var(--bg2);border-radius:8px;font-size:13px;">
+          <strong>Platform support:</strong> admin@ismailivolunteers.org &nbsp;|&nbsp; <strong>Emergency:</strong> Contact National IV Coordinator
+        </div>`
+    }
   };
-  const c = contents[section]; if(!c) return;
+
+  const c = contents[section];
+  if(!c) return;
+  // Use a wide modal for nav content
+  const overlay = document.getElementById('modal-overlay');
   document.getElementById('modal-title').innerHTML = c.title;
   document.getElementById('modal-body').innerHTML = c.body;
   document.getElementById('modal-footer').innerHTML = '<button onclick="closeModal()" style="padding:8px 20px;background:var(--navy);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;">Close</button>';
   document.getElementById('modal-box').style.maxWidth = '720px';
-  document.getElementById('modal-overlay').style.display = 'flex';
+  overlay.style.display = 'flex';
 }
 
+// ══════════════════════════════════════════════════════
+// ── KHIDMA AI CHAT ENGINE ──
+// ══════════════════════════════════════════════════════
+
 const AI_KB = [
-  {patterns:['hello','hi','hey','salaam','salam','assalamu'],response:"Wa Alaykum Assalaam! I'm Khidma AI, your Ismaili Volunteers orientation helper. I can answer questions about the 5 modules, uniforms, Code of Conduct, waivers, and more."},
-  {patterns:['khidma','what does khidma mean'],response:"Khidma means selfless service — the official IV motto, appearing seven times in the new visual identity."},
-  {patterns:['mission statement','iv mission'],response:"The IV Mission: Drawing inspiration from the teachings of Prophet Muhammad and Hazrat Ali (Peace be upon them) that service to others is an expression of faith, Ismaili Volunteers reflect voluntary service as an aspect of devotion that strengthens the community."},
-  {patterns:['vision','five pillars'],response:"IV Vision pillars: 1) Efficient JK operations, 2) Logistical support for Imamat Institutions, 3) Empower youth, 4) Outreach services, 5) Training & core competency skills."},
-  {patterns:['1919','founded','established','history'],response:"The Ismaili Volunteers were established in 1919 — over a century of voluntary service."},
-  {patterns:['badge','new badge','iv badge','motto'],response:"The new IV motto is Khidma. The Khidma Badge is ISSUED (not purchased) and worn on formal uniforms only — NOT on the polo (logo already embroidered)."},
-  {patterns:['farman','mawlana','hazar imam'],response:"Mawlana Hazar Imam's Farman (Feb 11, 2025): 'My Jamat has a long-standing tradition of voluntary service... I pray you will serve with kindness, generosity, affection and unity. Khanavadan, Khanavadan, Khanavadan.'"},
-  {patterns:['volunteer roles','four roles','types of volunteers'],response:"Four IV roles: 1) S&S — 18+, CPR certified; 2) Adult JK Volunteer — 18+; 3) Youth JK Volunteer — ages 8-18; 4) Transportation — 18+ with transport waiver."},
-  {patterns:['safety and security','s&s','gatekeeper','cpr'],response:"S&S volunteers safeguard the Jamat. Requirements: 18+, legal US status, CPR/First Aid/Gatekeeper certified within 6 months. They lead shelter-in-place and evacuation drills."},
-  {patterns:['youth volunteer','ages 8','minor volunteer'],response:"Youth volunteers must be 8-18. Parents complete the Minor Waiver. Youth can wear black jeans with polo."},
-  {patterns:['escalation','chain of command','who to report'],response:"Escalation: Volunteers → Team Lead → Facilitator → Regional Leads → Council Member → JK Directors. Always follow the chain."},
-  {patterns:['jura','kitchen','nandi','prayer hall','operations'],response:"IV manages kitchen, prayer hall, Nandi area, and lobby. Always inform the Team Lead for operational needs — don't handle it yourself."},
-  {patterns:['uniform','what to wear','dress code','attire'],response:"Uniform options: Men's/Women's Western Formal (navy suit), Women's Eastern (navy kurta), Boys/Girls versions, or IV Polo + navy/black/gray pants."},
-  {patterns:['polo','iv polo'],response:"Polo: Navy with IV logo embroidered — NO Khidma Badge. Permitted pants: navy, black, gray. Black jeans for youth only. No shorts."},
-  {patterns:['badge placement','name badge','where to wear'],response:"Formal: Name & Title Badge on LEFT side under Khidma Badge. Polo: Name badge only, either side."},
-  {patterns:['code of conduct','coc','conduct'],response:"The CoC sets standards for ethical service. All volunteers MUST sign it. Applies on JK premises when serving operationally — WITH OR WITHOUT uniform."},
-  {patterns:['infraction','violation','misconduct','suspension','levels'],response:"4 infraction levels: 🟡 General (verbal warning) → 🟠 Medium (4-week suspension) → 🔴 Major (8-week, possible termination) → 🚫 Critical (immediate permanent termination)."},
-  {patterns:['oada','situational awareness'],response:"OADA: Observe → Assess → Decide → Act. If something doesn't feel right, say something immediately."},
-  {patterns:['medical emergency','911','first aid','emergency'],response:"Emergency: Stay calm → Contact S&S → Clear the area → S&S files incident report → Call 911 without hesitation if alone."},
-  {patterns:['waiver','machform','sign waiver'],response:"Two required forms: CoC Acknowledgement + Volunteer Waiver (or Minor Waiver for youth). Click 'Complete Waiver & CoC Form' on your completion screen."},
-  {patterns:['certificate','download certificate'],response:"After all 5 modules: click 'Download Certificate' for PDF or 'Print'. Share with your JK Lead."},
-  {patterns:['how long','time to complete','duration'],response:"45-60 minutes total. Module I ~9 min, II ~11 min, III ~10 min, IV ~13 min, V ~9 min. Progress saves automatically."},
-  {patterns:['deadline','30 days','when due'],response:"30 days from registration. Day 7: first reminder. Day 14: JK Lead notified. Day 30: overdue flag."},
-  {patterns:['quiz','knowledge check','score','pass'],response:"1-3 multiple choice questions per module. Need 80%+ to pass. Up to 3 attempts. Must answer ALL before clicking Complete Module."},
-  {patterns:['stuck','progress','not complete'],response:"Make sure: (1) Read ALL content, (2) Answer ALL quizzes, (3) Click 'Complete Module' button at bottom."},
-  {patterns:['contact','support','help contact'],response:"Support: Your Team Lead → JK Facilitator → Regional Lead. Email: support@ismailivolunteers.org"},
+  {patterns:['hello','hi','hey','salaam','salam','assalamu','marhaba','good morning','good afternoon'],response:"Wa Alaykum Assalaam! I'm Khidma AI, your Ismaili Volunteers orientation helper. I can answer questions about the 5 modules, uniform standards, the Code of Conduct, waivers, and more. What can I help you with today?"},
+  {patterns:['what can you do','how do you work','help me','what do you know','capabilities'],response:"I can answer questions about:\n\n• All 5 orientation modules\n• Uniform & badge standards\n• Code of Conduct & infraction levels\n• Waiver and form requirements\n• OADA & safety protocols\n• Escalation hierarchy\n• Certificate & completion\n• JK Lead reporting\n\nJust ask naturally — for example: 'What is OADA?' or 'What uniform do I wear?'"},
+  {patterns:['khidma','what does khidma mean','spirit of khidma'],response:"Khidma means selfless service. It is the official IV motto and appears seven times in the new visual identity motif. Mawlana Hazar Imam described voluntary service as 'a source of strength and security and hallmark of a community with strong moral and ethical compass.' — Diwan of the Ismaili Imamat, February 11, 2025."},
+  {patterns:['mission statement','mission of iv','iv mission'],response:"The IV Mission Statement: Drawing inspiration from the teachings of Prophet Muhammad and Hazrat Ali (Peace be upon them) that service to others is an expression of faith, Ismaili Volunteers reflect the Ismaili Jamat's notion of voluntary service as an aspect of devotion that strengthens the community while also cultivating volunteers' self-knowledge and personal development."},
+  {patterns:['vision statement','vision of iv','iv vision','five pillars'],response:"The IV Vision has five pillars:\n1. Efficient operational services to every Jamatkhana\n2. Logistical support for all Imamat Institutions\n3. Empower youth to appreciate voluntary service\n4. Promote and engage in outreach services\n5. Training to develop core competency skills for all volunteers"},
+  {patterns:['when was iv established','founded','established','history','1919','year'],response:"The Ismaili Volunteers were established in 1919 — over a century of voluntary service tradition."},
+  {patterns:['motto','new motto','khidma motto','badge','new badge','iv badge'],response:"The new IV motto is Khidma. The visual identity includes 'Khidma' repeated seven times. The Khidma Badge is ISSUED to you (not purchased) and worn on formal uniforms only — NOT on the polo (the logo is already embroidered on the polo)."},
+  {patterns:['farman','mawlana hazar imam','hazar imam','message from imam'],response:"Mawlana Hazar Imam's Farman (February 11, 2025): 'My Jamat has a long-standing tradition of offering voluntary service. This is a noble tradition and one for which I have the greatest admiration… I pray that you will have the strength and inspiration to continue to serve the Jamat and those amongst whom you live with kindness, with generosity, with affection and with unity. Khanavadan, Khanavadan, Khanavadan.'"},
+  {patterns:['volunteer roles','what roles','types of volunteers','four roles','service areas'],response:"There are four IV volunteer roles:\n\n1. Safety & Security (S&S) — 18+, CPR/First Aid/Gatekeeper certified within 6 months, legal US status\n2. Adult JK Volunteer — 18+, complete orientation and adult waiver\n3. Youth JK Volunteer — Ages 8–18, parent completes minor waiver\n4. Transportation Volunteer — 18+, additional transportation waiver required"},
+  {patterns:['safety and security','s&s','ss volunteer','security volunteer','gatekeeper','cpr'],response:"S&S volunteers safeguard the Jamat and JK premises. They are CPR, First Aid, and Gatekeeper certified. Prerequisites: 18+, legal US status, Adult Waiver, and certification within 6 months of joining. They conduct drills for shelter-in-place and evacuation plans. Certification sessions are held at your local JK throughout the year."},
+  {patterns:['youth volunteer','youth jk','minor volunteer','age 8','ages 8','kids'],response:"Youth JK Volunteers must be 8–18 years old. Parents must complete the Minor Waiver. Youth can wear black jeans (no rips) with the polo, and their formal uniform has a jacket-optional version. Everything else mirrors the adult orientation process."},
+  {patterns:['escalation','hierarchy','chain of command','who do i report to','who to tell'],response:"IV Escalation Hierarchy (bottom to top):\n1. All Volunteers → their Team Lead\n2. Team Leads → Facilitator (Adult/Youth/Safety)\n3. Facilitator → Regional Leads\n4. Regional Leads → Council Member for IV\n5. Council Member → Jamatkhana Directors\n\nAlways follow the chain. Only skip levels for urgent safety emergencies."},
+  {patterns:['jura','kitchen','nandi','prayer hall','lobby','operations','operational'],response:"The IV team manages four JK areas: kitchen, prayer hall, Nandi area, and lobby. If a Jamati member reports a need (e.g., more jura), inform the Team Lead assigned to that area — do not handle it yourself. Always escalate through the chain."},
+  {patterns:['uniform','what do i wear','what to wear','dress code','attire','clothing'],response:"IV uniform options:\n\n• Men's Formal: Navy suit, white shirt, volunteer tie, Khidma Badge\n• Women's Formal: Navy suit/pants/skirt (knee length min.), white blouse, scarf or tie\n• Women's Eastern: Navy kurta, white shalwar, volunteer dupatta\n• Boys/Girls Formal: Same as adults with youth scarf/tie options\n• Polo (all): IV embroidered polo + navy/black/gray pants\n\nAsk about a specific uniform for more details!"},
+  {patterns:['polo','iv polo','polo shirt','polo uniform'],response:"IV Polo Rules:\n• Navy blue with IV logo already embroidered — NO Khidma Badge with polo\n• Pants: navy, black, or gray (no patterns)\n• Black jeans: ONLY for youth volunteers (no rips, no patterns)\n• No shorts\n• Name badge only, either side"},
+  {patterns:['badge placement','where to wear badge','name badge','name tag','badge position'],response:"Badge placement:\n• Formal uniforms: Name & Title Badge on LEFT side, under the IV Khidma Badge\n• Polo: Name badge only (either side — no IV Badge needed)\n• Khidma Badge: formal uniforms ONLY, never with polo"},
+  {patterns:['central ordering','order uniform','buy uniform','where to buy','how to order'],response:"Purchased via Central Ordering: Tie/Youth Tie, Scarf (adult or youth), Dupatta, IV Polo, Name Badge, Role Badge. The Khidma Badge is ISSUED (not purchased). Your JK Lead will share the ordering link after you complete orientation."},
+  {patterns:['sop','standard operating procedure','procedures','jk procedures','instructions'],response:"Detailed JK-specific procedures are in the local Standard Operating Procedure (SOP). You can download the full IV Onboarding Platform SOP from the Resources section — it covers step-by-step instructions for Volunteers, JK Leads, and Admins."},
+  {patterns:['code of conduct','coc','conduct','guidelines','what is coc'],response:"The IV Code of Conduct sets standards for ethical, respectful behavior in all service contexts. Key facts:\n• All volunteers MUST sign it (condition of service)\n• Applies on JK premises or at institutional events when serving operationally — WITH OR WITHOUT uniform\n• Signed via Machform link from your JK Lead\n• Covers: safety, accountability, professionalism, conflict resolution"},
+  {patterns:['infraction','infraction policy','violation','misconduct','warning','suspension','levels'],response:"Four infraction levels:\n\n🟡 General — Minor: absences, uniform violations → Coaching, verbal warning\n🟠 Medium — Insubordination, breach of confidentiality → Written warning, 4-week suspension\n🔴 Major — Serving under influence, weapons, assault, theft → 8-week suspension, possible termination\n🚫 Critical — Physical assault, sexual harassment, threats → Immediate permanent termination"},
+  {patterns:['how to report','report misconduct','reporting','disciplinary','appeal'],response:"Disciplinary Process:\n1. Report to Team Lead → Facilitator → Director (follow the chain)\n2. Inquiry — investigated in good faith with documentation\n3. Consequences — applied by severity\n4. Appeals — to Regional or National Leadership within set timeframe\n\nDo NOT go directly to National Leadership — that is the appeals step, not the first step."},
+  {patterns:['oada','situational awareness','observe assess','safety framework','o-a-d-a'],response:"OADA Framework:\nO — Observe: Take in people, things, movements around you\nA — Assess: Does it fit? Do they belong here?\nD — Decide: Is something wrong? Trust your instincts\nA — Act: Who do I tell? Inform the appropriate person immediately\n\nIf something doesn't feel right, say something. Never hesitate."},
+  {patterns:['medical emergency','heart attack','stroke','911','first aid','emergency protocol'],response:"Medical Emergency Protocol:\n1. Stay calm\n2. Contact S&S volunteers immediately\n3. Help clear the area\n4. Provide escort support as needed\n5. S&S completes an incident report immediately\n6. Call 911 without hesitation if alone or if condition is critical\n\nS&S are CPR and First Aid certified for these situations."},
+  {patterns:['empathy','compassion','listening','feelings','support'],response:"Empathy in Action: Understand others' feelings even without shared experience. In service: actively listen, validate emotions, offer genuine support, avoid assumptions. This transforms IV service into a spiritual practice — not just operational work."},
+  {patterns:['waiver','sign waiver','waiver form','adult waiver','minor waiver','machform'],response:"Two required forms before your first duty shift:\n1. Code of Conduct Acknowledgement (all volunteers)\n2. Volunteer Waiver (adults 18+) or Minor Waiver (youth, parent signs)\n\nClick 'Complete Waiver & CoC Form' on your completion screen, or check your registration email for the Machform link. Contact your JK Lead if you haven't received it within 24 hours."},
+  {patterns:['certificate','completion certificate','download certificate','print'],response:"After completing all 5 modules, click:\n• 'Download Certificate' — saves a PDF copy\n• 'Print' — prints a physical copy\n\nShare your certificate with your JK Lead. Your cert shows your name, date, and all 5 modules completed."},
+  {patterns:['how long','time to complete','duration','how many hours','how many minutes'],response:"Most volunteers complete in 45–60 minutes. Module averages: Module I ~9 min, II ~11 min, III ~10 min, IV ~13 min, V ~9 min. You can pause anytime — progress is saved automatically."},
+  {patterns:['deadline','how long do i have','30 days','complete by when','when due'],response:"You have 30 days from registration. Day 7: first reminder. Day 14: second reminder + JK Lead notified. Day 30: overdue flag raised. If you miss the deadline, communicate with your Team Lead — you can still complete it."},
+  {patterns:['quiz','knowledge check','questions','passed','failed','score','how to pass'],response:"Knowledge checks: 1–3 multiple choice questions per module. Need 80%+ to pass. Up to 3 retake attempts. You must answer ALL questions before clicking 'Complete Module.' Immediate feedback and explanation given for every answer."},
+  {patterns:['progress','stuck','not complete','cant complete','cant finish'],response:"If you're stuck: (1) Make sure you read ALL content in the module, (2) Answer ALL knowledge check questions, (3) Click 'Complete Module' at the very bottom. Scrolling through content alone does NOT mark a module complete."},
+  {patterns:['contact','support','help contact','who do i call','email support'],response:"Support contacts:\n• Your Team Lead — first contact for all service questions\n• Your JK Facilitator — escalations from Team Lead\n• Regional JK Lead — for compliance and platform issues\n• Platform support: support@ismailivolunteers.org"},
   {patterns:[], response:null}
 ];
 
-const QUICK_QUESTIONS = ['What does Khidma mean?','What uniform do I wear?','How long does orientation take?','What is OADA?','Where do I sign my waiver?','What are the infraction levels?','How do I get my certificate?'];
+const QUICK_QUESTIONS = [
+  "What does Khidma mean?",
+  "What uniform do I wear?",
+  "How long does orientation take?",
+  "What is OADA?",
+  "Where do I sign my waiver?",
+  "What are the infraction levels?",
+  "How do I get my certificate?",
+];
 
-let chatOpen = false, chatInitialized = false;
+let chatOpen = false;
+let chatInitialized = false;
 
 function toggleChat() {
   chatOpen = !chatOpen;
@@ -2531,50 +2782,83 @@ function toggleChat() {
 }
 
 function initChat() {
-  addBotMessage('As-salamu alaykum! 🌟 I\'m Khidma AI — your Ismaili Volunteers orientation assistant. I can answer questions about all 5 modules, uniforms, Code of Conduct, waivers, OADA, and more.\n\nTry a quick question below, or type your own.');
+  addBotMessage("As-salamu alaykum! 🌟 I'm Khidma AI — your Ismaili Volunteers orientation assistant. I can answer questions about all 5 modules, uniforms, the Code of Conduct, waivers, OADA, and more.\n\nTry one of the quick questions below, or type your own.");
   const qqDiv = document.getElementById('quick-questions');
   if(!qqDiv) return;
-  QUICK_QUESTIONS.forEach(q => { const btn = document.createElement('button'); btn.className = 'quick-q'; btn.textContent = q; btn.onclick = () => { processMessage(q); qqDiv.style.display='none'; }; qqDiv.appendChild(btn); });
+  QUICK_QUESTIONS.forEach(q => {
+    const btn = document.createElement('button');
+    btn.className = 'quick-q';
+    btn.textContent = q;
+    btn.onclick = () => { processMessage(q); qqDiv.style.display = 'none'; };
+    qqDiv.appendChild(btn);
+  });
 }
 
 function addBotMessage(text) {
-  const msgs = document.getElementById('chat-messages'); if(!msgs) return;
-  const typing = document.createElement('div'); typing.className = 'chat-msg bot'; typing.id = 'typing-'+Date.now();
+  const msgs = document.getElementById('chat-messages');
+  if(!msgs) return;
+  const typing = document.createElement('div');
+  typing.className = 'chat-msg bot';
+  typing.id = 'typing-' + Date.now();
   typing.innerHTML = '<div class="msg-avatar">🤝</div><div class="msg-bubble typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
-  msgs.appendChild(typing); msgs.scrollTop = msgs.scrollHeight;
+  msgs.appendChild(typing);
+  msgs.scrollTop = msgs.scrollHeight;
   const tid = typing.id;
-  setTimeout(() => { const t = document.getElementById(tid); if(t) t.remove(); const msg = document.createElement('div'); msg.className = 'chat-msg bot'; msg.innerHTML = '<div class="msg-avatar">🤝</div><div class="msg-bubble">'+text.replace(/\n/g,'<br>')+'</div>'; msgs.appendChild(msg); msgs.scrollTop = msgs.scrollHeight; }, 800);
+  setTimeout(() => {
+    const t = document.getElementById(tid);
+    if(t) t.remove();
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg bot';
+    msg.innerHTML = '<div class="msg-avatar">🤝</div><div class="msg-bubble">' + text.replace(/\n/g,'<br>') + '</div>';
+    msgs.appendChild(msg);
+    msgs.scrollTop = msgs.scrollHeight;
+  }, 700 + Math.random() * 500);
 }
 
 function addUserMessage(text) {
-  const msgs = document.getElementById('chat-messages'); if(!msgs) return;
-  const ul = document.getElementById('user-label'); const initials = ul ? ul.textContent.split(' ').map(w=>w[0]).join('').substring(0,2) : 'U';
-  const msg = document.createElement('div'); msg.className = 'chat-msg user'; msg.innerHTML = '<div class="msg-bubble">'+text+'</div><div class="msg-avatar">'+initials+'</div>'; msgs.appendChild(msg); msgs.scrollTop = msgs.scrollHeight;
+  const msgs = document.getElementById('chat-messages');
+  if(!msgs) return;
+  const ul = document.getElementById('user-label');
+  const initials = ul ? ul.textContent.split(' ').map(w=>w[0]).join('').substring(0,2) : 'U';
+  const msg = document.createElement('div');
+  msg.className = 'chat-msg user';
+  msg.innerHTML = '<div class="msg-bubble">' + text + '</div><div class="msg-avatar">' + initials + '</div>';
+  msgs.appendChild(msg);
+  msgs.scrollTop = msgs.scrollHeight;
 }
 
 function findAIResponse(input) {
   const lower = input.toLowerCase();
-  for(const entry of AI_KB) { if(entry.patterns.length===0) continue; if(entry.patterns.some(p=>lower.includes(p))) return entry.response; }
-  return "Great question! I don't have a specific answer, but try:\n\n• The relevant module in your orientation\n• Resources tab for official documents\n• Help tab FAQ\n• Your Team Lead\n• support@ismailivolunteers.org";
+  for(const entry of AI_KB) {
+    if(entry.patterns.length === 0) continue;
+    if(entry.patterns.some(p => lower.includes(p))) return entry.response;
+  }
+  return "That's a great question! I don't have a specific answer for that yet, but here's what I'd suggest:\n\n• Navigate to the relevant module in your orientation\n• Click 'Resources' in the top nav for official documents\n• Check the Help tab FAQ\n• Contact your Team Lead directly\n• Email support@ismailivolunteers.org\n\nIs there anything else I can help with?";
 }
 
 function processMessage(text) {
   if(!text.trim()) return;
   addUserMessage(text);
-  const inp = document.getElementById('chat-input'); if(inp) inp.value = '';
+  const inp = document.getElementById('chat-input');
+  if(inp) inp.value = '';
   addBotMessage(findAIResponse(text));
 }
 
 function sendChat() {
   const input = document.getElementById('chat-input');
-  if(input) { processMessage(input.value); const qq = document.getElementById('quick-questions'); if(qq) qq.style.display='none'; }
+  if(input) {
+    processMessage(input.value);
+    document.getElementById('quick-questions').style.display = 'none';
+  }
 }
 
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', () => {
   goModule(0);
+  // Wire up filter button that was set without ID
   const filterBtns = document.querySelectorAll('.btn-sm.primary');
   filterBtns.forEach(btn => { if(btn.textContent.trim()==='Filter' && !btn.getAttribute('onclick')) btn.onclick = applyFilter; });
+  // Add id to tbody for loadMore
   const tbodies = document.querySelectorAll('.data-table tbody');
   if(tbodies[0]) tbodies[0].id = 'vol-tbody';
 });
