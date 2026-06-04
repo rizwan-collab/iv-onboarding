@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ismaili Volunteers — Onboarding Platform</title>
 <style>
 :root {
@@ -395,1365 +396,1312 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); co
 </style>
 </head>
 <body>
-
 <!-- ROLE SWITCHER + TOP NAV -->
 <div id="role-bar">
-  <span>View as:</span>
-  <button class="role-btn active" onclick="switchRole('volunteer')">🙋 Volunteer</button>
-  <button class="role-btn" onclick="switchRole('regional')">🏛 Regional JK Lead</button>
-  <button class="role-btn" onclick="switchRole('admin')">⚙️ Admin</button>
-  <span style="margin-left:auto;font-size:11px;opacity:.5;">PROTOTYPE — Demo Mode</span>
+<span>View as:</span>
+<button class="role-btn active" onclick="switchRole('volunteer')">🙋 Volunteer</button>
+<button class="role-btn" onclick="switchRole('regional')">🏛 Regional JK Lead</button>
+<button class="role-btn" onclick="switchRole('admin')">⚙️ Admin</button>
+<span style="margin-left:auto;font-size:11px;opacity:.5;">PROTOTYPE — Demo Mode</span>
 </div>
-
 <div id="top-nav">
-  <div class="logo">
-    <div class="logo-badge">IV</div>
+<div class="logo">
+<div class="logo-badge">IV</div>
     Ismaili Volunteers
     <span style="font-size:11px;color:var(--text-muted);font-weight:400;margin-left:4px;">Khidma Onboarding</span>
-  </div>
-  <div class="nav-links" id="vol-nav">
-    <div class="nav-link active" onclick="setNavActive(this,'vol-nav')">My Training</div>
-    <div class="nav-link" onclick="setNavActive(this,'vol-nav');showNavContent('resources')">Resources</div>
-    <div class="nav-link" onclick="setNavActive(this,'vol-nav');showNavContent('vol-help')">Help</div>
-  </div>
-  <div class="nav-links" id="reg-nav" style="display:none">
-    <div class="nav-link active" onclick="setNavActive(this,'reg-nav')">Dashboard</div>
-    <div class="nav-link" onclick="setNavActive(this,'reg-nav');showNavContent('reg-volunteers')">Volunteers</div>
-    <div class="nav-link" onclick="setNavActive(this,'reg-nav');showNavContent('reg-reports')">Reports</div>
-  </div>
-  <div class="nav-links" id="adm-nav" style="display:none">
-    <div class="nav-link active" onclick="setNavActive(this,'adm-nav')">Admin Console</div>
-    <div class="nav-link" onclick="setNavActive(this,'adm-nav');showNavContent('audit-log')">Audit Log</div>
-    <div class="nav-link" onclick="setNavActive(this,'adm-nav');showNavContent('adm-help')">Help</div>
-  </div>
-  <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
-    <div style="font-size:13px;color:var(--text-muted)" id="user-label">Amirah Rajani · Volunteer</div>
-    <div style="width:34px;height:34px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:13px;">AR</div>
-  </div>
 </div>
-
+<div class="nav-links" id="vol-nav">
+<div class="nav-link active" onclick="setNavActive(this,'vol-nav')">My Training</div>
+<div class="nav-link" onclick="setNavActive(this,'vol-nav');showNavContent('resources')">Resources</div>
+<div class="nav-link" onclick="setNavActive(this,'vol-nav');showNavContent('vol-help')">Help</div>
+</div>
+<div class="nav-links" id="reg-nav" style="display:none">
+<div class="nav-link active" onclick="setNavActive(this,'reg-nav')">Dashboard</div>
+<div class="nav-link" onclick="setNavActive(this,'reg-nav');showNavContent('reg-volunteers')">Volunteers</div>
+<div class="nav-link" onclick="setNavActive(this,'reg-nav');showNavContent('reg-reports')">Reports</div>
+</div>
+<div class="nav-links" id="adm-nav" style="display:none">
+<div class="nav-link active" onclick="setNavActive(this,'adm-nav')">Admin Console</div>
+<div class="nav-link" onclick="setNavActive(this,'adm-nav');showNavContent('audit-log')">Audit Log</div>
+<div class="nav-link" onclick="setNavActive(this,'adm-nav');showNavContent('adm-help')">Help</div>
+</div>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
+<div id="user-label" style="font-size:13px;color:var(--text-muted)">Amirah Rajani · Volunteer</div>
+<div style="width:34px;height:34px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:13px;">AR</div>
+</div>
+</div>
 <!-- ████████████████████  VOLUNTEER VIEW  ████████████████████ -->
-<div id="view-volunteer" class="view active">
-  <div id="volunteer-layout">
-    <div id="module-sidebar">
-      <h3>Orientation Path</h3>
-      <div class="sidebar-module active" onclick="goModule(0)" id="sm-0">
-        <div class="sm-row">
-          <div class="sm-icon" id="si-0">I</div>
-          <div>
-            <div class="sm-title">Welcome & Khidma</div>
-            <div class="sm-sub">Identity · Mission · Vision</div>
-          </div>
-        </div>
-        <div class="sm-progress"><div class="sm-progress-fill" style="width:0%" id="sp-0"></div></div>
-      </div>
-      <div class="sidebar-module" onclick="goModule(1)" id="sm-1">
-        <div class="sm-row">
-          <div class="sm-icon" id="si-1">II</div>
-          <div>
-            <div class="sm-title">Service Areas & Roles</div>
-            <div class="sm-sub">Structure · Escalation</div>
-          </div>
-        </div>
-        <div class="sm-progress"><div class="sm-progress-fill" style="width:0%" id="sp-1"></div></div>
-      </div>
-      <div class="sidebar-module" onclick="goModule(2)" id="sm-2">
-        <div class="sm-row">
-          <div class="sm-icon" id="si-2">III</div>
-          <div>
-            <div class="sm-title">Uniform Standards</div>
-            <div class="sm-sub">Attire · Badges</div>
-          </div>
-        </div>
-        <div class="sm-progress"><div class="sm-progress-fill" style="width:0%" id="sp-2"></div></div>
-      </div>
-      <div class="sidebar-module" onclick="goModule(3)" id="sm-3">
-        <div class="sm-row">
-          <div class="sm-icon" id="si-3">IV</div>
-          <div>
-            <div class="sm-title">Code of Conduct</div>
-            <div class="sm-sub">Guidelines · Infractions</div>
-          </div>
-        </div>
-        <div class="sm-progress"><div class="sm-progress-fill" style="width:0%" id="sp-3"></div></div>
-      </div>
-      <div class="sidebar-module" onclick="goModule(4)" id="sm-4">
-        <div class="sm-row">
-          <div class="sm-icon" id="si-4">V</div>
-          <div>
-            <div class="sm-title">Safety & Empathy</div>
-            <div class="sm-sub">Awareness · OADA</div>
-          </div>
-        </div>
-        <div class="sm-progress"><div class="sm-progress-fill" style="width:0%" id="sp-4"></div></div>
-      </div>
-    </div>
+<div class="view active" id="view-volunteer">
+<div id="volunteer-layout">
+<div id="module-sidebar">
+<h3>Orientation Path</h3>
+<div class="sidebar-module active" id="sm-0" onclick="goModule(0)">
+<div class="sm-row">
+<div class="sm-icon" id="si-0">I</div>
+<div>
+<div class="sm-title">Welcome &amp; Khidma</div>
+<div class="sm-sub">Identity · Mission · Vision</div>
+</div>
+</div>
+<div class="sm-progress"><div class="sm-progress-fill" id="sp-0" style="width:0%"></div></div>
+</div>
+<div class="sidebar-module" id="sm-1" onclick="goModule(1)">
+<div class="sm-row">
+<div class="sm-icon" id="si-1">II</div>
+<div>
+<div class="sm-title">Service Areas &amp; Roles</div>
+<div class="sm-sub">Structure · Escalation</div>
+</div>
+</div>
+<div class="sm-progress"><div class="sm-progress-fill" id="sp-1" style="width:0%"></div></div>
+</div>
+<div class="sidebar-module" id="sm-2" onclick="goModule(2)">
+<div class="sm-row">
+<div class="sm-icon" id="si-2">III</div>
+<div>
+<div class="sm-title">Uniform Standards</div>
+<div class="sm-sub">Attire · Badges</div>
+</div>
+</div>
+<div class="sm-progress"><div class="sm-progress-fill" id="sp-2" style="width:0%"></div></div>
+</div>
+<div class="sidebar-module" id="sm-3" onclick="goModule(3)">
+<div class="sm-row">
+<div class="sm-icon" id="si-3">IV</div>
+<div>
+<div class="sm-title">Code of Conduct</div>
+<div class="sm-sub">Guidelines · Infractions</div>
+</div>
+</div>
+<div class="sm-progress"><div class="sm-progress-fill" id="sp-3" style="width:0%"></div></div>
+</div>
+<div class="sidebar-module" id="sm-4" onclick="goModule(4)">
+<div class="sm-row">
+<div class="sm-icon" id="si-4">V</div>
+<div>
+<div class="sm-title">Safety &amp; Empathy</div>
+<div class="sm-sub">Awareness · OADA</div>
+</div>
+</div>
+<div class="sm-progress"><div class="sm-progress-fill" id="sp-4" style="width:0%"></div></div>
+</div>
+</div>
+<div id="content-area">
+<!-- Overall progress -->
+<div class="progress-header">
+<div class="ph-text">
+<div class="ph-title" id="prog-title">Module I: Welcome, Identity, and the Spirit of Khidma</div>
+<div class="ph-sub" id="prog-sub">Complete all 5 modules to receive your orientation certificate</div>
+</div>
+<div class="ph-bar">
+<div class="progress-bar"><div class="progress-fill" id="overall-bar" style="width:0%"></div></div>
+</div>
+<div class="ph-pct" id="overall-pct">0%</div>
+</div>
+<!-- MODULE PAGES -->
+<div id="module-pages">
+<!-- ── MODULE I ── -->
+<div class="module-page" id="mp-0">
+<div class="welcome-splash">
+<div class="ws-label">New Volunteer Orientation</div>
+<h1>Welcome to Ismaili Volunteers</h1>
+<p>You are joining a long-standing tradition of Khidma — selfless service to the Jamat and community. This orientation covers everything you need to begin serving with confidence, dignity, and purpose.</p>
+<div class="ws-modules">
+<span class="ws-mod">I · Welcome &amp; Khidma</span>
+<span class="ws-mod">II · Roles &amp; Structure</span>
+<span class="ws-mod">III · Uniforms</span>
+<span class="ws-mod">IV · Code of Conduct</span>
+<span class="ws-mod">V · Safety</span>
+</div>
+</div>
+<div class="module-card">
+<div class="module-badge"><div class="gold-dot"></div>Module I</div>
+<h2>Welcome, Identity, and the Spirit of Khidma</h2>
+<div class="quote-box">
+<p>"My Jamat has a long-standing tradition of offering voluntary service. This is a noble tradition and one for which I have the greatest admiration… Our tradition of service is a source of strength and security and hallmark of a community with strong moral and ethical compass."</p>
+<div class="quote-src">— Mawlana Hazar Imam, Diwan of the Ismaili Imamat, February 11, 2025</div>
+</div>
+<h4>Mission Statement</h4>
+<div class="info-box">Drawing inspiration from the teachings of Prophet Muhammad and Hazrat Ali (Peace be upon them) that service to others is an expression of faith, Ismaili Volunteers reflect the Ismaili Jamat's notion of voluntary service as an aspect of devotion that <strong>strengthens the community</strong> while also <strong>cultivating volunteers' self-knowledge and personal development</strong>.</div>
+<h4>Vision Statement — Five Pillars</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;">
+<div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">01</strong><br/>Provide efficient operational services to every Jamatkhana</div>
+<div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">02</strong><br/>Provide logistical support for all Imamat Institutions</div>
+<div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">03</strong><br/>Empower youth to develop appreciation for voluntary service</div>
+<div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">04</strong><br/>Promote and engage in outreach services</div>
+<div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">05</strong><br/>Provide training to develop core competency skills</div>
+</div>
+<h4>Motto, Badge &amp; Uniform</h4>
+<p>The new Ismaili Volunteer identity features the motto <strong>"Khidma"</strong> — meaning selfless service. The visual identity includes a motif with the word "Khidma" repeated <strong>seven times</strong>. New uniform, badge, and name tag standards have been standardized across all regions.</p>
+<!-- Short answer -->
+<div class="quiz-card">
+<div class="quiz-label">✏️ Reflection Question</div>
+<div class="quiz-q">What does Khidma mean to you personally?</div>
+<div class="short-answer">
+<textarea id="khidma-reflection" placeholder="Share your thoughts in a few sentences..."></textarea>
+<button class="quiz-submit" onclick="saveReflection()" style="margin-top:10px;">Save Reflection</button>
+</div>
+</div>
+<!-- Quiz 1 -->
 
-    <div id="content-area">
-      <!-- Overall progress -->
-      <div class="progress-header">
-        <div class="ph-text">
-          <div class="ph-title" id="prog-title">Module I: Welcome, Identity, and the Spirit of Khidma</div>
-          <div class="ph-sub" id="prog-sub">Complete all 5 modules to receive your orientation certificate</div>
-        </div>
-        <div class="ph-bar">
-          <div class="progress-bar"><div class="progress-fill" style="width:0%" id="overall-bar"></div></div>
-        </div>
-        <div class="ph-pct" id="overall-pct">0%</div>
-      </div>
+<!-- Quiz 2 -->
 
-      <!-- MODULE PAGES -->
-      <div id="module-pages">
+<!-- Quiz 3 -->
 
-        <!-- ── MODULE I ── -->
-        <div class="module-page" id="mp-0">
-          <div class="welcome-splash">
-            <div class="ws-label">New Volunteer Orientation</div>
-            <h1>Welcome to Ismaili Volunteers</h1>
-            <p>You are joining a long-standing tradition of Khidma — selfless service to the Jamat and community. This orientation covers everything you need to begin serving with confidence, dignity, and purpose.</p>
-            <div class="ws-modules">
-              <span class="ws-mod">I · Welcome & Khidma</span>
-              <span class="ws-mod">II · Roles & Structure</span>
-              <span class="ws-mod">III · Uniforms</span>
-              <span class="ws-mod">IV · Code of Conduct</span>
-              <span class="ws-mod">V · Safety</span>
+
+<div style="margin:28px 0 20px;padding:18px 20px;background:linear-gradient(135deg,var(--navy),#2A5298);border-radius:10px;color:#fff;display:flex;align-items:center;gap:14px;">
+<div style="font-size:28px;">📝</div>
+<div>
+<div style="font-size:15px;font-weight:700;">Knowledge Check</div>
+<div style="font-size:12px;opacity:.8;margin-top:3px;">Answer all questions below to complete this module. All questions must be submitted before you can proceed.</div>
+</div>
+</div>
+<div class="quiz-card" id="q-m1-1">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">When were the Ismaili Volunteers established?</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m1-1',0,1)"><div class="opt-letter">A</div>1919</div>
+<div class="quiz-opt" onclick="selectOpt('q-m1-1',1,1)"><div class="opt-letter">B</div>1920</div>
+<div class="quiz-opt" onclick="selectOpt('q-m1-1',2,1)"><div class="opt-letter">C</div>2019</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m1-1',0,1,'The Ismaili Volunteers were established in 1919, making it a century-old tradition of service.')">Submit Answer</button>
+</div><div class="quiz-card" id="q-m1-2">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">What is the Ismaili Volunteers' new motto?</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m1-2',0,2)"><div class="opt-letter">A</div>Seva</div>
+<div class="quiz-opt" onclick="selectOpt('q-m1-2',1,2)"><div class="opt-letter">B</div>All Work No Words</div>
+<div class="quiz-opt" onclick="selectOpt('q-m1-2',2,2)"><div class="opt-letter">C</div>Khidma</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m1-2',2,2,'Khidma — meaning selfless service — is the new motto of the Ismaili Volunteers, reflecting the organization\'s core identity.')">Submit Answer</button>
+</div><div class="quiz-card" id="q-m1-3">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">The new visual identity includes a motif with what word repeated seven times?</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m1-3',0,3)"><div class="opt-letter">A</div>Khidma</div>
+<div class="quiz-opt" onclick="selectOpt('q-m1-3',1,3)"><div class="opt-letter">B</div>Lillah</div>
+<div class="quiz-opt" onclick="selectOpt('q-m1-3',2,3)"><div class="opt-letter">C</div>Service</div>
+</div>
+<button a="" as="" central="" class="quiz-submit" disabled="" khidma\"="" motif.')"="" onclick="submitQuiz('q-m1-3',0,3,'The new IV visual identity features the word \" repeated="" seven="" times="">Submit Answer</button>
+</div><div class="nav-buttons">
+<button class="btn-nav btn-primary" onclick="attemptComplete(0)">Complete Module I →</button>
+</div>
+</div>
+</div>
+<!-- ── MODULE II ── -->
+<div class="module-page" id="mp-1" style="display:none">
+<div class="module-card">
+<div class="module-badge"><div class="gold-dot"></div>Module II</div>
+<h2>Service Areas, Roles, and Organizational Structure</h2>
+<p>The IV team plays a crucial role in maintaining a serene and spiritual atmosphere within the Jamatkhana. Their responsibilities encompass overseeing various operational aspects, including the kitchen, prayer hall, Nandi area, and lobby.</p>
+<h4>Volunteer Roles</h4>
+<div class="role-grid">
+<div class="role-card">
+<h5><div class="rc-icon">S</div>Safety &amp; Security Volunteer</h5>
+<ul>
+<li>Must be 18+ years old</li>
+<li>Complete New Volunteer Orientation</li>
+<li>Complete Adult Waiver Form</li>
+<li>Legal status in USA required</li>
+<li>CPR, First Aid &amp; Gatekeeper certified within 6 months</li>
+</ul>
+</div>
+<div class="role-card">
+<h5><div class="rc-icon">A</div>Adult Jamatkhana Volunteer</h5>
+<ul>
+<li>Must be 18+ years old</li>
+<li>Complete New Volunteer Orientation</li>
+<li>Complete Adult Waiver Form</li>
+</ul>
+</div>
+<div class="role-card">
+<h5><div class="rc-icon">Y</div>Youth Jamatkhana Volunteer</h5>
+<ul>
+<li>Ages 8–18 years</li>
+<li>Complete New Volunteer Orientation</li>
+<li>Parents must complete Minor Waiver Form</li>
+</ul>
+</div>
+<div class="role-card">
+<h5><div class="rc-icon">T</div>Transportation Volunteer</h5>
+<ul>
+<li>Must be 18+ years old</li>
+<li>Complete New Volunteer Orientation</li>
+<li>Adult Waiver + Transportation Waiver required</li>
+</ul>
+</div>
+</div>
+<h4>Safety &amp; Security — Unified Team Structure</h4>
+<div class="info-box" style="border-left-color:#1B3A6B;">The Safety &amp; Security team is a unified team formed by merging the former Safety, Crisis Management (CMV), and Community Safety Lead (CSL) teams. This consolidation enables streamlined internal and external Jamatkhana safety operations, faster emergency response, and a unified strategy for protecting both the Jamatkhana and the Jamat. All former CMV and CSL roles now operate under a single, synchronized S&amp;S leadership.</div>
+<h4>Escalation Hierarchy</h4>
+<div class="hierarchy">
+<div class="hier-level"><span class="hl-badge">All Volunteers</span><span class="hl-text">Start here — report to your direct Team Lead</span></div>
+<div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Team Leads</span><span class="hl-text">Adult / Youth / Safety Team Leads</span></div>
+<div class="hier-level"><span class="hl-badge">Facilitators</span><span class="hl-text">Adult, Youth, and Safety Facilitators</span></div>
+<div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Regional Leads</span><span class="hl-text">IV Deputy Lead and Regional Leadership</span></div>
+<div class="hier-level"><span class="hl-badge">Council Member</span><span class="hl-text">Council Member for Ismaili Volunteers</span></div>
+<div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">JK Directors</span><span class="hl-text">Jamatkhana Directors — escalation for facility issues</span></div>
+</div>
+<!-- Quiz 4 -->
+
+<!-- Quiz 5 -->
+
+
+<div style="margin:28px 0 20px;padding:18px 20px;background:linear-gradient(135deg,var(--navy),#2A5298);border-radius:10px;color:#fff;display:flex;align-items:center;gap:14px;">
+<div style="font-size:28px;">📝</div>
+<div>
+<div style="font-size:15px;font-weight:700;">Knowledge Check</div>
+<div style="font-size:12px;opacity:.8;margin-top:3px;">Answer all questions below to complete this module. All questions must be submitted before you can proceed.</div>
+</div>
+</div>
+<div class="quiz-card" id="q-m2-1">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">What is the primary role of the IV team within the Jamatkhana?</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m2-1',0,4)"><div class="opt-letter">A</div>To support jamati events only</div>
+<div class="quiz-opt" onclick="selectOpt('q-m2-1',1,4)"><div class="opt-letter">B</div>To maintain a serene and spiritual atmosphere while supporting various operations (kitchen, prayer hall, Nandi area, and lobby)</div>
+<div class="quiz-opt" onclick="selectOpt('q-m2-1',2,4)"><div class="opt-letter">C</div>To manage only the inside prayer hall area</div>
+<div class="quiz-opt" onclick="selectOpt('q-m2-1',3,4)"><div class="opt-letter">D</div>To supervise the parking lot area only</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m2-1',1,4,'The IV team oversees all operational areas — kitchen, prayer hall, Nandi area, and lobby — to maintain a serene and spiritual atmosphere.')">Submit Answer</button>
+</div><div class="quiz-card" id="q-m2-2">
+<div class="quiz-label">🎯 Scenario Check</div>
+<div class="quiz-q">You are walking into JK after Dua for Dua Karavi, and a Jamati member tells you that we need more jura. What is your best course of action?</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m2-2',0,5)"><div class="opt-letter">A</div>Ignore the Jamati member and go for Dua Karavi</div>
+<div class="quiz-opt" onclick="selectOpt('q-m2-2',1,5)"><div class="opt-letter">B</div>Go find Jura and try to refill it yourself</div>
+<div class="quiz-opt" onclick="selectOpt('q-m2-2',2,5)"><div class="opt-letter">C</div>Inform the team lead assigned in the area</div>
+<div class="quiz-opt" onclick="selectOpt('q-m2-2',3,5)"><div class="opt-letter">D</div>Go to the Jamatkhana Director</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m2-2',2,5,'Always follow the escalation hierarchy. Inform your assigned team lead — they are responsible for coordinating area operations.')">Submit Answer</button>
+</div><div class="nav-buttons">
+<button class="btn-nav btn-secondary" onclick="goModule(0)">← Back</button>
+<button class="btn-nav btn-primary" onclick="attemptComplete(1)">Complete Module II →</button>
+</div>
+</div>
+</div>
+<!-- ── MODULE III ── -->
+<div class="module-page" id="mp-2" style="display:none">
+<div class="module-card">
+<div class="module-badge"><div class="gold-dot"></div>Module III</div>
+<h2>Uniform Standards</h2>
+<p>All Ismaili Volunteers are required to maintain uniform standards at all times while on JK premises or at institutional events. The new uniform reflects the updated IV brand identity.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;">
+<div style="background:var(--navy);color:#fff;border-radius:8px;padding:14px;">
+<div style="font-size:11px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:6px;">Men's Western Formal</div>
+<ul style="font-size:12px;padding-left:14px;line-height:1.8;opacity:.9;">
+<li>Plain navy blue suit (single breast)</li>
+<li>Plain white button-down shirt</li>
+<li>Volunteer Tie</li>
+<li>Khidma Badge (Issued)</li>
+<li>Name + Role Badge (left side)</li>
+</ul>
+</div>
+<div style="background:var(--navy);color:#fff;border-radius:8px;padding:14px;">
+<div style="font-size:11px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:6px;">Women's Western Formal</div>
+<ul style="font-size:12px;padding-left:14px;line-height:1.8;opacity:.9;">
+<li>Plain navy blue suit</li>
+<li>Navy pants/skirt (min. knee length)</li>
+<li>Plain white shirt/blouse</li>
+<li>Volunteer Scarf or Tie</li>
+<li>Khidma Badge (Issued)</li>
+</ul>
+</div>
+<div style="background:var(--navy);color:#fff;border-radius:8px;padding:14px;">
+<div style="font-size:11px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:6px;">Women's Eastern Formal</div>
+<ul style="font-size:12px;padding-left:14px;line-height:1.8;opacity:.9;">
+<li>Plain navy kurta top</li>
+<li>Plain white shalwar pant</li>
+<li>New Volunteer Dupatta</li>
+<li>Khidma Badge (Issued)</li>
+</ul>
+</div>
+</div>
+<h4>Polo Uniform Policy</h4>
+<div class="info-box">
+<strong>On Polos:</strong> The IV logo is already embroidered — the Khidma Badge is <em>not</em> worn with the polo. Name/role badge only, on either left or right side. Permitted pant colors: navy, black, or gray (no patterns). <strong>Jeans are permitted for youth volunteers only</strong> (black, no rips, no patterns). No shorts.
             </div>
-          </div>
+<h4>Badge Placement</h4>
+<div class="info-box">Name and Title Badges are worn on the <strong>left side</strong> under the IV Badge on all formal uniforms (western and eastern). On Polos, name badge only — no IV Badge required.</div>
+<!-- Quiz 6 -->
 
-          <div class="module-card">
-            <div class="module-badge"><div class="gold-dot"></div>Module I</div>
-            <h2>Welcome, Identity, and the Spirit of Khidma</h2>
+<!-- Quiz 7 -->
 
-            <div class="quote-box">
-              <p>"My Jamat has a long-standing tradition of offering voluntary service. This is a noble tradition and one for which I have the greatest admiration… Our tradition of service is a source of strength and security and hallmark of a community with strong moral and ethical compass."</p>
-              <div class="quote-src">— Mawlana Hazar Imam, Diwan of the Ismaili Imamat, February 11, 2025</div>
-            </div>
+<!-- Quiz 8 -->
 
-            <h4>Mission Statement</h4>
-            <div class="info-box">Drawing inspiration from the teachings of Prophet Muhammad and Hazrat Ali (Peace be upon them) that service to others is an expression of faith, Ismaili Volunteers reflect the Ismaili Jamat's notion of voluntary service as an aspect of devotion that <strong>strengthens the community</strong> while also <strong>cultivating volunteers' self-knowledge and personal development</strong>.</div>
 
-            <h4>Vision Statement — Five Pillars</h4>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;">
-              <div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">01</strong><br>Provide efficient operational services to every Jamatkhana</div>
-              <div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">02</strong><br>Provide logistical support for all Imamat Institutions</div>
-              <div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">03</strong><br>Empower youth to develop appreciation for voluntary service</div>
-              <div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">04</strong><br>Promote and engage in outreach services</div>
-              <div style="background:var(--bg2);border-radius:8px;padding:12px;font-size:13px;"><strong style="color:var(--navy);">05</strong><br>Provide training to develop core competency skills</div>
-            </div>
+<div style="margin:28px 0 20px;padding:18px 20px;background:linear-gradient(135deg,var(--navy),#2A5298);border-radius:10px;color:#fff;display:flex;align-items:center;gap:14px;">
+<div style="font-size:28px;">📝</div>
+<div>
+<div style="font-size:15px;font-weight:700;">Knowledge Check</div>
+<div style="font-size:12px;opacity:.8;margin-top:3px;">Answer all questions below to complete this module. All questions must be submitted before you can proceed.</div>
+</div>
+</div>
+<div class="quiz-card" id="q-m3-1">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">I can wear my Khidma Badge on my IV polo.</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m3-1',0,6)"><div class="opt-letter">A</div>True</div>
+<div class="quiz-opt" onclick="selectOpt('q-m3-1',1,6)"><div class="opt-letter">B</div>False</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m3-1',1,6,'False. The IV logo is already embroidered on the polo — the Khidma Badge is not worn with polos. It is only worn with formal uniforms.')">Submit Answer</button>
+</div><div class="quiz-card" id="q-m3-2">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">I can find detailed Ismaili Volunteers procedures in the local Jamatkhana Standard Operating Procedure (SOP).</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m3-2',0,7)"><div class="opt-letter">A</div>True</div>
+<div class="quiz-opt" onclick="selectOpt('q-m3-2',1,7)"><div class="opt-letter">B</div>False</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m3-2',0,7,'True. Detailed IV procedures specific to your Jamatkhana are documented in the local SOP. Always refer to it for area-specific guidelines.')">Submit Answer</button>
+</div><div class="quiz-card" id="q-m3-3">
+<div class="quiz-label">🎯 Scenario Check</div>
+<div class="quiz-q">An adult IV volunteer arrives wearing the new IV polo, jeans, their IV Badge, and their name badge. What uniform corrections should be made?</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m3-3',0,8)"><div class="opt-letter">A</div>No changes are needed</div>
+<div class="quiz-opt" onclick="selectOpt('q-m3-3',1,8)"><div class="opt-letter">B</div>Remove the Khidma IV Badge only</div>
+<div class="quiz-opt" onclick="selectOpt('q-m3-3',2,8)"><div class="opt-letter">C</div>Remove the Khidma IV Badge, and replace jeans with plain navy, black, or gray pants</div>
+<div class="quiz-opt" onclick="selectOpt('q-m3-3',3,8)"><div class="opt-letter">D</div>Replace the polo with a formal uniform</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m3-3',2,8,'Correct. The IV logo is embroidered on the polo so the Khidma Badge is not needed. Additionally, jeans (even black) are only permitted for youth volunteers — adults must wear plain navy, black, or gray pants.')">Submit Answer</button>
+</div><div class="nav-buttons">
+<button class="btn-nav btn-secondary" onclick="goModule(1)">← Back</button>
+<button class="btn-nav btn-primary" onclick="attemptComplete(2)">Complete Module III →</button>
+</div>
+</div>
+</div>
+<!-- ── MODULE IV ── -->
+<div class="module-page" id="mp-3" style="display:none">
+<div class="module-card">
+<div class="module-badge"><div class="gold-dot"></div>Module IV</div>
+<h2>Code of Conduct and Infraction Policy</h2>
+<p>The Code of Conduct sets clear standards, promotes accountability, and ensures ethical, respectful, and responsible behavior in all aspects of service. <strong>All Ismaili Volunteers are required to sign, adhere to, and uphold this Code of Conduct as a condition of service.</strong></p>
+<h4>Purpose of the Code of Conduct</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;">
+<div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">1. Enhance Safety &amp; Security</strong><br/><span style="color:var(--text-muted);">Protect the well-being of all Jamati members, volunteers, and any individuals the IV interacts with</span></div>
+<div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">2. Encourage Growth &amp; Development</strong><br/><span style="color:var(--text-muted);">Help volunteers grow through cultivating humility, compassion, brotherhood, and strong leadership</span></div>
+<div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">3. Adapt to Growth &amp; Change</strong><br/><span style="color:var(--text-muted);">Address the evolving needs of the IV organization while respecting the Jamat's legacy and tradition</span></div>
+<div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">4. Strengthen Teamwork &amp; Collaboration</strong><br/><span style="color:var(--text-muted);">Foster trust and cooperation among all volunteers, creating mutual respect and harmony</span></div>
+<div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">5. Commit to Professionalism &amp; Excellence</strong><br/><span style="color:var(--text-muted);">Uphold the values of our faith — accountability, ethical behavior, and integrity in all service</span></div>
+<div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">6. Set Clear Expectations</strong><br/><span style="color:var(--text-muted);">Outline what is expected from all volunteers, reducing misunderstandings and ensuring consistency</span></div>
+<div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">7. Foster Inclusion</strong><br/><span style="color:var(--text-muted);">Create a safe, inclusive, respectful space reflecting the pluralism in the Jamat and our communities</span></div>
+<div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">8. Provide Conflict Resolution Framework</strong><br/><span style="color:var(--text-muted);">Establish a basis for addressing misconduct, misunderstandings, or conflicts fairly and consistently</span></div>
+</div>
+<div class="info-box"><strong>Scope:</strong> The Code of Conduct applies on Jamatkhana premises or at institutional events whenever a volunteer is serving operationally — <strong>whether or not they are in uniform</strong>.</div>
+<h4>Guiding Principles of the Code of Conduct</h4>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0;">
+<div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Faith &amp; Values</div><div style="font-size:12px;color:var(--text-muted);">Uphold the ethical principles and values of our faith in every aspect of service</div></div>
+<div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Respect &amp; Dignity</div><div style="font-size:12px;color:var(--text-muted);">Treat every Jamati member and fellow volunteer with respect, compassion, and dignity</div></div>
+<div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Accountability</div><div style="font-size:12px;color:var(--text-muted);">Take responsibility for your actions with humility, reflection, and truthfulness</div></div>
+<div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Confidentiality</div><div style="font-size:12px;color:var(--text-muted);">Protect sensitive information about Jamati members and institutional operations</div></div>
+<div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Unity &amp; Collaboration</div><div style="font-size:12px;color:var(--text-muted);">Work together with fellow volunteers in a spirit of cooperation, harmony, and brotherhood</div></div>
+<div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Inclusion &amp; Pluralism</div><div style="font-size:12px;color:var(--text-muted);">Embrace the diversity of the Jamat and the wider communities in which we live and serve</div></div>
+</div>
+<h4>Key Operational Expectations</h4>
+<div style="display:flex;flex-direction:column;gap:10px;margin:12px 0;">
+<div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
+<div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">1. Commitment to Roles &amp; Responsibilities</div>
+<div style="font-size:13px;color:#374151;">Volunteers are expected to demonstrate dedication and reliability in their assigned duties.</div>
+</div>
+<div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
+<div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">2. Accountable for Personal Actions, Behavior &amp; Conflict Resolution</div>
+<div style="font-size:13px;color:#374151;">Volunteers are expected to take responsibility for their actions and any mistakes with humility, reflection, and truthfulness. Any disputes or conflicts should be resolved through respectful dialogue, communication, or mediation.</div>
+</div>
+<div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
+<div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">3. Professionalism, Integrity &amp; Excellence in Service</div>
+<div style="font-size:13px;color:#374151;">All volunteers are expected to uphold the values of our faith by ensuring confidentiality and ethical, respectful, fair, and responsible behavior in all aspects of service.</div>
+</div>
+<div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
+<div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">4. Adherence to Uniform Guidelines</div>
+<div style="font-size:13px;color:#374151;">Volunteers must follow ALL uniform policies while serving on the Jamatkhana premises or at Jamati events — including badge placement, approved attire, and the polo vs. formal uniform rules.</div>
+</div>
+<div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
+<div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">5. Following All Policies, SOPs &amp; Local Laws</div>
+<div style="font-size:13px;color:#374151;">Volunteers must abide by all Ismaili Volunteer policies, Standard Operating Procedures (SOPs), and local laws — particularly those related to safety, security, and Jamatkhana or event operations.</div>
+</div>
+</div>
+<h4>Infraction Classification</h4>
+<table class="infraction-table">
+<tr>
+<th class="th-general">⚠️ General</th>
+<th class="th-medium">🟠 Medium</th>
+<th class="th-major">🔴 Major</th>
+<th class="th-critical">🚫 Critical</th>
+</tr>
+<tr>
+<td>Unexcused absences, uniform violations, minor procedural non-compliance</td>
+<td>Insubordination, disorderly conduct, breach of confidentiality, misuse of authority</td>
+<td>Serving under influence, weapons on premises, physical altercation, theft, bullying</td>
+<td>Physical assault, sexual harassment, threats to JK premises or Jamat safety</td>
+</tr>
+<tr>
+<td><em>Coaching, verbal warning, duty reallocation</em></td>
+<td><em>Written warning, 4-week suspension, ethical coaching</em></td>
+<td><em>8-week suspension, mandatory reflection, possible termination</em></td>
+<td><em>Immediate dismissal, permanent termination</em></td>
+</tr>
+</table>
+<h4>Disciplinary Process</h4>
+<div class="hierarchy">
+<div class="hier-level"><span class="hl-badge">Step 1</span><span class="hl-text">Report misconduct to appropriate IV leadership (Team Lead, Facilitator, or Director)</span></div>
+<div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Step 2</span><span class="hl-text">Inquiry and documentation — all infractions investigated in good faith</span></div>
+<div class="hier-level"><span class="hl-badge">Step 3</span><span class="hl-text">Consequences applied based on severity of infraction</span></div>
+<div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Step 4</span><span class="hl-text">Appeals — Regional or National Leadership within set timeframe</span></div>
+</div>
+<div class="info-box" style="border-left-color:var(--gold);background:#FEFCE8;"><strong>Required Signatures:</strong> Code of Conduct Acknowledgement Form + Ismaili Volunteer Waiver — both signed via the electronic Machform link provided by your local JK leadership.</div>
+<!-- Quiz 9 -->
 
-            <h4>Motto, Badge & Uniform</h4>
-            <p>The new Ismaili Volunteer identity features the motto <strong>"Khidma"</strong> — meaning selfless service. The visual identity includes a motif with the word "Khidma" repeated <strong>seven times</strong>. New uniform, badge, and name tag standards have been standardized across all regions.</p>
+<!-- Quiz 10 -->
 
-            <!-- Short answer -->
-            <div class="quiz-card">
-              <div class="quiz-label">✏️ Reflection Question</div>
-              <div class="quiz-q">What does Khidma mean to you personally?</div>
-              <div class="short-answer">
-                <textarea id="khidma-reflection" placeholder="Share your thoughts in a few sentences..."></textarea>
-                <button class="quiz-submit" onclick="saveReflection()" style="margin-top:10px;">Save Reflection</button>
-              </div>
-            </div>
+<!-- Quiz 11 -->
 
-            <!-- Quiz 1 -->
-            <div class="quiz-card" id="q-m1-1">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">When were the Ismaili Volunteers established?</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m1-1',0,1)"><div class="opt-letter">A</div>1919</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m1-1',1,1)"><div class="opt-letter">B</div>1920</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m1-1',2,1)"><div class="opt-letter">C</div>2019</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m1-1',0,1,'The Ismaili Volunteers were established in 1919, making it a century-old tradition of service.')" disabled>Submit Answer</button>
-            </div>
 
-            <!-- Quiz 2 -->
-            <div class="quiz-card" id="q-m1-2">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">What is the Ismaili Volunteers' new motto?</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m1-2',0,2)"><div class="opt-letter">A</div>Seva</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m1-2',1,2)"><div class="opt-letter">B</div>All Work No Words</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m1-2',2,2)"><div class="opt-letter">C</div>Khidma</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m1-2',2,2,'Khidma — meaning selfless service — is the new motto of the Ismaili Volunteers, reflecting the organization\'s core identity.')" disabled>Submit Answer</button>
-            </div>
+<div style="margin:28px 0 20px;padding:18px 20px;background:linear-gradient(135deg,var(--navy),#2A5298);border-radius:10px;color:#fff;display:flex;align-items:center;gap:14px;">
+<div style="font-size:28px;">📝</div>
+<div>
+<div style="font-size:15px;font-weight:700;">Knowledge Check</div>
+<div style="font-size:12px;opacity:.8;margin-top:3px;">Answer all questions below to complete this module. All questions must be submitted before you can proceed.</div>
+</div>
+</div>
+<div class="quiz-card" id="q-m4-1">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">What is the primary purpose of the Ismaili Volunteer Code of Conduct?</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m4-1',0,9)"><div class="opt-letter">A</div>To decide volunteer uniform colors</div>
+<div class="quiz-opt" onclick="selectOpt('q-m4-1',1,9)"><div class="opt-letter">B</div>To set clear standards and ensure ethical, respectful, and responsible behavior</div>
+<div class="quiz-opt" onclick="selectOpt('q-m4-1',2,9)"><div class="opt-letter">C</div>To organize social events only</div>
+<div class="quiz-opt" onclick="selectOpt('q-m4-1',3,9)"><div class="opt-letter">D</div>To replace institutional policies</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m4-1',1,9,'The Code of Conduct exists to set clear standards that promote accountability and ensure ethical, respectful, and responsible behavior across all service contexts.')">Submit Answer</button>
+</div><div class="quiz-card" id="q-m4-2">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">The Code of Conduct applies to volunteers only while they are wearing their uniform on Jamatkhana premises.</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m4-2',0,10)"><div class="opt-letter">A</div>True</div>
+<div class="quiz-opt" onclick="selectOpt('q-m4-2',1,10)"><div class="opt-letter">B</div>False</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m4-2',1,10,'False. The Code of Conduct applies on JK premises or at institutional events whenever a volunteer is serving operationally — regardless of whether they are in uniform. Certain provisions also apply outside operational contexts.')">Submit Answer</button>
+</div><div class="quiz-card" id="q-m4-3">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">Where should a volunteer first report a misconduct incident?</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m4-3',0,11)"><div class="opt-letter">A</div>Directly to National Leadership</div>
+<div class="quiz-opt" onclick="selectOpt('q-m4-3',1,11)"><div class="opt-letter">B</div>To the appropriate IV leadership — Team Lead, Facilitator, or Director</div>
+<div class="quiz-opt" onclick="selectOpt('q-m4-3',2,11)"><div class="opt-letter">C</div>To a fellow volunteer</div>
+<div class="quiz-opt" onclick="selectOpt('q-m4-3',3,11)"><div class="opt-letter">D</div>To the Jamati member involved</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m4-3',1,11,'The disciplinary process begins by following the chain of command — report to the nearest IV leadership. National Leadership is the appeals escalation, not the first step.')">Submit Answer</button>
+</div><div class="nav-buttons">
+<button class="btn-nav btn-secondary" onclick="goModule(2)">← Back</button>
+<button class="btn-nav btn-primary" onclick="attemptComplete(3)">Complete Module IV →</button>
+</div>
+</div>
+</div>
+<!-- ── MODULE V ── -->
+<div class="module-page" id="mp-4" style="display:none">
+<div class="module-card">
+<div class="module-badge"><div class="gold-dot"></div>Module V</div>
+<h2>Safety Awareness and Empathy in Action</h2>
+<div class="info-box"><strong>Safety is everyone's responsibility.</strong> Every Ismaili Volunteer plays an important role in maintaining a safe, respectful, and supportive environment for all Jamati Members and fellow volunteers.</div>
+<h4>Medical Emergency Protocol</h4>
+<div class="hierarchy">
+<div class="hier-level"><span class="hl-badge">Recognize</span><span class="hl-text">Stay calm. Identify signs of emergency (heart attack, stroke, allergic reaction)</span></div>
+<div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Contact S&amp;S</span><span class="hl-text">Reach Safety &amp; Security volunteers — they will assist with Health Board professionals</span></div>
+<div class="hier-level"><span class="hl-badge">Support</span><span class="hl-text">Help clear the area and provide escort support as needed</span></div>
+<div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Document</span><span class="hl-text">S&amp;S completes incident report immediately</span></div>
+<div class="hier-level"><span class="hl-badge">911</span><span class="hl-text">Never hesitate to dial 911 during an emergency, especially when alone</span></div>
+</div>
+<h4>The OADA Framework for Situational Awareness</h4>
+<div class="oada-grid">
+<div class="oada-card"><div class="oada-letter">O</div><div class="oada-word">Observe</div><div class="oada-desc">Take in the people, things, and movements around you at all times</div></div>
+<div class="oada-card"><div class="oada-letter">A</div><div class="oada-word">Assess</div><div class="oada-desc">Does what you see fit the environment? Do they belong here?</div></div>
+<div class="oada-card"><div class="oada-letter">D</div><div class="oada-word">Decide</div><div class="oada-desc">Is something wrong? Trust your instincts — if it doesn't feel right, act</div></div>
+<div class="oada-card"><div class="oada-letter">A</div><div class="oada-word">Act</div><div class="oada-desc">What do I do? Who do I tell? Inform the appropriate person immediately</div></div>
+</div>
+<h4>Empathy in Action</h4>
+<div class="info-box">Empathy is about understanding and sharing others' feelings, even if you haven't experienced the same thing. By actively listening, validating emotions, offering support, and avoiding assumptions, you help create a more compassionate and supportive Jamatkhana community.</div>
+<!-- Quiz 12 -->
 
-            <!-- Quiz 3 -->
-            <div class="quiz-card" id="q-m1-3">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">The new visual identity includes a motif with what word repeated seven times?</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m1-3',0,3)"><div class="opt-letter">A</div>Khidma</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m1-3',1,3)"><div class="opt-letter">B</div>Lillah</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m1-3',2,3)"><div class="opt-letter">C</div>Service</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m1-3',0,3,'The new IV visual identity features the word \"Khidma\" repeated seven times as a central motif.')" disabled>Submit Answer</button>
-            </div>
 
-            <div class="nav-buttons">
-              <button class="btn-nav btn-primary" onclick="completeModule(0)">Complete Module I →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── MODULE II ── -->
-        <div class="module-page" id="mp-1" style="display:none">
-          <div class="module-card">
-            <div class="module-badge"><div class="gold-dot"></div>Module II</div>
-            <h2>Service Areas, Roles, and Organizational Structure</h2>
-            <p>The IV team plays a crucial role in maintaining a serene and spiritual atmosphere within the Jamatkhana. Their responsibilities encompass overseeing various operational aspects, including the kitchen, prayer hall, Nandi area, and lobby.</p>
-
-            <h4>Volunteer Roles</h4>
-            <div class="role-grid">
-              <div class="role-card">
-                <h5><div class="rc-icon">S</div>Safety & Security Volunteer</h5>
-                <ul>
-                  <li>Must be 18+ years old</li>
-                  <li>Complete New Volunteer Orientation</li>
-                  <li>Complete Adult Waiver Form</li>
-                  <li>Legal status in USA required</li>
-                  <li>CPR, First Aid & Gatekeeper certified within 6 months</li>
-                </ul>
-              </div>
-              <div class="role-card">
-                <h5><div class="rc-icon">A</div>Adult Jamatkhana Volunteer</h5>
-                <ul>
-                  <li>Must be 18+ years old</li>
-                  <li>Complete New Volunteer Orientation</li>
-                  <li>Complete Adult Waiver Form</li>
-                </ul>
-              </div>
-              <div class="role-card">
-                <h5><div class="rc-icon">Y</div>Youth Jamatkhana Volunteer</h5>
-                <ul>
-                  <li>Ages 8–18 years</li>
-                  <li>Complete New Volunteer Orientation</li>
-                  <li>Parents must complete Minor Waiver Form</li>
-                </ul>
-              </div>
-              <div class="role-card">
-                <h5><div class="rc-icon">T</div>Transportation Volunteer</h5>
-                <ul>
-                  <li>Must be 18+ years old</li>
-                  <li>Complete New Volunteer Orientation</li>
-                  <li>Adult Waiver + Transportation Waiver required</li>
-                </ul>
-              </div>
-            </div>
-
-            <h4>Safety & Security — Unified Team Structure</h4>
-            <div class="info-box" style="border-left-color:#1B3A6B;">The Safety & Security team is a unified team formed by merging the former Safety, Crisis Management (CMV), and Community Safety Lead (CSL) teams. This consolidation enables streamlined internal and external Jamatkhana safety operations, faster emergency response, and a unified strategy for protecting both the Jamatkhana and the Jamat. All former CMV and CSL roles now operate under a single, synchronized S&S leadership.</div>
-
-            <h4>Escalation Hierarchy</h4>
-            <div class="hierarchy">
-              <div class="hier-level"><span class="hl-badge">All Volunteers</span><span class="hl-text">Start here — report to your direct Team Lead</span></div>
-              <div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Team Leads</span><span class="hl-text">Adult / Youth / Safety Team Leads</span></div>
-              <div class="hier-level"><span class="hl-badge">Facilitators</span><span class="hl-text">Adult, Youth, and Safety Facilitators</span></div>
-              <div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Regional Leads</span><span class="hl-text">IV Deputy Lead and Regional Leadership</span></div>
-              <div class="hier-level"><span class="hl-badge">Council Member</span><span class="hl-text">Council Member for Ismaili Volunteers</span></div>
-              <div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">JK Directors</span><span class="hl-text">Jamatkhana Directors — escalation for facility issues</span></div>
-            </div>
-
-            <!-- Quiz 4 -->
-            <div class="quiz-card" id="q-m2-1">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">What is the primary role of the IV team within the Jamatkhana?</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m2-1',0,4)"><div class="opt-letter">A</div>To support jamati events only</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m2-1',1,4)"><div class="opt-letter">B</div>To maintain a serene and spiritual atmosphere while supporting various operations (kitchen, prayer hall, Nandi area, and lobby)</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m2-1',2,4)"><div class="opt-letter">C</div>To manage only the inside prayer hall area</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m2-1',3,4)"><div class="opt-letter">D</div>To supervise the parking lot area only</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m2-1',1,4,'The IV team oversees all operational areas — kitchen, prayer hall, Nandi area, and lobby — to maintain a serene and spiritual atmosphere.')" disabled>Submit Answer</button>
-            </div>
-
-            <!-- Quiz 5 -->
-            <div class="quiz-card" id="q-m2-2">
-              <div class="quiz-label">🎯 Scenario Check</div>
-              <div class="quiz-q">You are walking into JK after Dua for Dua Karavi, and a Jamati member tells you that we need more jura. What is your best course of action?</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m2-2',0,5)"><div class="opt-letter">A</div>Ignore the Jamati member and go for Dua Karavi</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m2-2',1,5)"><div class="opt-letter">B</div>Go find Jura and try to refill it yourself</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m2-2',2,5)"><div class="opt-letter">C</div>Inform the team lead assigned in the area</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m2-2',3,5)"><div class="opt-letter">D</div>Go to the Jamatkhana Director</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m2-2',2,5,'Always follow the escalation hierarchy. Inform your assigned team lead — they are responsible for coordinating area operations.')" disabled>Submit Answer</button>
-            </div>
-
-            <div class="nav-buttons">
-              <button class="btn-nav btn-secondary" onclick="goModule(0)">← Back</button>
-              <button class="btn-nav btn-primary" onclick="completeModule(1)">Complete Module II →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── MODULE III ── -->
-        <div class="module-page" id="mp-2" style="display:none">
-          <div class="module-card">
-            <div class="module-badge"><div class="gold-dot"></div>Module III</div>
-            <h2>Uniform Standards</h2>
-            <p>All Ismaili Volunteers are required to maintain uniform standards at all times while on JK premises or at institutional events. The new uniform reflects the updated IV brand identity.</p>
-
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;">
-              <div style="background:var(--navy);color:#fff;border-radius:8px;padding:14px;">
-                <div style="font-size:11px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:6px;">Men's Western Formal</div>
-                <ul style="font-size:12px;padding-left:14px;line-height:1.8;opacity:.9;">
-                  <li>Plain navy blue suit (single breast)</li>
-                  <li>Plain white button-down shirt</li>
-                  <li>Volunteer Tie</li>
-                  <li>Khidma Badge (Issued)</li>
-                  <li>Name + Role Badge (left side)</li>
-                </ul>
-              </div>
-              <div style="background:var(--navy);color:#fff;border-radius:8px;padding:14px;">
-                <div style="font-size:11px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:6px;">Women's Western Formal</div>
-                <ul style="font-size:12px;padding-left:14px;line-height:1.8;opacity:.9;">
-                  <li>Plain navy blue suit</li>
-                  <li>Navy pants/skirt (min. knee length)</li>
-                  <li>Plain white shirt/blouse</li>
-                  <li>Volunteer Scarf or Tie</li>
-                  <li>Khidma Badge (Issued)</li>
-                </ul>
-              </div>
-              <div style="background:var(--navy);color:#fff;border-radius:8px;padding:14px;">
-                <div style="font-size:11px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:6px;">Women's Eastern Formal</div>
-                <ul style="font-size:12px;padding-left:14px;line-height:1.8;opacity:.9;">
-                  <li>Plain navy kurta top</li>
-                  <li>Plain white shalwar pant</li>
-                  <li>New Volunteer Dupatta</li>
-                  <li>Khidma Badge (Issued)</li>
-                </ul>
-              </div>
-            </div>
-
-            <h4>Polo Uniform Policy</h4>
-            <div class="info-box">
-              <strong>On Polos:</strong> The IV logo is already embroidered — the Khidma Badge is <em>not</em> worn with the polo. Name/role badge only, on either left or right side. Permitted pant colors: navy, black, or gray (no patterns). <strong>Jeans are permitted for youth volunteers only</strong> (black, no rips, no patterns). No shorts.
-            </div>
-
-            <h4>Badge Placement</h4>
-            <div class="info-box">Name and Title Badges are worn on the <strong>left side</strong> under the IV Badge on all formal uniforms (western and eastern). On Polos, name badge only — no IV Badge required.</div>
-
-            <!-- Quiz 6 -->
-            <div class="quiz-card" id="q-m3-1">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">I can wear my Khidma Badge on my IV polo.</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m3-1',0,6)"><div class="opt-letter">A</div>True</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m3-1',1,6)"><div class="opt-letter">B</div>False</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m3-1',1,6,'False. The IV logo is already embroidered on the polo — the Khidma Badge is not worn with polos. It is only worn with formal uniforms.')" disabled>Submit Answer</button>
-            </div>
-
-            <!-- Quiz 7 -->
-            <div class="quiz-card" id="q-m3-2">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">I can find detailed Ismaili Volunteers procedures in the local Jamatkhana Standard Operating Procedure (SOP).</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m3-2',0,7)"><div class="opt-letter">A</div>True</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m3-2',1,7)"><div class="opt-letter">B</div>False</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m3-2',0,7,'True. Detailed IV procedures specific to your Jamatkhana are documented in the local SOP. Always refer to it for area-specific guidelines.')" disabled>Submit Answer</button>
-            </div>
-
-            <!-- Quiz 8 -->
-            <div class="quiz-card" id="q-m3-3">
-              <div class="quiz-label">🎯 Scenario Check</div>
-              <div class="quiz-q">An adult IV volunteer arrives wearing the new IV polo, jeans, their IV Badge, and their name badge. What uniform corrections should be made?</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m3-3',0,8)"><div class="opt-letter">A</div>No changes are needed</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m3-3',1,8)"><div class="opt-letter">B</div>Remove the Khidma IV Badge only</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m3-3',2,8)"><div class="opt-letter">C</div>Remove the Khidma IV Badge, and replace jeans with plain navy, black, or gray pants</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m3-3',3,8)"><div class="opt-letter">D</div>Replace the polo with a formal uniform</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m3-3',2,8,'Correct. The IV logo is embroidered on the polo so the Khidma Badge is not needed. Additionally, jeans (even black) are only permitted for youth volunteers — adults must wear plain navy, black, or gray pants.')" disabled>Submit Answer</button>
-            </div>
-
-            <div class="nav-buttons">
-              <button class="btn-nav btn-secondary" onclick="goModule(1)">← Back</button>
-              <button class="btn-nav btn-primary" onclick="completeModule(2)">Complete Module III →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── MODULE IV ── -->
-        <div class="module-page" id="mp-3" style="display:none">
-          <div class="module-card">
-            <div class="module-badge"><div class="gold-dot"></div>Module IV</div>
-            <h2>Code of Conduct and Infraction Policy</h2>
-            <p>The Code of Conduct sets clear standards, promotes accountability, and ensures ethical, respectful, and responsible behavior in all aspects of service. <strong>All Ismaili Volunteers are required to sign, adhere to, and uphold this Code of Conduct as a condition of service.</strong></p>
-
-            <h4>Purpose of the Code of Conduct</h4>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;">
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">1. Enhance Safety & Security</strong><br><span style="color:var(--text-muted);">Protect the well-being of all Jamati members, volunteers, and any individuals the IV interacts with</span></div>
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">2. Encourage Growth & Development</strong><br><span style="color:var(--text-muted);">Help volunteers grow through cultivating humility, compassion, brotherhood, and strong leadership</span></div>
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">3. Adapt to Growth & Change</strong><br><span style="color:var(--text-muted);">Address the evolving needs of the IV organization while respecting the Jamat's legacy and tradition</span></div>
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">4. Strengthen Teamwork & Collaboration</strong><br><span style="color:var(--text-muted);">Foster trust and cooperation among all volunteers, creating mutual respect and harmony</span></div>
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">5. Commit to Professionalism & Excellence</strong><br><span style="color:var(--text-muted);">Uphold the values of our faith — accountability, ethical behavior, and integrity in all service</span></div>
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">6. Set Clear Expectations</strong><br><span style="color:var(--text-muted);">Outline what is expected from all volunteers, reducing misunderstandings and ensuring consistency</span></div>
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">7. Foster Inclusion</strong><br><span style="color:var(--text-muted);">Create a safe, inclusive, respectful space reflecting the pluralism in the Jamat and our communities</span></div>
-              <div style="background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;"><strong style="color:var(--navy);">8. Provide Conflict Resolution Framework</strong><br><span style="color:var(--text-muted);">Establish a basis for addressing misconduct, misunderstandings, or conflicts fairly and consistently</span></div>
-            </div>
-
-            <div class="info-box"><strong>Scope:</strong> The Code of Conduct applies on Jamatkhana premises or at institutional events whenever a volunteer is serving operationally — <strong>whether or not they are in uniform</strong>.</div>
-
-            <h4>Guiding Principles of the Code of Conduct</h4>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0;">
-              <div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Faith & Values</div><div style="font-size:12px;color:var(--text-muted);">Uphold the ethical principles and values of our faith in every aspect of service</div></div>
-              <div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Respect & Dignity</div><div style="font-size:12px;color:var(--text-muted);">Treat every Jamati member and fellow volunteer with respect, compassion, and dignity</div></div>
-              <div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Accountability</div><div style="font-size:12px;color:var(--text-muted);">Take responsibility for your actions with humility, reflection, and truthfulness</div></div>
-              <div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Confidentiality</div><div style="font-size:12px;color:var(--text-muted);">Protect sensitive information about Jamati members and institutional operations</div></div>
-              <div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Unity & Collaboration</div><div style="font-size:12px;color:var(--text-muted);">Work together with fellow volunteers in a spirit of cooperation, harmony, and brotherhood</div></div>
-              <div style="border-left:4px solid var(--gold);background:var(--bg2);border-radius:0 8px 8px 0;padding:10px 14px;"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Inclusion & Pluralism</div><div style="font-size:12px;color:var(--text-muted);">Embrace the diversity of the Jamat and the wider communities in which we live and serve</div></div>
-            </div>
-
-            <h4>Key Operational Expectations</h4>
-            <div style="display:flex;flex-direction:column;gap:10px;margin:12px 0;">
-              <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
-                <div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">1. Commitment to Roles & Responsibilities</div>
-                <div style="font-size:13px;color:#374151;">Volunteers are expected to demonstrate dedication and reliability in their assigned duties.</div>
-              </div>
-              <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
-                <div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">2. Accountable for Personal Actions, Behavior & Conflict Resolution</div>
-                <div style="font-size:13px;color:#374151;">Volunteers are expected to take responsibility for their actions and any mistakes with humility, reflection, and truthfulness. Any disputes or conflicts should be resolved through respectful dialogue, communication, or mediation.</div>
-              </div>
-              <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
-                <div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">3. Professionalism, Integrity & Excellence in Service</div>
-                <div style="font-size:13px;color:#374151;">All volunteers are expected to uphold the values of our faith by ensuring confidentiality and ethical, respectful, fair, and responsible behavior in all aspects of service.</div>
-              </div>
-              <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
-                <div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">4. Adherence to Uniform Guidelines</div>
-                <div style="font-size:13px;color:#374151;">Volunteers must follow ALL uniform policies while serving on the Jamatkhana premises or at Jamati events — including badge placement, approved attire, and the polo vs. formal uniform rules.</div>
-              </div>
-              <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;">
-                <div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">5. Following All Policies, SOPs & Local Laws</div>
-                <div style="font-size:13px;color:#374151;">Volunteers must abide by all Ismaili Volunteer policies, Standard Operating Procedures (SOPs), and local laws — particularly those related to safety, security, and Jamatkhana or event operations.</div>
-              </div>
-            </div>
-
-            <h4>Infraction Classification</h4>
-            <table class="infraction-table">
-              <tr>
-                <th class="th-general">⚠️ General</th>
-                <th class="th-medium">🟠 Medium</th>
-                <th class="th-major">🔴 Major</th>
-                <th class="th-critical">🚫 Critical</th>
-              </tr>
-              <tr>
-                <td>Unexcused absences, uniform violations, minor procedural non-compliance</td>
-                <td>Insubordination, disorderly conduct, breach of confidentiality, misuse of authority</td>
-                <td>Serving under influence, weapons on premises, physical altercation, theft, bullying</td>
-                <td>Physical assault, sexual harassment, threats to JK premises or Jamat safety</td>
-              </tr>
-              <tr>
-                <td><em>Coaching, verbal warning, duty reallocation</em></td>
-                <td><em>Written warning, 4-week suspension, ethical coaching</em></td>
-                <td><em>8-week suspension, mandatory reflection, possible termination</em></td>
-                <td><em>Immediate dismissal, permanent termination</em></td>
-              </tr>
-            </table>
-
-            <h4>Disciplinary Process</h4>
-            <div class="hierarchy">
-              <div class="hier-level"><span class="hl-badge">Step 1</span><span class="hl-text">Report misconduct to appropriate IV leadership (Team Lead, Facilitator, or Director)</span></div>
-              <div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Step 2</span><span class="hl-text">Inquiry and documentation — all infractions investigated in good faith</span></div>
-              <div class="hier-level"><span class="hl-badge">Step 3</span><span class="hl-text">Consequences applied based on severity of infraction</span></div>
-              <div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Step 4</span><span class="hl-text">Appeals — Regional or National Leadership within set timeframe</span></div>
-            </div>
-
-            <div class="info-box" style="border-left-color:var(--gold);background:#FEFCE8;"><strong>Required Signatures:</strong> Code of Conduct Acknowledgement Form + Ismaili Volunteer Waiver — both signed via the electronic Machform link provided by your local JK leadership.</div>
-
-            <!-- Quiz 9 -->
-            <div class="quiz-card" id="q-m4-1">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">What is the primary purpose of the Ismaili Volunteer Code of Conduct?</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m4-1',0,9)"><div class="opt-letter">A</div>To decide volunteer uniform colors</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m4-1',1,9)"><div class="opt-letter">B</div>To set clear standards and ensure ethical, respectful, and responsible behavior</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m4-1',2,9)"><div class="opt-letter">C</div>To organize social events only</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m4-1',3,9)"><div class="opt-letter">D</div>To replace institutional policies</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m4-1',1,9,'The Code of Conduct exists to set clear standards that promote accountability and ensure ethical, respectful, and responsible behavior across all service contexts.')" disabled>Submit Answer</button>
-            </div>
-
-            <!-- Quiz 10 -->
-            <div class="quiz-card" id="q-m4-2">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">The Code of Conduct applies to volunteers only while they are wearing their uniform on Jamatkhana premises.</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m4-2',0,10)"><div class="opt-letter">A</div>True</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m4-2',1,10)"><div class="opt-letter">B</div>False</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m4-2',1,10,'False. The Code of Conduct applies on JK premises or at institutional events whenever a volunteer is serving operationally — regardless of whether they are in uniform. Certain provisions also apply outside operational contexts.')" disabled>Submit Answer</button>
-            </div>
-
-            <!-- Quiz 11 -->
-            <div class="quiz-card" id="q-m4-3">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">Where should a volunteer first report a misconduct incident?</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m4-3',0,11)"><div class="opt-letter">A</div>Directly to National Leadership</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m4-3',1,11)"><div class="opt-letter">B</div>To the appropriate IV leadership — Team Lead, Facilitator, or Director</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m4-3',2,11)"><div class="opt-letter">C</div>To a fellow volunteer</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m4-3',3,11)"><div class="opt-letter">D</div>To the Jamati member involved</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m4-3',1,11,'The disciplinary process begins by following the chain of command — report to the nearest IV leadership. National Leadership is the appeals escalation, not the first step.')" disabled>Submit Answer</button>
-            </div>
-
-            <div class="nav-buttons">
-              <button class="btn-nav btn-secondary" onclick="goModule(2)">← Back</button>
-              <button class="btn-nav btn-primary" onclick="completeModule(3)">Complete Module IV →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── MODULE V ── -->
-        <div class="module-page" id="mp-4" style="display:none">
-          <div class="module-card">
-            <div class="module-badge"><div class="gold-dot"></div>Module V</div>
-            <h2>Safety Awareness and Empathy in Action</h2>
-            <div class="info-box"><strong>Safety is everyone's responsibility.</strong> Every Ismaili Volunteer plays an important role in maintaining a safe, respectful, and supportive environment for all Jamati Members and fellow volunteers.</div>
-
-            <h4>Medical Emergency Protocol</h4>
-            <div class="hierarchy">
-              <div class="hier-level"><span class="hl-badge">Recognize</span><span class="hl-text">Stay calm. Identify signs of emergency (heart attack, stroke, allergic reaction)</span></div>
-              <div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Contact S&S</span><span class="hl-text">Reach Safety & Security volunteers — they will assist with Health Board professionals</span></div>
-              <div class="hier-level"><span class="hl-badge">Support</span><span class="hl-text">Help clear the area and provide escort support as needed</span></div>
-              <div class="hier-level" style="border-left-color:var(--gold)"><span class="hl-badge">Document</span><span class="hl-text">S&S completes incident report immediately</span></div>
-              <div class="hier-level"><span class="hl-badge">911</span><span class="hl-text">Never hesitate to dial 911 during an emergency, especially when alone</span></div>
-            </div>
-
-            <h4>The OADA Framework for Situational Awareness</h4>
-            <div class="oada-grid">
-              <div class="oada-card"><div class="oada-letter">O</div><div class="oada-word">Observe</div><div class="oada-desc">Take in the people, things, and movements around you at all times</div></div>
-              <div class="oada-card"><div class="oada-letter">A</div><div class="oada-word">Assess</div><div class="oada-desc">Does what you see fit the environment? Do they belong here?</div></div>
-              <div class="oada-card"><div class="oada-letter">D</div><div class="oada-word">Decide</div><div class="oada-desc">Is something wrong? Trust your instincts — if it doesn't feel right, act</div></div>
-              <div class="oada-card"><div class="oada-letter">A</div><div class="oada-word">Act</div><div class="oada-desc">What do I do? Who do I tell? Inform the appropriate person immediately</div></div>
-            </div>
-
-            <h4>Empathy in Action</h4>
-            <div class="info-box">Empathy is about understanding and sharing others' feelings, even if you haven't experienced the same thing. By actively listening, validating emotions, offering support, and avoiding assumptions, you help create a more compassionate and supportive Jamatkhana community.</div>
-
-            <!-- Quiz 12 -->
-            <div class="quiz-card" id="q-m5-1">
-              <div class="quiz-label">🎯 Knowledge Check</div>
-              <div class="quiz-q">The OADA framework for situational awareness stands for:</div>
-              <div class="quiz-options">
-                <div class="quiz-opt" onclick="selectOpt('q-m5-1',0,12)"><div class="opt-letter">A</div>Observe, Alert, Document, Act</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m5-1',1,12)"><div class="opt-letter">B</div>Observe, Assess, Decide, Act</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m5-1',2,12)"><div class="opt-letter">C</div>Orient, Assess, Delay, Act</div>
-                <div class="quiz-opt" onclick="selectOpt('q-m5-1',3,12)"><div class="opt-letter">D</div>Observe, Analyze, Discuss, Alert</div>
-              </div>
-              <button class="quiz-submit" onclick="submitQuiz('q-m5-1',1,12,'OADA = Observe what is around you → Assess whether it fits → Decide if something is wrong → Act by informing the appropriate person.')" disabled>Submit Answer</button>
-            </div>
-
-            <div class="nav-buttons">
-              <button class="btn-nav btn-secondary" onclick="goModule(3)">← Back</button>
-              <button class="btn-nav btn-gold" onclick="completeModule(4)">🎉 Complete Orientation</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── COMPLETION SCREEN ── -->
-        <div class="module-page" id="mp-complete" style="display:none">
-          <div class="module-card">
-            <div class="completion-screen">
-              <div class="completion-icon">🌟</div>
-              <h2>Orientation Complete!</h2>
-              <p>You have successfully completed the Ismaili Volunteers New Volunteer Orientation. Welcome to the Khidma family — your JK leadership will be in touch soon.</p>
-              <div class="score-summary">
-                <span class="score-pill score-pass" id="final-score">Score: Loading...</span>
-              </div>
-              <div class="cert-box">
-                <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Certificate of Completion</div>
-                <h3>Ismaili Volunteers</h3>
-                <div style="font-size:13px;color:var(--text-muted);margin:6px 0;">New Volunteer Orientation — All 5 Modules</div>
-                <div class="cert-name" id="cert-name">Amirah Rajani</div>
-                <div style="width:80px;height:2px;background:var(--gold);margin:12px auto;"></div>
-                <div class="cert-date" id="cert-date">May 30, 2026</div>
-              </div>
-              <div style="display:flex;gap:12px;justify-content:center;margin:20px 0;flex-wrap:wrap;">
-                <button onclick="downloadCert()" style="padding:10px 22px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">⬇ Download Certificate</button>
-                <button onclick="printCert()" style="padding:10px 22px;background:var(--white);color:var(--navy);border:1.5px solid var(--navy);border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">🖨 Print</button>
-                <button onclick="openWaiver()" style="padding:10px 22px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">📋 Complete Waiver & CoC Form</button>
-              </div>
-              <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Please ensure you complete your <strong style="cursor:pointer;color:var(--navy);text-decoration:underline;" onclick="openWaiver()">Code of Conduct Acknowledgement Form</strong> and <strong style="cursor:pointer;color:var(--navy);text-decoration:underline;" onclick="openWaiver()">Waiver</strong> via the Machform link provided by your local JK.</p>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /module-pages -->
-    </div><!-- /content-area -->
-  </div><!-- /volunteer-layout -->
+<div style="margin:28px 0 20px;padding:18px 20px;background:linear-gradient(135deg,var(--navy),#2A5298);border-radius:10px;color:#fff;display:flex;align-items:center;gap:14px;">
+<div style="font-size:28px;">📝</div>
+<div>
+<div style="font-size:15px;font-weight:700;">Knowledge Check</div>
+<div style="font-size:12px;opacity:.8;margin-top:3px;">Answer all questions below to complete this module. All questions must be submitted before you can proceed.</div>
+</div>
+</div>
+<div class="quiz-card" id="q-m5-1">
+<div class="quiz-label">🎯 Knowledge Check</div>
+<div class="quiz-q">The OADA framework for situational awareness stands for:</div>
+<div class="quiz-options">
+<div class="quiz-opt" onclick="selectOpt('q-m5-1',0,12)"><div class="opt-letter">A</div>Observe, Alert, Document, Act</div>
+<div class="quiz-opt" onclick="selectOpt('q-m5-1',1,12)"><div class="opt-letter">B</div>Observe, Assess, Decide, Act</div>
+<div class="quiz-opt" onclick="selectOpt('q-m5-1',2,12)"><div class="opt-letter">C</div>Orient, Assess, Delay, Act</div>
+<div class="quiz-opt" onclick="selectOpt('q-m5-1',3,12)"><div class="opt-letter">D</div>Observe, Analyze, Discuss, Alert</div>
+</div>
+<button class="quiz-submit" disabled="" onclick="submitQuiz('q-m5-1',1,12,'OADA = Observe what is around you → Assess whether it fits → Decide if something is wrong → Act by informing the appropriate person.')">Submit Answer</button>
+</div><div class="nav-buttons">
+<button class="btn-nav btn-secondary" onclick="goModule(3)">← Back</button>
+<button class="btn-nav btn-gold" onclick="attemptComplete(4)">🎉 Complete Orientation</button>
+</div>
+</div>
+</div>
+<!-- ── COMPLETION SCREEN ── -->
+<div class="module-page" id="mp-complete" style="display:none">
+<div class="module-card">
+<div class="completion-screen">
+<div class="completion-icon">🌟</div>
+<h2>Orientation Complete!</h2>
+<p>You have successfully completed the Ismaili Volunteers New Volunteer Orientation. Welcome to the Khidma family — your JK leadership will be in touch soon.</p>
+<div class="score-summary">
+<span class="score-pill score-pass" id="final-score">Score: Loading...</span>
+</div>
+<div class="cert-box">
+<div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Certificate of Completion</div>
+<h3>Ismaili Volunteers</h3>
+<div style="font-size:13px;color:var(--text-muted);margin:6px 0;">New Volunteer Orientation — All 5 Modules</div>
+<div class="cert-name" id="cert-name">Amirah Rajani</div>
+<div style="width:80px;height:2px;background:var(--gold);margin:12px auto;"></div>
+<div class="cert-date" id="cert-date">May 30, 2026</div>
+</div>
+<div style="display:flex;gap:12px;justify-content:center;margin:20px 0;flex-wrap:wrap;">
+<button onclick="downloadCert()" style="padding:10px 22px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">⬇ Download Certificate</button>
+<button onclick="printCert()" style="padding:10px 22px;background:var(--white);color:var(--navy);border:1.5px solid var(--navy);border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">🖨 Print</button>
+<button onclick="openWaiver()" style="padding:10px 22px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">📋 Complete Waiver &amp; CoC Form</button>
+</div>
+<p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Please ensure you complete your <strong onclick="openWaiver()" style="cursor:pointer;color:var(--navy);text-decoration:underline;">Code of Conduct Acknowledgement Form</strong> and <strong onclick="openWaiver()" style="cursor:pointer;color:var(--navy);text-decoration:underline;">Waiver</strong> via the Machform link provided by your local JK.</p>
+</div>
+</div>
+</div>
+</div><!-- /module-pages -->
+</div><!-- /content-area -->
+</div><!-- /volunteer-layout -->
 </div><!-- /view-volunteer -->
-
 <!-- ████████████████████  REGIONAL JK VIEW  ████████████████████ -->
-<div id="view-regional" class="view">
-  <div id="regional-layout">
-    <div class="page-title">Regional JK Dashboard</div>
-    <div class="page-sub">Greater Houston Region · Monitoring volunteer onboarding compliance across Jamatkhanas</div>
-
-    <div class="stats-row">
-      <div class="stat-card" onclick="showStatDetail('total')" style="cursor:pointer;" title="Click for breakdown">
-        <div class="sv">247</div>
-        <div class="sl">Total Volunteers</div>
-        <div class="sc sc-green">↑ 18 this month</div>
-      </div>
-      <div class="stat-card" onclick="showStatDetail('complete')" style="cursor:pointer;" title="Click for list">
-        <div class="sv">183</div>
-        <div class="sl">Orientation Complete</div>
-        <div class="sc sc-green">74% completion rate</div>
-      </div>
-      <div class="stat-card" onclick="showStatDetail('inprogress')" style="cursor:pointer;" title="Click for list">
-        <div class="sv">41</div>
-        <div class="sl">In Progress</div>
-        <div class="sc sc-yellow">17% partially complete</div>
-      </div>
-      <div class="stat-card" onclick="showStatDetail('notstarted')" style="cursor:pointer;" title="Click for list">
-        <div class="sv">23</div>
-        <div class="sl">Not Started</div>
-        <div class="sc sc-red">⚠ Action needed</div>
-      </div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;">
-
-      <!-- Left: Volunteer table -->
-      <div>
-        <div class="card-block">
-          <h3>Volunteer Onboarding Tracker</h3>
-          <div class="cb-sub">Track completion status by JK, role, and individual volunteer</div>
-
-          <div class="filter-row">
-            <select id="jk-filter">
-              <option value="">All Jamatkhanas</option>
-              <option>Houston JK</option>
-              <option>Sugarland JK</option>
-              <option>Memorial JK</option>
-              <option>Katy JK</option>
-            </select>
-            <select id="role-filter">
-              <option value="">All Roles</option>
-              <option>Safety & Security</option>
-              <option>Adult JK Volunteer</option>
-              <option>Youth JK Volunteer</option>
-              <option>Transportation</option>
-            </select>
-            <select id="status-filter">
-              <option value="">All Statuses</option>
-              <option>Complete</option>
-              <option>In Progress</option>
-              <option>Not Started</option>
-              <option>Overdue</option>
-            </select>
-            <input type="text" id="name-search" placeholder="Search name..." style="width:160px;" oninput="applyFilter()">
-            <button class="btn-sm primary" onclick="applyFilter()">Filter</button>
-            <button class="btn-sm gold" onclick="generateReport()">📊 Export Report</button>
-          </div>
-
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Volunteer</th>
-                <th>JK</th>
-                <th>Role</th>
-                <th>Progress</th>
-                <th>Status</th>
-                <th>Last Active</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><div class="vol-name">Farida Hassanali</div></td>
-                <td style="font-size:12px;">Houston JK</td>
-                <td class="vol-role">S&S Volunteer</td>
-                <td><span class="mini-bar"><span class="mini-fill" style="width:100%;background:var(--success);display:block;height:100%;border-radius:3px;"></span></span>100%</td>
-                <td><span class="badge badge-complete">✓ Complete</span></td>
-                <td style="font-size:12px;color:var(--text-muted);">May 28</td>
-                <td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="viewVolunteer('Farida Hassanali','Houston JK','S&amp;S Volunteer',100,'Complete','May 28')">View</span></td>
-              </tr>
-              <tr>
-                <td><div class="vol-name">Karim Noorani</div></td>
-                <td style="font-size:12px;">Sugarland JK</td>
-                <td class="vol-role">Adult JK Volunteer</td>
-                <td><span class="mini-bar"><span class="mini-fill" style="width:60%;background:#F59E0B;display:block;height:100%;border-radius:3px;"></span></span>60%</td>
-                <td><span class="badge badge-partial">⏳ In Progress</span></td>
-                <td style="font-size:12px;color:var(--text-muted);">May 25</td>
-                <td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="remindVolunteer('Karim Noorani')">Remind</span></td>
-              </tr>
-              <tr>
-                <td><div class="vol-name">Zahra Virani</div></td>
-                <td style="font-size:12px;">Houston JK</td>
-                <td class="vol-role">Youth JK Volunteer</td>
-                <td><span class="mini-bar"><span class="mini-fill" style="width:100%;background:var(--success);display:block;height:100%;border-radius:3px;"></span></span>100%</td>
-                <td><span class="badge badge-complete">✓ Complete</span></td>
-                <td style="font-size:12px;color:var(--text-muted);">May 29</td>
-                <td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="viewVolunteer('Zahra Virani','Houston JK','Youth JK Volunteer',100,'Complete','May 29')">View</span></td>
-              </tr>
-              <tr>
-                <td><div class="vol-name">Rahim Tejani</div></td>
-                <td style="font-size:12px;">Katy JK</td>
-                <td class="vol-role">Transportation Vol.</td>
-                <td><span class="mini-bar"><span class="mini-fill" style="width:0%;background:#EF4444;display:block;height:100%;border-radius:3px;"></span></span>0%</td>
-                <td><span class="badge badge-overdue">🔴 Overdue</span></td>
-                <td style="font-size:12px;color:var(--text-muted);">—</td>
-                <td><span style="font-size:12px;color:#DC2626;cursor:pointer;font-weight:600;" onclick="escalateVolunteer('Rahim Tejani','Katy JK')">Escalate</span></td>
-              </tr>
-              <tr>
-                <td><div class="vol-name">Shirin Alibhai</div></td>
-                <td style="font-size:12px;">Memorial JK</td>
-                <td class="vol-role">S&S Volunteer</td>
-                <td><span class="mini-bar"><span class="mini-fill" style="width:80%;background:#F59E0B;display:block;height:100%;border-radius:3px;"></span></span>80%</td>
-                <td><span class="badge badge-partial">⏳ In Progress</span></td>
-                <td style="font-size:12px;color:var(--text-muted);">May 30</td>
-                <td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="remindVolunteer('Shirin Alibhai')">Remind</span></td>
-              </tr>
-              <tr>
-                <td><div class="vol-name">Hassan Dewji</div></td>
-                <td style="font-size:12px;">Sugarland JK</td>
-                <td class="vol-role">Adult JK Volunteer</td>
-                <td><span class="mini-bar"><span class="mini-fill" style="width:0%;display:block;height:100%;border-radius:3px;"></span></span>0%</td>
-                <td><span class="badge badge-pending">— Not Started</span></td>
-                <td style="font-size:12px;color:var(--text-muted);">—</td>
-                <td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="remindVolunteer('Hassan Dewji')">Remind</span></td>
-              </tr>
-              <tr>
-                <td><div class="vol-name">Nadia Ismail</div></td>
-                <td style="font-size:12px;">Houston JK</td>
-                <td class="vol-role">Youth JK Volunteer</td>
-                <td><span class="mini-bar"><span class="mini-fill" style="width:100%;background:var(--success);display:block;height:100%;border-radius:3px;"></span></span>100%</td>
-                <td><span class="badge badge-complete">✓ Complete</span></td>
-                <td style="font-size:12px;color:var(--text-muted);">May 27</td>
-                <td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="viewVolunteer('Nadia Ismail','Houston JK','Youth JK Volunteer',100,'Complete','May 27')">View</span></td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="padding:12px 0;font-size:12px;color:var(--text-muted);">Showing 7 of 247 volunteers · <span style="color:var(--navy);cursor:pointer;font-weight:600;" onclick="loadMoreVolunteers()">Load more</span></div>
-        </div>
-
-        <!-- Report Builder -->
-        <div class="card-block">
-          <h3>JK Report Builder</h3>
-          <div class="cb-sub">Generate compliance reports for your Jamatkhana Director or Regional Leadership</div>
-          <div class="tabs">
-            <div class="tab active" onclick="switchTab(this,'rep-builder')">Build Report</div>
-            <div class="tab" onclick="switchTab(this,'rep-preview')">Preview</div>
-            <div class="tab" onclick="switchTab(this,'rep-history')">History</div>
-          </div>
-
-          <div class="tab-content active" id="rep-builder">
-            <div class="report-builder">
-              <div class="rb-section">
-                <h4>Report Scope</h4>
-                <div class="form-row" style="margin-bottom:10px;">
-                  <label>Jamatkhana</label>
-                  <select>
-                    <option>All JKs in Region</option>
-                    <option>Houston JK</option>
-                    <option>Sugarland JK</option>
-                    <option>Memorial JK</option>
-                    <option>Katy JK</option>
-                  </select>
-                </div>
-                <div class="form-row" style="margin-bottom:10px;">
-                  <label>Date Range</label>
-                  <select>
-                    <option>Last 30 days</option>
-                    <option>Last 60 days</option>
-                    <option>This quarter</option>
-                    <option>Year to date</option>
-                    <option>Custom range</option>
-                  </select>
-                </div>
-                <h4 style="margin-top:12px;">Include Sections</h4>
-                <label class="rb-check"><input type="checkbox" checked> Completion summary by JK</label>
-                <label class="rb-check"><input type="checkbox" checked> Module-by-module breakdown</label>
-                <label class="rb-check"><input type="checkbox" checked> Overdue volunteer list</label>
-                <label class="rb-check"><input type="checkbox"> Quiz score averages by module</label>
-                <label class="rb-check"><input type="checkbox"> Waiver compliance status</label>
-                <label class="rb-check"><input type="checkbox"> S&S certification compliance</label>
-                <button class="btn-sm primary" style="margin-top:14px;" onclick="switchTabById('rep-preview', this)">Generate Preview →</button>
-              </div>
-              <div class="rb-section">
-                <h4>Delivery Options</h4>
-                <div class="form-row" style="margin-bottom:10px;">
-                  <label>Report Format</label>
-                  <select>
-                    <option>PDF Summary</option>
-                    <option>Excel Spreadsheet</option>
-                    <option>Both</option>
-                  </select>
-                </div>
-                <div class="form-row" style="margin-bottom:10px;">
-                  <label>Send To</label>
-                  <input type="text" value="jk-director@ismailivolunteers.org" placeholder="Email address">
-                </div>
-                <div class="form-row" style="margin-bottom:10px;">
-                  <label>Schedule</label>
-                  <select>
-                    <option>Send once now</option>
-                    <option>Weekly — every Sunday</option>
-                    <option>Monthly — 1st of month</option>
-                    <option>After each Dua</option>
-                  </select>
-                </div>
-                <h4 style="margin-top:12px;">Quick Actions</h4>
-                <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
-                  <button class="btn-sm secondary" onclick="showNotif('Reminder sent to 23 volunteers')">📧 Send Reminders to Incomplete</button>
-                  <button class="btn-sm secondary" onclick="showNotif('Escalation sent to regional lead')">🚨 Escalate Overdue to Regional</button>
-                  <button class="btn-sm gold" onclick="showNotif('Report downloaded')">⬇ Download Full Report</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="rep-preview">
-            <div class="report-preview">
-              <div class="rp-header">📋 Ismaili Volunteers — JK Onboarding Report<br><span style="font-size:11px;font-weight:400;color:var(--text-muted);">Greater Houston Region · May 30, 2026</span></div>
-              <strong>COMPLETION SUMMARY</strong><br>
-              Total Volunteers: 247 &nbsp;|&nbsp; Complete: 183 (74%) &nbsp;|&nbsp; In Progress: 41 (17%) &nbsp;|&nbsp; Not Started: 23 (9%)<br><br>
-              <strong>BY JAMATKHANA</strong><br>
-              Houston JK: 89/112 complete (79%)<br>
-              Sugarland JK: 44/61 complete (72%)<br>
-              Memorial JK: 31/42 complete (74%)<br>
-              Katy JK: 19/32 complete (59%) ⚠<br><br>
-              <strong>OVERDUE VOLUNTEERS (14+ days no activity)</strong><br>
-              Rahim Tejani — Katy JK — Transportation — 0% complete<br>
-              Hassan Dewji — Sugarland JK — Adult Vol — 0% complete<br>
-              + 21 more...<br><br>
-              <strong>MODULE COMPLETION RATES</strong><br>
+<div class="view" id="view-regional">
+<div id="regional-layout">
+<div class="page-title">Regional JK Dashboard</div>
+<div class="page-sub">Greater Houston Region · Monitoring volunteer onboarding compliance across Jamatkhanas</div>
+<div class="stats-row">
+<div class="stat-card" onclick="showStatDetail('total')" style="cursor:pointer;" title="Click for breakdown">
+<div class="sv">247</div>
+<div class="sl">Total Volunteers</div>
+<div class="sc sc-green">↑ 18 this month</div>
+</div>
+<div class="stat-card" onclick="showStatDetail('complete')" style="cursor:pointer;" title="Click for list">
+<div class="sv">183</div>
+<div class="sl">Orientation Complete</div>
+<div class="sc sc-green">74% completion rate</div>
+</div>
+<div class="stat-card" onclick="showStatDetail('inprogress')" style="cursor:pointer;" title="Click for list">
+<div class="sv">41</div>
+<div class="sl">In Progress</div>
+<div class="sc sc-yellow">17% partially complete</div>
+</div>
+<div class="stat-card" onclick="showStatDetail('notstarted')" style="cursor:pointer;" title="Click for list">
+<div class="sv">23</div>
+<div class="sl">Not Started</div>
+<div class="sc sc-red">⚠ Action needed</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;">
+<!-- Left: Volunteer table -->
+<div>
+<div class="card-block">
+<h3>Volunteer Onboarding Tracker</h3>
+<div class="cb-sub">Track completion status by JK, role, and individual volunteer</div>
+<div class="filter-row">
+<select id="jk-filter">
+<option value="">All Jamatkhanas</option>
+<option>Houston JK</option>
+<option>Sugarland JK</option>
+<option>Memorial JK</option>
+<option>Katy JK</option>
+</select>
+<select id="role-filter">
+<option value="">All Roles</option>
+<option>Safety &amp; Security</option>
+<option>Adult JK Volunteer</option>
+<option>Youth JK Volunteer</option>
+<option>Transportation</option>
+</select>
+<select id="status-filter">
+<option value="">All Statuses</option>
+<option>Complete</option>
+<option>In Progress</option>
+<option>Not Started</option>
+<option>Overdue</option>
+</select>
+<input id="name-search" oninput="applyFilter()" placeholder="Search name..." style="width:160px;" type="text"/>
+<button class="btn-sm primary" onclick="applyFilter()">Filter</button>
+<button class="btn-sm gold" onclick="generateReport()">📊 Export Report</button>
+</div>
+<table class="data-table">
+<thead>
+<tr>
+<th>Volunteer</th>
+<th>JK</th>
+<th>Role</th>
+<th>Progress</th>
+<th>Status</th>
+<th>Last Active</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><div class="vol-name">Farida Hassanali</div></td>
+<td style="font-size:12px;">Houston JK</td>
+<td class="vol-role">S&amp;S Volunteer</td>
+<td><span class="mini-bar"><span class="mini-fill" style="width:100%;background:var(--success);display:block;height:100%;border-radius:3px;"></span></span>100%</td>
+<td><span class="badge badge-complete">✓ Complete</span></td>
+<td style="font-size:12px;color:var(--text-muted);">May 28</td>
+<td><span onclick="viewVolunteer('Farida Hassanali','Houston JK','S&amp;S Volunteer',100,'Complete','May 28')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">View</span></td>
+</tr>
+<tr>
+<td><div class="vol-name">Karim Noorani</div></td>
+<td style="font-size:12px;">Sugarland JK</td>
+<td class="vol-role">Adult JK Volunteer</td>
+<td><span class="mini-bar"><span class="mini-fill" style="width:60%;background:#F59E0B;display:block;height:100%;border-radius:3px;"></span></span>60%</td>
+<td><span class="badge badge-partial">⏳ In Progress</span></td>
+<td style="font-size:12px;color:var(--text-muted);">May 25</td>
+<td><span onclick="remindVolunteer('Karim Noorani')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Remind</span></td>
+</tr>
+<tr>
+<td><div class="vol-name">Zahra Virani</div></td>
+<td style="font-size:12px;">Houston JK</td>
+<td class="vol-role">Youth JK Volunteer</td>
+<td><span class="mini-bar"><span class="mini-fill" style="width:100%;background:var(--success);display:block;height:100%;border-radius:3px;"></span></span>100%</td>
+<td><span class="badge badge-complete">✓ Complete</span></td>
+<td style="font-size:12px;color:var(--text-muted);">May 29</td>
+<td><span onclick="viewVolunteer('Zahra Virani','Houston JK','Youth JK Volunteer',100,'Complete','May 29')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">View</span></td>
+</tr>
+<tr>
+<td><div class="vol-name">Rahim Tejani</div></td>
+<td style="font-size:12px;">Katy JK</td>
+<td class="vol-role">Transportation Vol.</td>
+<td><span class="mini-bar"><span class="mini-fill" style="width:0%;background:#EF4444;display:block;height:100%;border-radius:3px;"></span></span>0%</td>
+<td><span class="badge badge-overdue">🔴 Overdue</span></td>
+<td style="font-size:12px;color:var(--text-muted);">—</td>
+<td><span onclick="escalateVolunteer('Rahim Tejani','Katy JK')" style="font-size:12px;color:#DC2626;cursor:pointer;font-weight:600;">Escalate</span></td>
+</tr>
+<tr>
+<td><div class="vol-name">Shirin Alibhai</div></td>
+<td style="font-size:12px;">Memorial JK</td>
+<td class="vol-role">S&amp;S Volunteer</td>
+<td><span class="mini-bar"><span class="mini-fill" style="width:80%;background:#F59E0B;display:block;height:100%;border-radius:3px;"></span></span>80%</td>
+<td><span class="badge badge-partial">⏳ In Progress</span></td>
+<td style="font-size:12px;color:var(--text-muted);">May 30</td>
+<td><span onclick="remindVolunteer('Shirin Alibhai')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Remind</span></td>
+</tr>
+<tr>
+<td><div class="vol-name">Hassan Dewji</div></td>
+<td style="font-size:12px;">Sugarland JK</td>
+<td class="vol-role">Adult JK Volunteer</td>
+<td><span class="mini-bar"><span class="mini-fill" style="width:0%;display:block;height:100%;border-radius:3px;"></span></span>0%</td>
+<td><span class="badge badge-pending">— Not Started</span></td>
+<td style="font-size:12px;color:var(--text-muted);">—</td>
+<td><span onclick="remindVolunteer('Hassan Dewji')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Remind</span></td>
+</tr>
+<tr>
+<td><div class="vol-name">Nadia Ismail</div></td>
+<td style="font-size:12px;">Houston JK</td>
+<td class="vol-role">Youth JK Volunteer</td>
+<td><span class="mini-bar"><span class="mini-fill" style="width:100%;background:var(--success);display:block;height:100%;border-radius:3px;"></span></span>100%</td>
+<td><span class="badge badge-complete">✓ Complete</span></td>
+<td style="font-size:12px;color:var(--text-muted);">May 27</td>
+<td><span onclick="viewVolunteer('Nadia Ismail','Houston JK','Youth JK Volunteer',100,'Complete','May 27')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">View</span></td>
+</tr>
+</tbody>
+</table>
+<div style="padding:12px 0;font-size:12px;color:var(--text-muted);">Showing 7 of 247 volunteers · <span onclick="loadMoreVolunteers()" style="color:var(--navy);cursor:pointer;font-weight:600;">Load more</span></div>
+</div>
+<!-- Report Builder -->
+<div class="card-block">
+<h3>JK Report Builder</h3>
+<div class="cb-sub">Generate compliance reports for your Jamatkhana Director or Regional Leadership</div>
+<div class="tabs">
+<div class="tab active" onclick="switchTab(this,'rep-builder')">Build Report</div>
+<div class="tab" onclick="switchTab(this,'rep-preview')">Preview</div>
+<div class="tab" onclick="switchTab(this,'rep-history')">History</div>
+</div>
+<div class="tab-content active" id="rep-builder">
+<div class="report-builder">
+<div class="rb-section">
+<h4>Report Scope</h4>
+<div class="form-row" style="margin-bottom:10px;">
+<label>Jamatkhana</label>
+<select>
+<option>All JKs in Region</option>
+<option>Houston JK</option>
+<option>Sugarland JK</option>
+<option>Memorial JK</option>
+<option>Katy JK</option>
+</select>
+</div>
+<div class="form-row" style="margin-bottom:10px;">
+<label>Date Range</label>
+<select>
+<option>Last 30 days</option>
+<option>Last 60 days</option>
+<option>This quarter</option>
+<option>Year to date</option>
+<option>Custom range</option>
+</select>
+</div>
+<h4 style="margin-top:12px;">Include Sections</h4>
+<label class="rb-check"><input checked="" type="checkbox"/> Completion summary by JK</label>
+<label class="rb-check"><input checked="" type="checkbox"/> Module-by-module breakdown</label>
+<label class="rb-check"><input checked="" type="checkbox"/> Overdue volunteer list</label>
+<label class="rb-check"><input type="checkbox"/> Quiz score averages by module</label>
+<label class="rb-check"><input type="checkbox"/> Waiver compliance status</label>
+<label class="rb-check"><input type="checkbox"/> S&amp;S certification compliance</label>
+<button class="btn-sm primary" onclick="switchTabById('rep-preview', this)" style="margin-top:14px;">Generate Preview →</button>
+</div>
+<div class="rb-section">
+<h4>Delivery Options</h4>
+<div class="form-row" style="margin-bottom:10px;">
+<label>Report Format</label>
+<select>
+<option>PDF Summary</option>
+<option>Excel Spreadsheet</option>
+<option>Both</option>
+</select>
+</div>
+<div class="form-row" style="margin-bottom:10px;">
+<label>Send To</label>
+<input placeholder="Email address" type="text" value="jk-director@ismailivolunteers.org"/>
+</div>
+<div class="form-row" style="margin-bottom:10px;">
+<label>Schedule</label>
+<select>
+<option>Send once now</option>
+<option>Weekly — every Sunday</option>
+<option>Monthly — 1st of month</option>
+<option>After each Dua</option>
+</select>
+</div>
+<h4 style="margin-top:12px;">Quick Actions</h4>
+<div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+<button class="btn-sm secondary" onclick="showNotif('Reminder sent to 23 volunteers')">📧 Send Reminders to Incomplete</button>
+<button class="btn-sm secondary" onclick="showNotif('Escalation sent to regional lead')">🚨 Escalate Overdue to Regional</button>
+<button class="btn-sm gold" onclick="showNotif('Report downloaded')">⬇ Download Full Report</button>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-content" id="rep-preview">
+<div class="report-preview">
+<div class="rp-header">📋 Ismaili Volunteers — JK Onboarding Report<br/><span style="font-size:11px;font-weight:400;color:var(--text-muted);">Greater Houston Region · May 30, 2026</span></div>
+<strong>COMPLETION SUMMARY</strong><br/>
+              Total Volunteers: 247 &nbsp;|&nbsp; Complete: 183 (74%) &nbsp;|&nbsp; In Progress: 41 (17%) &nbsp;|&nbsp; Not Started: 23 (9%)<br/><br/>
+<strong>BY JAMATKHANA</strong><br/>
+              Houston JK: 89/112 complete (79%)<br/>
+              Sugarland JK: 44/61 complete (72%)<br/>
+              Memorial JK: 31/42 complete (74%)<br/>
+              Katy JK: 19/32 complete (59%) ⚠<br/><br/>
+<strong>OVERDUE VOLUNTEERS (14+ days no activity)</strong><br/>
+              Rahim Tejani — Katy JK — Transportation — 0% complete<br/>
+              Hassan Dewji — Sugarland JK — Adult Vol — 0% complete<br/>
+              + 21 more...<br/><br/>
+<strong>MODULE COMPLETION RATES</strong><br/>
               Module I (Welcome): 98% &nbsp;|&nbsp; Module II (Roles): 91% &nbsp;|&nbsp; Module III (Uniform): 86% &nbsp;|&nbsp; Module IV (CoC): 82% &nbsp;|&nbsp; Module V (Safety): 79%
             </div>
-          </div>
-
-          <div class="tab-content" id="rep-history">
-            <table class="data-table">
-              <thead><tr><th>Report</th><th>Generated</th><th>By</th><th>Sent To</th><th></th></tr></thead>
-              <tbody>
-                <tr><td>Monthly Summary — April 2026</td><td style="font-size:12px;">May 1, 2026</td><td style="font-size:12px;">R. Hassanali</td><td style="font-size:12px;">jk-director@ismailivolunteers.org</td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="downloadReport('Monthly Summary — April 2026')">Download</span></td></tr>
-                <tr><td>Overdue Escalation Report</td><td style="font-size:12px;">Apr 15, 2026</td><td style="font-size:12px;">System</td><td style="font-size:12px;">regional-lead@ismailivolunteers.org</td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="downloadReport('Overdue Escalation Report')">Download</span></td></tr>
-                <tr><td>Q1 Compliance Summary</td><td style="font-size:12px;">Apr 2, 2026</td><td style="font-size:12px;">R. Hassanali</td><td style="font-size:12px;">national@ismailivolunteers.org</td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="downloadReport('Q1 Compliance Summary')">Download</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Alerts + JK breakdown -->
-      <div>
-        <div class="card-block">
-          <h3>⚡ Action Alerts</h3>
-          <div class="cb-sub">Items requiring your attention</div>
-          <div class="alert-item">
-            <div class="alert-dot dot-red"></div>
-            <div class="alert-text">
-              <div class="alert-title">5 S&S volunteers overdue on CPR/Gatekeeper cert</div>
-              <div class="alert-sub">Must be certified within 6 months of joining</div>
-            </div>
-            <span class="alert-action" onclick="alertAction('ss-cert')">View</span>
-          </div>
-          <div class="alert-item">
-            <div class="alert-dot dot-red"></div>
-            <div class="alert-text">
-              <div class="alert-title">14 volunteers haven't signed waivers</div>
-              <div class="alert-sub">Required before first duty shift</div>
-            </div>
-            <span class="alert-action" onclick="alertAction('waiver-remind')">Remind</span>
-          </div>
-          <div class="alert-item">
-            <div class="alert-dot dot-yellow"></div>
-            <div class="alert-text">
-              <div class="alert-title">Katy JK at 59% — below regional target</div>
-              <div class="alert-sub">Regional target is 75% completion</div>
-            </div>
-            <span class="alert-action" onclick="alertAction('email-katy')">Email JK Lead</span>
-          </div>
-          <div class="alert-item">
-            <div class="alert-dot dot-yellow"></div>
-            <div class="alert-text">
-              <div class="alert-title">18 new volunteers added this month</div>
-              <div class="alert-sub">Onboarding window: 30 days from registration</div>
-            </div>
-            <span class="alert-action" onclick="alertAction('track-new')">Track</span>
-          </div>
-          <div class="alert-item">
-            <div class="alert-dot dot-green"></div>
-            <div class="alert-text">
-              <div class="alert-title">Houston JK reached 79% completion</div>
-              <div class="alert-sub">Up from 71% last month</div>
-            </div>
-            <span class="alert-action" onclick="alertAction('share-houston')">Share</span>
-          </div>
-        </div>
-
-        <div class="card-block">
-          <h3>JK Completion Breakdown</h3>
-          <div class="cb-sub">By Jamatkhana this period</div>
-          <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;">
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;cursor:pointer;" onclick="showJKDetails('Houston JK',79,112)"><span style="font-weight:600;">Houston JK</span><span style="color:var(--text-muted);">89/112</span></div>
-              <div class="progress-bar"><div class="progress-fill" style="width:79%"></div></div>
-              <div style="font-size:11px;color:var(--success);margin-top:3px;">79% ✓</div>
-            </div>
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;cursor:pointer;" onclick="showJKDetails('Sugarland JK',72,61)"><span style="font-weight:600;">Sugarland JK</span><span style="color:var(--text-muted);">44/61</span></div>
-              <div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
-              <div style="font-size:11px;color:var(--warn);margin-top:3px;">72%</div>
-            </div>
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;cursor:pointer;" onclick="showJKDetails('Memorial JK',74,42)"><span style="font-weight:600;">Memorial JK</span><span style="color:var(--text-muted);">31/42</span></div>
-              <div class="progress-bar"><div class="progress-fill" style="width:74%"></div></div>
-              <div style="font-size:11px;color:var(--warn);margin-top:3px;">74%</div>
-            </div>
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;cursor:pointer;" onclick="showJKDetails('Katy JK',59,32)"><span style="font-weight:600;">Katy JK</span><span style="color:var(--text-muted);">19/32</span></div>
-              <div class="progress-bar"><div class="progress-fill" style="width:59%;background:linear-gradient(90deg,#EF4444,#F87171)"></div></div>
-              <div style="font-size:11px;color:var(--error);margin-top:3px;">59% ⚠ Below target</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-block">
-          <h3>Quiz Performance by Module</h3>
-          <div class="cb-sub">Average scores across region</div>
-          <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
-            <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="showModuleQuizDetail('I',94)">
-              <div style="width:80px;font-size:12px;color:var(--text-muted);">Module I</div>
-              <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:94%"></div></div>
-              <div style="font-size:13px;font-weight:700;color:var(--success);width:36px;text-align:right;">94%</div>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="showModuleQuizDetail('II',88)">
-              <div style="width:80px;font-size:12px;color:var(--text-muted);">Module II</div>
-              <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:88%"></div></div>
-              <div style="font-size:13px;font-weight:700;color:var(--success);width:36px;text-align:right;">88%</div>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="showModuleQuizDetail('III',82)">
-              <div style="width:80px;font-size:12px;color:var(--text-muted);">Module III</div>
-              <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:82%"></div></div>
-              <div style="font-size:13px;font-weight:700;color:var(--warn);width:36px;text-align:right;">82%</div>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="showModuleQuizDetail('IV',79)">
-              <div style="width:80px;font-size:12px;color:var(--text-muted);">Module IV</div>
-              <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:79%"></div></div>
-              <div style="font-size:13px;font-weight:700;color:var(--warn);width:36px;text-align:right;">79%</div>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="showModuleQuizDetail('V',85)">
-              <div style="width:80px;font-size:12px;color:var(--text-muted);">Module V</div>
-              <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:85%"></div></div>
-              <div style="font-size:13px;font-weight:700;color:var(--success);width:36px;text-align:right;">85%</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-
+<div class="tab-content" id="rep-history">
+<table class="data-table">
+<thead><tr><th>Report</th><th>Generated</th><th>By</th><th>Sent To</th><th></th></tr></thead>
+<tbody>
+<tr><td>Monthly Summary — April 2026</td><td style="font-size:12px;">May 1, 2026</td><td style="font-size:12px;">R. Hassanali</td><td style="font-size:12px;">jk-director@ismailivolunteers.org</td><td><span onclick="downloadReport('Monthly Summary — April 2026')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Download</span></td></tr>
+<tr><td>Overdue Escalation Report</td><td style="font-size:12px;">Apr 15, 2026</td><td style="font-size:12px;">System</td><td style="font-size:12px;">regional-lead@ismailivolunteers.org</td><td><span onclick="downloadReport('Overdue Escalation Report')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Download</span></td></tr>
+<tr><td>Q1 Compliance Summary</td><td style="font-size:12px;">Apr 2, 2026</td><td style="font-size:12px;">R. Hassanali</td><td style="font-size:12px;">national@ismailivolunteers.org</td><td><span onclick="downloadReport('Q1 Compliance Summary')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Download</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right: Alerts + JK breakdown -->
+<div>
+<div class="card-block">
+<h3>⚡ Action Alerts</h3>
+<div class="cb-sub">Items requiring your attention</div>
+<div class="alert-item">
+<div class="alert-dot dot-red"></div>
+<div class="alert-text">
+<div class="alert-title">5 S&amp;S volunteers overdue on CPR/Gatekeeper cert</div>
+<div class="alert-sub">Must be certified within 6 months of joining</div>
+</div>
+<span class="alert-action" onclick="alertAction('ss-cert')">View</span>
+</div>
+<div class="alert-item">
+<div class="alert-dot dot-red"></div>
+<div class="alert-text">
+<div class="alert-title">14 volunteers haven't signed waivers</div>
+<div class="alert-sub">Required before first duty shift</div>
+</div>
+<span class="alert-action" onclick="alertAction('waiver-remind')">Remind</span>
+</div>
+<div class="alert-item">
+<div class="alert-dot dot-yellow"></div>
+<div class="alert-text">
+<div class="alert-title">Katy JK at 59% — below regional target</div>
+<div class="alert-sub">Regional target is 75% completion</div>
+</div>
+<span class="alert-action" onclick="alertAction('email-katy')">Email JK Lead</span>
+</div>
+<div class="alert-item">
+<div class="alert-dot dot-yellow"></div>
+<div class="alert-text">
+<div class="alert-title">18 new volunteers added this month</div>
+<div class="alert-sub">Onboarding window: 30 days from registration</div>
+</div>
+<span class="alert-action" onclick="alertAction('track-new')">Track</span>
+</div>
+<div class="alert-item">
+<div class="alert-dot dot-green"></div>
+<div class="alert-text">
+<div class="alert-title">Houston JK reached 79% completion</div>
+<div class="alert-sub">Up from 71% last month</div>
+</div>
+<span class="alert-action" onclick="alertAction('share-houston')">Share</span>
+</div>
+</div>
+<div class="card-block">
+<h3>JK Completion Breakdown</h3>
+<div class="cb-sub">By Jamatkhana this period</div>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;">
+<div>
+<div onclick="showJKDetails('Houston JK',79,112)" style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;cursor:pointer;"><span style="font-weight:600;">Houston JK</span><span style="color:var(--text-muted);">89/112</span></div>
+<div class="progress-bar"><div class="progress-fill" style="width:79%"></div></div>
+<div style="font-size:11px;color:var(--success);margin-top:3px;">79% ✓</div>
+</div>
+<div>
+<div onclick="showJKDetails('Sugarland JK',72,61)" style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;cursor:pointer;"><span style="font-weight:600;">Sugarland JK</span><span style="color:var(--text-muted);">44/61</span></div>
+<div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
+<div style="font-size:11px;color:var(--warn);margin-top:3px;">72%</div>
+</div>
+<div>
+<div onclick="showJKDetails('Memorial JK',74,42)" style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;cursor:pointer;"><span style="font-weight:600;">Memorial JK</span><span style="color:var(--text-muted);">31/42</span></div>
+<div class="progress-bar"><div class="progress-fill" style="width:74%"></div></div>
+<div style="font-size:11px;color:var(--warn);margin-top:3px;">74%</div>
+</div>
+<div>
+<div onclick="showJKDetails('Katy JK',59,32)" style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;cursor:pointer;"><span style="font-weight:600;">Katy JK</span><span style="color:var(--text-muted);">19/32</span></div>
+<div class="progress-bar"><div class="progress-fill" style="width:59%;background:linear-gradient(90deg,#EF4444,#F87171)"></div></div>
+<div style="font-size:11px;color:var(--error);margin-top:3px;">59% ⚠ Below target</div>
+</div>
+</div>
+</div>
+<div class="card-block">
+<h3>Quiz Performance by Module</h3>
+<div class="cb-sub">Average scores across region</div>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+<div onclick="showModuleQuizDetail('I',94)" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+<div style="width:80px;font-size:12px;color:var(--text-muted);">Module I</div>
+<div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:94%"></div></div>
+<div style="font-size:13px;font-weight:700;color:var(--success);width:36px;text-align:right;">94%</div>
+</div>
+<div onclick="showModuleQuizDetail('II',88)" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+<div style="width:80px;font-size:12px;color:var(--text-muted);">Module II</div>
+<div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:88%"></div></div>
+<div style="font-size:13px;font-weight:700;color:var(--success);width:36px;text-align:right;">88%</div>
+</div>
+<div onclick="showModuleQuizDetail('III',82)" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+<div style="width:80px;font-size:12px;color:var(--text-muted);">Module III</div>
+<div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:82%"></div></div>
+<div style="font-size:13px;font-weight:700;color:var(--warn);width:36px;text-align:right;">82%</div>
+</div>
+<div onclick="showModuleQuizDetail('IV',79)" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+<div style="width:80px;font-size:12px;color:var(--text-muted);">Module IV</div>
+<div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:79%"></div></div>
+<div style="font-size:13px;font-weight:700;color:var(--warn);width:36px;text-align:right;">79%</div>
+</div>
+<div onclick="showModuleQuizDetail('V',85)" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+<div style="width:80px;font-size:12px;color:var(--text-muted);">Module V</div>
+<div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:85%"></div></div>
+<div style="font-size:13px;font-weight:700;color:var(--success);width:36px;text-align:right;">85%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- ████████████████████  ADMIN VIEW  ████████████████████ -->
-<div id="view-admin" class="view">
-  <div id="admin-layout">
-    <div class="page-title">Admin Console</div>
-    <div class="page-sub">Ismaili Volunteers Onboarding Platform · National Administration</div>
-
-    <div class="admin-grid">
-      <!-- Admin menu -->
-      <div class="admin-menu">
-        <div class="admin-menu-section">Content</div>
-        <div class="admin-menu-item active" onclick="switchAdmin(this,'panel-branding')">🎨 Branding & Theme</div>
-        <div class="admin-menu-item" onclick="switchAdmin(this,'panel-modules')">📚 Module Manager</div>
-        <div class="admin-menu-item" onclick="switchAdmin(this,'panel-quiz')">❓ Quiz Editor</div>
-        <div class="admin-menu-section">Access</div>
-        <div class="admin-menu-item" onclick="switchAdmin(this,'panel-users')">👥 User & Role Manager</div>
-        <div class="admin-menu-item" onclick="switchAdmin(this,'panel-jk')">🏛 JK Configuration</div>
-        <div class="admin-menu-section">System</div>
-        <div class="admin-menu-item" onclick="switchAdmin(this,'panel-notifications')">🔔 Notifications</div>
-        <div class="admin-menu-item" onclick="switchAdmin(this,'panel-bestpractices')">⭐ Best Practices</div>
-      </div>
-
-      <!-- Admin panels -->
-      <div>
-
-        <!-- BRANDING PANEL -->
-        <div class="admin-panel active" id="panel-branding">
-          <div class="card-block">
-            <h3>Branding & Theme</h3>
-            <div class="cb-sub">Customize platform colors, typography, and identity to match your regional needs</div>
-
-            <h4 style="margin-bottom:10px;font-size:13px;">Platform Colors</h4>
-            <div class="color-row">
-              <div class="color-item">
-                <label>Primary (Navy)</label>
-                <div class="color-swatch-row">
-                  <input type="color" value="#1B3A6B" id="navy-picker" oninput="updateColor('--navy',this.value);document.getElementById('navy-hex').value=this.value">
-                  <input type="text" value="#1B3A6B" id="navy-hex">
-                </div>
-              </div>
-              <div class="color-item">
-                <label>Accent (Gold)</label>
-                <div class="color-swatch-row">
-                  <input type="color" value="#C9A94F" id="gold-picker" oninput="updateColor('--gold',this.value);document.getElementById('gold-hex').value=this.value">
-                  <input type="text" value="#C9A94F" id="gold-hex">
-                </div>
-              </div>
-              <div class="color-item">
-                <label>Background</label>
-                <div class="color-swatch-row">
-                  <input type="color" value="#F4F6FA" oninput="updateColor('--bg',this.value)">
-                  <input type="text" value="#F4F6FA">
-                </div>
-              </div>
-            </div>
-
-            <h4 style="margin:16px 0 10px;font-size:13px;">Theme Presets</h4>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              <div onclick="applyTheme('navy')" style="padding:8px 16px;background:#1B3A6B;color:#C9A94F;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">IV Navy (Default)</div>
-              <div onclick="applyTheme('emerald')" style="padding:8px 16px;background:#065F46;color:#6EE7B7;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Emerald</div>
-              <div onclick="applyTheme('crimson')" style="padding:8px 16px;background:#7F1D1D;color:#FCA5A5;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Crimson</div>
-              <div onclick="applyTheme('slate')" style="padding:8px 16px;background:#1E293B;color:#94A3B8;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Slate</div>
-            </div>
-
-            <h4 style="margin:16px 0 10px;font-size:13px;">Platform Identity</h4>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-              <div class="form-row">
-                <label>Platform Name</label>
-                <input type="text" value="Ismaili Volunteers — Khidma Onboarding">
-              </div>
-              <div class="form-row">
-                <label>Organization</label>
-                <input type="text" value="Ismaili Volunteers">
-              </div>
-              <div class="form-row">
-                <label>Tagline</label>
-                <input type="text" value="Serving the Jamat with Khidma">
-              </div>
-              <div class="form-row">
-                <label>Support Email</label>
-                <input type="text" value="support@ismailivolunteers.org">
-              </div>
-            </div>
-
-            <h4 style="margin:16px 0 10px;font-size:13px;">Certificate Footer Text</h4>
-            <div class="form-row">
-              <textarea>This certifies that the above-named individual has completed the Ismaili Volunteers New Volunteer Orientation. This certificate is valid upon receipt of signed waiver and Code of Conduct acknowledgement.</textarea>
-            </div>
-
-            <button class="save-btn" onclick="showNotif('Theme settings saved')">Save Changes</button>
-            <span class="save-notice" id="save-notice">✓ Saved</span>
-          </div>
-        </div>
-
-        <!-- MODULES PANEL -->
-        <div class="admin-panel" id="panel-modules">
-          <div class="card-block">
-            <h3>Module Manager</h3>
-            <div class="cb-sub">Enable, disable, reorder, or edit the content of each module. Drag to reorder.</div>
-
-            <div id="module-list">
-              <div class="module-item">
-                <span class="drag-handle" onclick="showNotif('Drag to reorder modules')" title="Drag to reorder">⠿</span>
-                <div class="module-item-title">Module I · Welcome, Identity, and the Spirit of Khidma</div>
-                <span class="module-item-count">3 quizzes · 1 reflection</span>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-                <button class="btn-sm secondary" style="margin-left:8px;" onclick="editModule(0)">Edit</button>
-              </div>
-              <div class="module-item">
-                <span class="drag-handle" onclick="showNotif('Drag to reorder modules')" title="Drag to reorder">⠿</span>
-                <div class="module-item-title">Module II · Service Areas, Roles, and Organizational Structure</div>
-                <span class="module-item-count">2 quizzes</span>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-                <button class="btn-sm secondary" style="margin-left:8px;" onclick="editModule(0)">Edit</button>
-              </div>
-              <div class="module-item">
-                <span class="drag-handle" onclick="showNotif('Drag to reorder modules')" title="Drag to reorder">⠿</span>
-                <div class="module-item-title">Module III · Uniform Standards</div>
-                <span class="module-item-count">3 quizzes</span>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-                <button class="btn-sm secondary" style="margin-left:8px;" onclick="editModule(2)">Edit</button>
-              </div>
-              <div class="module-item">
-                <span class="drag-handle" onclick="showNotif('Drag to reorder modules')" title="Drag to reorder">⠿</span>
-                <div class="module-item-title">Module IV · Code of Conduct and Infraction Policy</div>
-                <span class="module-item-count">3 quizzes</span>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-                <button class="btn-sm secondary" style="margin-left:8px;" onclick="editModule(3)">Edit</button>
-              </div>
-              <div class="module-item">
-                <span class="drag-handle">⠿</span>
-                <div class="module-item-title">Module V · Safety Awareness and Empathy in Action</div>
-                <span class="module-item-count">1 quiz</span>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-                <button class="btn-sm secondary" style="margin-left:8px;" onclick="editModule(4)">Edit</button>
-              </div>
-            </div>
-
-            <button class="btn-sm gold" style="margin-top:16px;" onclick="showNotif('New module created')">+ Add Module</button>
-
-            <h4 style="margin:20px 0 10px;font-size:13px;">Completion Requirements</h4>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-              <div class="form-row">
-                <label>Minimum Quiz Pass Score</label>
-                <select><option>70%</option><option>75%</option><option selected>80%</option><option>85%</option><option>100%</option></select>
-              </div>
-              <div class="form-row">
-                <label>Allow Retakes</label>
-                <select><option>Unlimited</option><option selected>3 attempts</option><option>2 attempts</option><option>1 attempt only</option></select>
-              </div>
-              <div class="form-row">
-                <label>Require Waiver Before Start</label>
-                <select><option>No</option><option selected>Yes — block access until signed</option></select>
-              </div>
-              <div class="form-row">
-                <label>Onboarding Deadline</label>
-                <select><option>14 days</option><option selected>30 days</option><option>60 days</option><option>No deadline</option></select>
-              </div>
-            </div>
-            <button class="save-btn" onclick="showNotif('Module settings saved')">Save Changes</button>
-          </div>
-        </div>
-
-        <!-- QUIZ EDITOR PANEL -->
-        <div class="admin-panel" id="panel-quiz">
-          <div class="card-block">
-            <h3>Quiz Editor</h3>
-            <div class="cb-sub">Review, edit, or add knowledge check questions across all modules</div>
-
-            <div class="quiz-editor-item">
-              <div class="qei-header">
-                <div class="qei-num">1</div>
-                <div class="qei-q">When were the Ismaili Volunteers established?</div>
-                <span class="qei-module">Module I</span>
-                <span class="qei-edit" onclick="editQuizQ(1)">Edit</span>
-              </div>
-              <div class="qei-options">
-                <div class="qei-opt"><span class="correct-mark">✓</span> 1919 <em style="font-size:11px;color:var(--success);margin-left:6px;">(correct)</em></div>
-                <div class="qei-opt">1920</div>
-                <div class="qei-opt">2019</div>
-              </div>
-            </div>
-
-            <div class="quiz-editor-item">
-              <div class="qei-header">
-                <div class="qei-num">2</div>
-                <div class="qei-q">What is the Ismaili Volunteers' new motto?</div>
-                <span class="qei-module">Module I</span>
-                <span class="qei-edit" onclick="editQuizQ(2)">Edit</span>
-              </div>
-              <div class="qei-options">
-                <div class="qei-opt">Seva</div>
-                <div class="qei-opt">All Work No Words</div>
-                <div class="qei-opt"><span class="correct-mark">✓</span> Khidma <em style="font-size:11px;color:var(--success);margin-left:6px;">(correct)</em></div>
-              </div>
-            </div>
-
-            <div class="quiz-editor-item">
-              <div class="qei-header">
-                <div class="qei-num">3</div>
-                <div class="qei-q">What is the primary role of the IV team within the Jamatkhana?</div>
-                <span class="qei-module">Module II</span>
-                <span class="qei-edit" onclick="editQuizQ(3)">Edit</span>
-              </div>
-              <div class="qei-options">
-                <div class="qei-opt">To support jamati events only</div>
-                <div class="qei-opt"><span class="correct-mark">✓</span> To maintain a serene and spiritual atmosphere while supporting various operations <em style="font-size:11px;color:var(--success);margin-left:6px;">(correct)</em></div>
-                <div class="qei-opt">To manage only the inside prayer hall area</div>
-                <div class="qei-opt">To supervise the parking lot area only</div>
-              </div>
-            </div>
-
-            <div class="quiz-editor-item">
-              <div class="qei-header">
-                <div class="qei-num">4</div>
-                <div class="qei-q">The OADA framework stands for: (Module V)</div>
-                <span class="qei-module">Module V</span>
-                <span class="qei-edit" onclick="editQuizQ(4)">Edit</span>
-              </div>
-              <div class="qei-options">
-                <div class="qei-opt">Observe, Alert, Document, Act</div>
-                <div class="qei-opt"><span class="correct-mark">✓</span> Observe, Assess, Decide, Act <em style="font-size:11px;color:var(--success);margin-left:6px;">(correct)</em></div>
-                <div class="qei-opt">Orient, Assess, Delay, Act</div>
-                <div class="qei-opt">Observe, Analyze, Discuss, Alert</div>
-              </div>
-            </div>
-
-            <button class="btn-sm gold" style="margin-top:4px;" onclick="showNotif('New question added')">+ Add Question</button>
-          </div>
-        </div>
-
-        <!-- USERS PANEL -->
-        <div class="admin-panel" id="panel-users">
-          <div class="card-block">
-            <h3>User & Role Manager</h3>
-            <div class="cb-sub">Manage platform access levels across Volunteer, Regional JK Lead, and Admin roles</div>
-            <div class="filter-row" style="margin-bottom:14px;">
-              <input type="text" placeholder="Search user..." style="width:200px;">
-              <select><option>All Roles</option><option>Volunteer</option><option>JK Lead</option><option>Regional Lead</option><option>Admin</option></select>
-              <button class="btn-sm primary" onclick="adminUserSearch()">Search</button>
-              <button class="btn-sm gold" style="margin-left:auto;" onclick="showNotif('Invite sent')">+ Invite User</button>
-            </div>
-            <table class="data-table">
-              <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>JK</th><th>Last Login</th><th>Actions</th></tr></thead>
-              <tbody>
-                <tr><td class="vol-name">Rizwan Ali</td><td style="font-size:12px;">rizwan@ismailivolunteers.org</td><td><span class="badge" style="background:#EDE9FE;color:#5B21B6;">Admin</span></td><td style="font-size:12px;">National</td><td style="font-size:12px;">Today</td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="editUser('Rizwan Ali','Admin')">Edit</span></td></tr>
-                <tr><td class="vol-name">Rania Hassanali</td><td style="font-size:12px;">r.hassanali@ismailivolunteers.org</td><td><span class="badge" style="background:#DBEAFE;color:#1E40AF;">Regional Lead</span></td><td style="font-size:12px;">Houston Region</td><td style="font-size:12px;">May 29</td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="editUser('Rania Hassanali','Regional Lead')">Edit</span></td></tr>
-                <tr><td class="vol-name">Farida Hassanali</td><td style="font-size:12px;">f.hassanali@ismailivolunteers.org</td><td><span class="badge badge-complete">Volunteer</span></td><td style="font-size:12px;">Houston JK</td><td style="font-size:12px;">May 28</td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="editUser('Farida Hassanali','Volunteer')">Edit</span></td></tr>
-              </tbody>
-            </table>
-            <h4 style="margin:20px 0 10px;font-size:13px;">Role Permissions</h4>
-            <table class="data-table">
-              <thead><tr><th>Permission</th><th>Volunteer</th><th>JK Lead</th><th>Regional Lead</th><th>Admin</th></tr></thead>
-              <tbody>
-                <tr><td style="font-size:13px;">View own progress</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
-                <tr><td style="font-size:13px;">View JK completion data</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
-                <tr><td style="font-size:13px;">Generate reports</td><td>—</td><td>✓ (own JK)</td><td>✓ (region)</td><td>✓</td></tr>
-                <tr><td style="font-size:13px;">Edit modules/quizzes</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
-                <tr><td style="font-size:13px;">Manage users</td><td>—</td><td>—</td><td>✓ (region)</td><td>✓</td></tr>
-                <tr><td style="font-size:13px;">Edit branding/theme</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- JK CONFIG -->
-        <div class="admin-panel" id="panel-jk">
-          <div class="card-block">
-            <h3>JK Configuration</h3>
-            <div class="cb-sub">Configure Jamatkhana-level settings, assign leads, and set compliance targets</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-              <div class="form-row"><label>Region Name</label><input type="text" value="Greater Houston Region"></div>
-              <div class="form-row"><label>Regional Target Completion %</label><select><option>65%</option><option selected>75%</option><option>80%</option><option>90%</option><option>100%</option></select></div>
-              <div class="form-row"><label>Overdue Alert Threshold (days)</label><input type="number" value="14"></div>
-              <div class="form-row"><label>Escalation Email</label><input type="text" value="regional-lead@ismailivolunteers.org"></div>
-            </div>
-            <h4 style="margin:16px 0 10px;font-size:13px;">Jamatkhanas in Region</h4>
-            <table class="data-table">
-              <thead><tr><th>JK Name</th><th>JK Lead</th><th>Target</th><th>Current</th><th></th></tr></thead>
-              <tbody>
-                <tr><td class="vol-name">Houston JK</td><td style="font-size:12px;">Omar Nasir</td><td style="font-size:12px;">75%</td><td><span class="badge badge-complete">79%</span></td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="editJK('Houston JK')">Edit</span></td></tr>
-                <tr><td class="vol-name">Sugarland JK</td><td style="font-size:12px;">Layla Ahmed</td><td style="font-size:12px;">75%</td><td><span class="badge badge-partial">72%</span></td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="editJK('Sugarland JK')">Edit</span></td></tr>
-                <tr><td class="vol-name">Memorial JK</td><td style="font-size:12px;">Tariq Mulla</td><td style="font-size:12px;">75%</td><td><span class="badge badge-partial">74%</span></td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="editJK('Memorial JK')">Edit</span></td></tr>
-                <tr><td class="vol-name">Katy JK</td><td style="font-size:12px;">Nadia Ismail</td><td style="font-size:12px;">75%</td><td><span class="badge badge-overdue">59%</span></td><td><span style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;" onclick="editJK('Katy JK')">Edit</span></td></tr>
-              </tbody>
-            </table>
-            <button class="btn-sm gold" style="margin-top:12px;" onclick="showNotif('JK added')">+ Add Jamatkhana</button>
-            <button class="save-btn" style="margin-top:12px;margin-left:8px;" onclick="showNotif('JK settings saved')">Save Changes</button>
-          </div>
-        </div>
-
-        <!-- NOTIFICATIONS PANEL -->
-        <div class="admin-panel" id="panel-notifications">
-          <div class="card-block">
-            <h3>Notification & Reminder Settings</h3>
-            <div class="cb-sub">Configure automated reminders, escalation alerts, and completion notifications</div>
-            <div style="display:flex;flex-direction:column;gap:0;">
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);">
-                <div><div style="font-size:14px;font-weight:600;color:var(--navy);">Welcome email on registration</div><div style="font-size:12px;color:var(--text-muted);">Sent when a new volunteer is added to the system</div></div>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-              </div>
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);">
-                <div><div style="font-size:14px;font-weight:600;color:var(--navy);">Day 7 reminder — not started</div><div style="font-size:12px;color:var(--text-muted);">Gentle nudge after 7 days of no activity</div></div>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-              </div>
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);">
-                <div><div style="font-size:14px;font-weight:600;color:var(--navy);">Day 14 escalation to JK Lead</div><div style="font-size:12px;color:var(--text-muted);">Alerts JK Lead when volunteer is overdue</div></div>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-              </div>
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);">
-                <div><div style="font-size:14px;font-weight:600;color:var(--navy);">Completion congratulations</div><div style="font-size:12px;color:var(--text-muted);">Sent to volunteer + JK Lead on 100% completion</div></div>
-                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-              </div>
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;">
-                <div><div style="font-size:14px;font-weight:600;color:var(--navy);">Weekly JK compliance summary</div><div style="font-size:12px;color:var(--text-muted);">Auto-report sent every Sunday to JK Leads</div></div>
-                <div class="toggle" onclick="this.classList.toggle('on')"></div>
-              </div>
-            </div>
-            <button class="save-btn" onclick="showNotif('Notification settings saved')">Save Changes</button>
-          </div>
-        </div>
-
-        <!-- BEST PRACTICES PANEL -->
-        <div class="admin-panel" id="panel-bestpractices">
-          <div class="card-block">
-            <h3>⭐ Best Practices for Volunteer Onboarding Programs</h3>
-            <div class="cb-sub">Platform design and program management recommendations</div>
-
-            <div class="bp-item">
-              <div class="bp-icon">🎯</div>
-              <div><div class="bp-title">Set a Hard Deadline — Not a Soft Suggestion</div><div class="bp-text">Programs with a clear 30-day onboarding window have 2.3x higher completion rates than open-ended ones. Display the deadline prominently on the volunteer dashboard and send automated day-7 and day-14 reminders.</div></div>
-            </div>
-            <div class="bp-item">
-              <div class="bp-icon">📊</div>
-              <div><div class="bp-title">Track Module Drop-off, Not Just Final Completion</div><div class="bp-text">If Module III (Uniform) or Module IV (Code of Conduct) have lower completion rates, it signals those sections are too dense. Use quiz score data — if a module averages below 75%, the content may need to be simplified.</div></div>
-            </div>
-            <div class="bp-item">
-              <div class="bp-icon">🏛</div>
-              <div><div class="bp-title">Assign a Human Onboarding Champion Per JK</div><div class="bp-text">The highest-completing JKs consistently have one named person responsible for follow-up. Automated reminders are supplementary — a personal check-in from an JK Lead converts more completions than any email.</div></div>
-            </div>
-            <div class="bp-item">
-              <div class="bp-icon">📱</div>
-              <div><div class="bp-title">Mobile-First Design is Non-Negotiable</div><div class="bp-text">Most volunteers will complete this on a phone between prayer services. Ensure all modules render cleanly on mobile — long tables (like the infraction matrix) should scroll horizontally, not overflow the screen.</div></div>
-            </div>
-            <div class="bp-item">
-              <div class="bp-icon">🔄</div>
-              <div><div class="bp-title">Annual Refresher — Not One-and-Done</div><div class="bp-text">Set the platform to prompt returning volunteers for an annual "refresher check" — a 5-question quiz covering policy updates. This keeps compliance current and surfaces anyone whose access has lapsed.</div></div>
-            </div>
-            <div class="bp-item">
-              <div class="bp-icon">🧾</div>
-              <div><div class="bp-title">Tie Waiver Signing to Access — Hard Gate</div><div class="bp-text">Volunteers should not be able to start Module I until the Machform waiver is submitted. This prevents the scenario where someone completes all modules but never signs legal documentation. Build this as a prerequisite block, not a reminder.</div></div>
-            </div>
-            <div class="bp-item">
-              <div class="bp-icon">📋</div>
-              <div><div class="bp-title">Separate S&S Compliance Tracking</div><div class="bp-text">Safety & Security volunteers have additional requirements (CPR, First Aid, Gatekeeper within 6 months). Track these separately in the reporting dashboard with their own compliance clock — they should not be grouped with general volunteer completion %.</div></div>
-            </div>
-            <div class="bp-item">
-              <div class="bp-icon">🌐</div>
-              <div><div class="bp-title">Accessibility: Offer Language & Accessibility Options</div><div class="bp-text">If your Jamat includes non-English speakers or volunteers with visual impairments, plan for font-size controls, screen-reader compatibility, and at minimum one translated version of the critical CoC and Safety modules.</div></div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /admin panels -->
-    </div><!-- /admin-grid -->
-  </div>
+<div class="view" id="view-admin">
+<div id="admin-layout">
+<div class="page-title">Admin Console</div>
+<div class="page-sub">Ismaili Volunteers Onboarding Platform · National Administration</div>
+<div class="admin-grid">
+<!-- Admin menu -->
+<div class="admin-menu">
+<div class="admin-menu-section">Content</div>
+<div class="admin-menu-item active" onclick="switchAdmin(this,'panel-branding')">🎨 Branding &amp; Theme</div>
+<div class="admin-menu-item" onclick="switchAdmin(this,'panel-modules')">📚 Module Manager</div>
+<div class="admin-menu-item" onclick="switchAdmin(this,'panel-quiz')">❓ Quiz Editor</div>
+<div class="admin-menu-section">Access</div>
+<div class="admin-menu-item" onclick="switchAdmin(this,'panel-users')">👥 User &amp; Role Manager</div>
+<div class="admin-menu-item" onclick="switchAdmin(this,'panel-jk')">🏛 JK Configuration</div>
+<div class="admin-menu-section">System</div>
+<div class="admin-menu-item" onclick="switchAdmin(this,'panel-notifications')">🔔 Notifications</div>
+<div class="admin-menu-item" onclick="switchAdmin(this,'panel-bestpractices')">⭐ Best Practices</div>
+</div>
+<!-- Admin panels -->
+<div>
+<!-- BRANDING PANEL -->
+<div class="admin-panel active" id="panel-branding">
+<div class="card-block">
+<h3>Branding &amp; Theme</h3>
+<div class="cb-sub">Customize platform colors, typography, and identity to match your regional needs</div>
+<h4 style="margin-bottom:10px;font-size:13px;">Platform Colors</h4>
+<div class="color-row">
+<div class="color-item">
+<label>Primary (Navy)</label>
+<div class="color-swatch-row">
+<input id="navy-picker" oninput="updateColor('--navy',this.value);document.getElementById('navy-hex').value=this.value" type="color" value="#1B3A6B"/>
+<input id="navy-hex" type="text" value="#1B3A6B"/>
+</div>
+</div>
+<div class="color-item">
+<label>Accent (Gold)</label>
+<div class="color-swatch-row">
+<input id="gold-picker" oninput="updateColor('--gold',this.value);document.getElementById('gold-hex').value=this.value" type="color" value="#C9A94F"/>
+<input id="gold-hex" type="text" value="#C9A94F"/>
+</div>
+</div>
+<div class="color-item">
+<label>Background</label>
+<div class="color-swatch-row">
+<input oninput="updateColor('--bg',this.value)" type="color" value="#F4F6FA"/>
+<input type="text" value="#F4F6FA"/>
+</div>
+</div>
+</div>
+<h4 style="margin:16px 0 10px;font-size:13px;">Theme Presets</h4>
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<div onclick="applyTheme('navy')" style="padding:8px 16px;background:#1B3A6B;color:#C9A94F;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">IV Navy (Default)</div>
+<div onclick="applyTheme('emerald')" style="padding:8px 16px;background:#065F46;color:#6EE7B7;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Emerald</div>
+<div onclick="applyTheme('crimson')" style="padding:8px 16px;background:#7F1D1D;color:#FCA5A5;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Crimson</div>
+<div onclick="applyTheme('slate')" style="padding:8px 16px;background:#1E293B;color:#94A3B8;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;">Slate</div>
+</div>
+<h4 style="margin:16px 0 10px;font-size:13px;">Platform Identity</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+<div class="form-row">
+<label>Platform Name</label>
+<input type="text" value="Ismaili Volunteers — Khidma Onboarding"/>
+</div>
+<div class="form-row">
+<label>Organization</label>
+<input type="text" value="Ismaili Volunteers"/>
+</div>
+<div class="form-row">
+<label>Tagline</label>
+<input type="text" value="Serving the Jamat with Khidma"/>
+</div>
+<div class="form-row">
+<label>Support Email</label>
+<input type="text" value="support@ismailivolunteers.org"/>
+</div>
+</div>
+<h4 style="margin:16px 0 10px;font-size:13px;">Certificate Footer Text</h4>
+<div class="form-row">
+<textarea>This certifies that the above-named individual has completed the Ismaili Volunteers New Volunteer Orientation. This certificate is valid upon receipt of signed waiver and Code of Conduct acknowledgement.</textarea>
+</div>
+<button class="save-btn" onclick="showNotif('Theme settings saved')">Save Changes</button>
+<span class="save-notice" id="save-notice">✓ Saved</span>
+</div>
+</div>
+<!-- MODULES PANEL -->
+<div class="admin-panel" id="panel-modules">
+<div class="card-block">
+<h3>Module Manager</h3>
+<div class="cb-sub">Enable, disable, reorder, or edit the content of each module. Drag to reorder.</div>
+<div id="module-list">
+<div class="module-item">
+<span class="drag-handle" onclick="showNotif('Drag to reorder modules')" title="Drag to reorder">⠿</span>
+<div class="module-item-title">Module I · Welcome, Identity, and the Spirit of Khidma</div>
+<span class="module-item-count">3 quizzes · 1 reflection</span>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+<button class="btn-sm secondary" onclick="editModule(0)" style="margin-left:8px;">Edit</button>
+</div>
+<div class="module-item">
+<span class="drag-handle" onclick="showNotif('Drag to reorder modules')" title="Drag to reorder">⠿</span>
+<div class="module-item-title">Module II · Service Areas, Roles, and Organizational Structure</div>
+<span class="module-item-count">2 quizzes</span>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+<button class="btn-sm secondary" onclick="editModule(0)" style="margin-left:8px;">Edit</button>
+</div>
+<div class="module-item">
+<span class="drag-handle" onclick="showNotif('Drag to reorder modules')" title="Drag to reorder">⠿</span>
+<div class="module-item-title">Module III · Uniform Standards</div>
+<span class="module-item-count">3 quizzes</span>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+<button class="btn-sm secondary" onclick="editModule(2)" style="margin-left:8px;">Edit</button>
+</div>
+<div class="module-item">
+<span class="drag-handle" onclick="showNotif('Drag to reorder modules')" title="Drag to reorder">⠿</span>
+<div class="module-item-title">Module IV · Code of Conduct and Infraction Policy</div>
+<span class="module-item-count">3 quizzes</span>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+<button class="btn-sm secondary" onclick="editModule(3)" style="margin-left:8px;">Edit</button>
+</div>
+<div class="module-item">
+<span class="drag-handle">⠿</span>
+<div class="module-item-title">Module V · Safety Awareness and Empathy in Action</div>
+<span class="module-item-count">1 quiz</span>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+<button class="btn-sm secondary" onclick="editModule(4)" style="margin-left:8px;">Edit</button>
+</div>
+</div>
+<button class="btn-sm gold" onclick="showNotif('New module created')" style="margin-top:16px;">+ Add Module</button>
+<h4 style="margin:20px 0 10px;font-size:13px;">Completion Requirements</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+<div class="form-row">
+<label>Minimum Quiz Pass Score</label>
+<select><option>70%</option><option>75%</option><option selected="">80%</option><option>85%</option><option>100%</option></select>
+</div>
+<div class="form-row">
+<label>Allow Retakes</label>
+<select><option>Unlimited</option><option selected="">3 attempts</option><option>2 attempts</option><option>1 attempt only</option></select>
+</div>
+<div class="form-row">
+<label>Require Waiver Before Start</label>
+<select><option>No</option><option selected="">Yes — block access until signed</option></select>
+</div>
+<div class="form-row">
+<label>Onboarding Deadline</label>
+<select><option>14 days</option><option selected="">30 days</option><option>60 days</option><option>No deadline</option></select>
+</div>
+</div>
+<button class="save-btn" onclick="showNotif('Module settings saved')">Save Changes</button>
+</div>
+</div>
+<!-- QUIZ EDITOR PANEL -->
+<div class="admin-panel" id="panel-quiz">
+<div class="card-block">
+<h3>Quiz Editor</h3>
+<div class="cb-sub">Review, edit, or add knowledge check questions across all modules</div>
+<div class="quiz-editor-item">
+<div class="qei-header">
+<div class="qei-num">1</div>
+<div class="qei-q">When were the Ismaili Volunteers established?</div>
+<span class="qei-module">Module I</span>
+<span class="qei-edit" onclick="editQuizQ(1)">Edit</span>
+</div>
+<div class="qei-options">
+<div class="qei-opt"><span class="correct-mark">✓</span> 1919 <em style="font-size:11px;color:var(--success);margin-left:6px;">(correct)</em></div>
+<div class="qei-opt">1920</div>
+<div class="qei-opt">2019</div>
+</div>
+</div>
+<div class="quiz-editor-item">
+<div class="qei-header">
+<div class="qei-num">2</div>
+<div class="qei-q">What is the Ismaili Volunteers' new motto?</div>
+<span class="qei-module">Module I</span>
+<span class="qei-edit" onclick="editQuizQ(2)">Edit</span>
+</div>
+<div class="qei-options">
+<div class="qei-opt">Seva</div>
+<div class="qei-opt">All Work No Words</div>
+<div class="qei-opt"><span class="correct-mark">✓</span> Khidma <em style="font-size:11px;color:var(--success);margin-left:6px;">(correct)</em></div>
+</div>
+</div>
+<div class="quiz-editor-item">
+<div class="qei-header">
+<div class="qei-num">3</div>
+<div class="qei-q">What is the primary role of the IV team within the Jamatkhana?</div>
+<span class="qei-module">Module II</span>
+<span class="qei-edit" onclick="editQuizQ(3)">Edit</span>
+</div>
+<div class="qei-options">
+<div class="qei-opt">To support jamati events only</div>
+<div class="qei-opt"><span class="correct-mark">✓</span> To maintain a serene and spiritual atmosphere while supporting various operations <em style="font-size:11px;color:var(--success);margin-left:6px;">(correct)</em></div>
+<div class="qei-opt">To manage only the inside prayer hall area</div>
+<div class="qei-opt">To supervise the parking lot area only</div>
+</div>
+</div>
+<div class="quiz-editor-item">
+<div class="qei-header">
+<div class="qei-num">4</div>
+<div class="qei-q">The OADA framework stands for: (Module V)</div>
+<span class="qei-module">Module V</span>
+<span class="qei-edit" onclick="editQuizQ(4)">Edit</span>
+</div>
+<div class="qei-options">
+<div class="qei-opt">Observe, Alert, Document, Act</div>
+<div class="qei-opt"><span class="correct-mark">✓</span> Observe, Assess, Decide, Act <em style="font-size:11px;color:var(--success);margin-left:6px;">(correct)</em></div>
+<div class="qei-opt">Orient, Assess, Delay, Act</div>
+<div class="qei-opt">Observe, Analyze, Discuss, Alert</div>
+</div>
+</div>
+<button class="btn-sm gold" onclick="showNotif('New question added')" style="margin-top:4px;">+ Add Question</button>
+</div>
+</div>
+<!-- USERS PANEL -->
+<div class="admin-panel" id="panel-users">
+<div class="card-block">
+<h3>User &amp; Role Manager</h3>
+<div class="cb-sub">Manage platform access levels across Volunteer, Regional JK Lead, and Admin roles</div>
+<div class="filter-row" style="margin-bottom:14px;">
+<input placeholder="Search user..." style="width:200px;" type="text"/>
+<select><option>All Roles</option><option>Volunteer</option><option>JK Lead</option><option>Regional Lead</option><option>Admin</option></select>
+<button class="btn-sm primary" onclick="adminUserSearch()">Search</button>
+<button class="btn-sm gold" onclick="showNotif('Invite sent')" style="margin-left:auto;">+ Invite User</button>
+</div>
+<table class="data-table">
+<thead><tr><th>Name</th><th>Email</th><th>Role</th><th>JK</th><th>Last Login</th><th>Actions</th></tr></thead>
+<tbody>
+<tr><td class="vol-name">Rizwan Ali</td><td style="font-size:12px;">rizwan@ismailivolunteers.org</td><td><span class="badge" style="background:#EDE9FE;color:#5B21B6;">Admin</span></td><td style="font-size:12px;">National</td><td style="font-size:12px;">Today</td><td><span onclick="editUser('Rizwan Ali','Admin')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Edit</span></td></tr>
+<tr><td class="vol-name">Rania Hassanali</td><td style="font-size:12px;">r.hassanali@ismailivolunteers.org</td><td><span class="badge" style="background:#DBEAFE;color:#1E40AF;">Regional Lead</span></td><td style="font-size:12px;">Houston Region</td><td style="font-size:12px;">May 29</td><td><span onclick="editUser('Rania Hassanali','Regional Lead')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Edit</span></td></tr>
+<tr><td class="vol-name">Farida Hassanali</td><td style="font-size:12px;">f.hassanali@ismailivolunteers.org</td><td><span class="badge badge-complete">Volunteer</span></td><td style="font-size:12px;">Houston JK</td><td style="font-size:12px;">May 28</td><td><span onclick="editUser('Farida Hassanali','Volunteer')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Edit</span></td></tr>
+</tbody>
+</table>
+<h4 style="margin:20px 0 10px;font-size:13px;">Role Permissions</h4>
+<table class="data-table">
+<thead><tr><th>Permission</th><th>Volunteer</th><th>JK Lead</th><th>Regional Lead</th><th>Admin</th></tr></thead>
+<tbody>
+<tr><td style="font-size:13px;">View own progress</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td style="font-size:13px;">View JK completion data</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td style="font-size:13px;">Generate reports</td><td>—</td><td>✓ (own JK)</td><td>✓ (region)</td><td>✓</td></tr>
+<tr><td style="font-size:13px;">Edit modules/quizzes</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td style="font-size:13px;">Manage users</td><td>—</td><td>—</td><td>✓ (region)</td><td>✓</td></tr>
+<tr><td style="font-size:13px;">Edit branding/theme</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- JK CONFIG -->
+<div class="admin-panel" id="panel-jk">
+<div class="card-block">
+<h3>JK Configuration</h3>
+<div class="cb-sub">Configure Jamatkhana-level settings, assign leads, and set compliance targets</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+<div class="form-row"><label>Region Name</label><input type="text" value="Greater Houston Region"/></div>
+<div class="form-row"><label>Regional Target Completion %</label><select><option>65%</option><option selected="">75%</option><option>80%</option><option>90%</option><option>100%</option></select></div>
+<div class="form-row"><label>Overdue Alert Threshold (days)</label><input type="number" value="14"/></div>
+<div class="form-row"><label>Escalation Email</label><input type="text" value="regional-lead@ismailivolunteers.org"/></div>
+</div>
+<h4 style="margin:16px 0 10px;font-size:13px;">Jamatkhanas in Region</h4>
+<table class="data-table">
+<thead><tr><th>JK Name</th><th>JK Lead</th><th>Target</th><th>Current</th><th></th></tr></thead>
+<tbody>
+<tr><td class="vol-name">Houston JK</td><td style="font-size:12px;">Omar Nasir</td><td style="font-size:12px;">75%</td><td><span class="badge badge-complete">79%</span></td><td><span onclick="editJK('Houston JK')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Edit</span></td></tr>
+<tr><td class="vol-name">Sugarland JK</td><td style="font-size:12px;">Layla Ahmed</td><td style="font-size:12px;">75%</td><td><span class="badge badge-partial">72%</span></td><td><span onclick="editJK('Sugarland JK')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Edit</span></td></tr>
+<tr><td class="vol-name">Memorial JK</td><td style="font-size:12px;">Tariq Mulla</td><td style="font-size:12px;">75%</td><td><span class="badge badge-partial">74%</span></td><td><span onclick="editJK('Memorial JK')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Edit</span></td></tr>
+<tr><td class="vol-name">Katy JK</td><td style="font-size:12px;">Nadia Ismail</td><td style="font-size:12px;">75%</td><td><span class="badge badge-overdue">59%</span></td><td><span onclick="editJK('Katy JK')" style="font-size:12px;color:var(--navy);cursor:pointer;font-weight:600;">Edit</span></td></tr>
+</tbody>
+</table>
+<button class="btn-sm gold" onclick="showNotif('JK added')" style="margin-top:12px;">+ Add Jamatkhana</button>
+<button class="save-btn" onclick="showNotif('JK settings saved')" style="margin-top:12px;margin-left:8px;">Save Changes</button>
+</div>
+</div>
+<!-- NOTIFICATIONS PANEL -->
+<div class="admin-panel" id="panel-notifications">
+<div class="card-block">
+<h3>Notification &amp; Reminder Settings</h3>
+<div class="cb-sub">Configure automated reminders, escalation alerts, and completion notifications</div>
+<div style="display:flex;flex-direction:column;gap:0;">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);">
+<div><div style="font-size:14px;font-weight:600;color:var(--navy);">Welcome email on registration</div><div style="font-size:12px;color:var(--text-muted);">Sent when a new volunteer is added to the system</div></div>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);">
+<div><div style="font-size:14px;font-weight:600;color:var(--navy);">Day 7 reminder — not started</div><div style="font-size:12px;color:var(--text-muted);">Gentle nudge after 7 days of no activity</div></div>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);">
+<div><div style="font-size:14px;font-weight:600;color:var(--navy);">Day 14 escalation to JK Lead</div><div style="font-size:12px;color:var(--text-muted);">Alerts JK Lead when volunteer is overdue</div></div>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);">
+<div><div style="font-size:14px;font-weight:600;color:var(--navy);">Completion congratulations</div><div style="font-size:12px;color:var(--text-muted);">Sent to volunteer + JK Lead on 100% completion</div></div>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;">
+<div><div style="font-size:14px;font-weight:600;color:var(--navy);">Weekly JK compliance summary</div><div style="font-size:12px;color:var(--text-muted);">Auto-report sent every Sunday to JK Leads</div></div>
+<div class="toggle" onclick="this.classList.toggle('on')"></div>
+</div>
+</div>
+<button class="save-btn" onclick="showNotif('Notification settings saved')">Save Changes</button>
+</div>
+</div>
+<!-- BEST PRACTICES PANEL -->
+<div class="admin-panel" id="panel-bestpractices">
+<div class="card-block">
+<h3>⭐ Best Practices for Volunteer Onboarding Programs</h3>
+<div class="cb-sub">Platform design and program management recommendations</div>
+<div class="bp-item">
+<div class="bp-icon">🎯</div>
+<div><div class="bp-title">Set a Hard Deadline — Not a Soft Suggestion</div><div class="bp-text">Programs with a clear 30-day onboarding window have 2.3x higher completion rates than open-ended ones. Display the deadline prominently on the volunteer dashboard and send automated day-7 and day-14 reminders.</div></div>
+</div>
+<div class="bp-item">
+<div class="bp-icon">📊</div>
+<div><div class="bp-title">Track Module Drop-off, Not Just Final Completion</div><div class="bp-text">If Module III (Uniform) or Module IV (Code of Conduct) have lower completion rates, it signals those sections are too dense. Use quiz score data — if a module averages below 75%, the content may need to be simplified.</div></div>
+</div>
+<div class="bp-item">
+<div class="bp-icon">🏛</div>
+<div><div class="bp-title">Assign a Human Onboarding Champion Per JK</div><div class="bp-text">The highest-completing JKs consistently have one named person responsible for follow-up. Automated reminders are supplementary — a personal check-in from an JK Lead converts more completions than any email.</div></div>
+</div>
+<div class="bp-item">
+<div class="bp-icon">📱</div>
+<div><div class="bp-title">Mobile-First Design is Non-Negotiable</div><div class="bp-text">Most volunteers will complete this on a phone between prayer services. Ensure all modules render cleanly on mobile — long tables (like the infraction matrix) should scroll horizontally, not overflow the screen.</div></div>
+</div>
+<div class="bp-item">
+<div class="bp-icon">🔄</div>
+<div><div class="bp-title">Annual Refresher — Not One-and-Done</div><div class="bp-text">Set the platform to prompt returning volunteers for an annual "refresher check" — a 5-question quiz covering policy updates. This keeps compliance current and surfaces anyone whose access has lapsed.</div></div>
+</div>
+<div class="bp-item">
+<div class="bp-icon">🧾</div>
+<div><div class="bp-title">Tie Waiver Signing to Access — Hard Gate</div><div class="bp-text">Volunteers should not be able to start Module I until the Machform waiver is submitted. This prevents the scenario where someone completes all modules but never signs legal documentation. Build this as a prerequisite block, not a reminder.</div></div>
+</div>
+<div class="bp-item">
+<div class="bp-icon">📋</div>
+<div><div class="bp-title">Separate S&amp;S Compliance Tracking</div><div class="bp-text">Safety &amp; Security volunteers have additional requirements (CPR, First Aid, Gatekeeper within 6 months). Track these separately in the reporting dashboard with their own compliance clock — they should not be grouped with general volunteer completion %.</div></div>
+</div>
+<div class="bp-item">
+<div class="bp-icon">🌐</div>
+<div><div class="bp-title">Accessibility: Offer Language &amp; Accessibility Options</div><div class="bp-text">If your Jamat includes non-English speakers or volunteers with visual impairments, plan for font-size controls, screen-reader compatibility, and at minimum one translated version of the critical CoC and Safety modules.</div></div>
+</div>
+</div>
+</div>
+</div><!-- /admin panels -->
+</div><!-- /admin-grid -->
+</div>
 </div><!-- /view-admin -->
-
 <!-- Toast notification -->
 <!-- ── KHIDMA AI CHAT ── -->
 <div id="ai-chat-btn" onclick="toggleChat()">
-  <div class="pulse"></div>
-  <span>Khidma AI</span>
+<div class="pulse"></div>
+<span>Khidma AI</span>
 </div>
-
 <div id="ai-chat-window">
-  <div id="chat-header">
-    <div class="chat-avatar">🤝</div>
-    <div>
-      <div class="chat-agent-name">Khidma AI Helper</div>
-      <div class="chat-agent-status">● Online · Ismaili Volunteers</div>
-    </div>
-    <div id="chat-close" onclick="toggleChat()">×</div>
-  </div>
-  <div id="chat-messages"></div>
-  <div id="quick-questions"></div>
-  <div id="chat-input-row">
-    <input id="chat-input" placeholder="Ask anything about IV orientation..." onkeydown="if(event.key==='Enter')sendChat()">
-    <button id="chat-send" onclick="sendChat()">➤</button>
-  </div>
+<div id="chat-header">
+<div class="chat-avatar">🤝</div>
+<div>
+<div class="chat-agent-name">Khidma AI Helper</div>
+<div class="chat-agent-status">● Online · Ismaili Volunteers</div>
 </div>
-
-<div id="toast"  style="position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:var(--shadow-lg);display:none;z-index:9999;transition:opacity .3s;">✓ <span id="toast-msg"></span></div>
+<div id="chat-close" onclick="toggleChat()">×</div>
+</div>
+<div id="chat-messages"></div>
+<div id="quick-questions"></div>
+<div id="chat-input-row">
+<input id="chat-input" onkeydown="if(event.key==='Enter')sendChat()" placeholder="Ask anything about IV orientation..."/>
+<button id="chat-send" onclick="sendChat()">➤</button>
+</div>
+</div>
+<div id="toast" style="position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:var(--shadow-lg);display:none;z-index:9999;transition:opacity .3s;">✓ <span id="toast-msg"></span></div>
 <!-- ── MODAL SYSTEM ── -->
-<div id="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeModal()">
-  <div id="modal-box" style="background:#fff;border-radius:12px;max-width:560px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);">
-    <div id="modal-header" style="padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
-      <div id="modal-title" style="font-size:16px;font-weight:700;color:var(--navy);"></div>
-      <span onclick="closeModal()" style="cursor:pointer;font-size:20px;color:var(--text-muted);line-height:1;">×</span>
-    </div>
-    <div id="modal-body" style="padding:20px 24px;font-size:14px;line-height:1.7;color:#374151;"></div>
-    <div id="modal-footer" style="padding:16px 24px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end;"></div>
-  </div>
+<div id="modal-overlay" onclick="if(event.target===this)closeModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;">
+<div id="modal-box" style="background:#fff;border-radius:12px;max-width:560px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);">
+<div id="modal-header" style="padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+<div id="modal-title" style="font-size:16px;font-weight:700;color:var(--navy);"></div>
+<span onclick="closeModal()" style="cursor:pointer;font-size:20px;color:var(--text-muted);line-height:1;">×</span>
 </div>
-
+<div id="modal-body" style="padding:20px 24px;font-size:14px;line-height:1.7;color:#374151;"></div>
+<div id="modal-footer" style="padding:16px 24px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end;"></div>
+</div>
+</div>
 <script>
 // ── STATE ──
 const state = {
@@ -1819,6 +1767,71 @@ function goModule(idx) {
   document.getElementById('prog-title').textContent = titles[idx];
   window.scrollTo(0,0);
   document.getElementById('content-area').scrollTo(0,0);
+}
+
+// ── QUIZ GATE: must answer all quizzes before completing ──
+function attemptComplete(idx) {
+  const moduleQuizIds = Object.keys(ANSWERS).filter(k => QUIZ_TO_MODULE[k] === idx);
+  const unanswered = moduleQuizIds.filter(k => !state.quizSubmitted.hasOwnProperty(k));
+
+  if (unanswered.length > 0) {
+    // Highlight unanswered quiz cards
+    unanswered.forEach(qId => {
+      const card = document.getElementById(qId);
+      if (card) {
+        card.style.border = '2px solid #DC2626';
+        card.style.boxShadow = '0 0 0 4px rgba(220,38,38,0.15)';
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+    const n = unanswered.length;
+    showNotif('⚠ Please answer ' + n + ' remaining question' + (n > 1 ? 's' : '') + ' before continuing');
+    return;
+  }
+
+  // Check pass rate (≥80% of submitted answers must be correct)
+  const correct = moduleQuizIds.filter(k => state.quizSubmitted[k] === true).length;
+  const total = moduleQuizIds.length;
+  const pct = Math.round(correct / total * 100);
+
+  if (pct < 80) {
+    openModal('📝 Score: ' + pct + '% — Please Review',
+      `<p style="margin-bottom:14px;">You answered <strong>${correct} out of ${total}</strong> questions correctly (${pct}%). A score of <strong>80% or higher</strong> is required to advance.</p>
+      <div style="background:var(--error-bg);border-left:4px solid var(--error);border-radius:0 8px 8px 0;padding:12px 16px;font-size:13px;color:var(--error);margin-bottom:14px;">Please review the module content and retake the questions below before continuing.</div>
+      <p style="font-size:13px;color:var(--text-muted);">Go back through the module content, then scroll down to re-answer the highlighted questions.</p>`,
+      `<button onclick="closeModal();resetModuleQuizzes(${idx})" style="padding:8px 20px;background:var(--navy);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;">🔄 Retake Questions</button>`
+    );
+    return;
+  }
+
+  completeModule(idx);
+}
+
+function resetModuleQuizzes(idx) {
+  const moduleQuizIds = Object.keys(ANSWERS).filter(k => QUIZ_TO_MODULE[k] === idx);
+  moduleQuizIds.forEach(qId => {
+    delete state.quizSubmitted[qId];
+    delete state.quizAnswers[qId];
+    const card = document.getElementById(qId);
+    if (!card) return;
+    // Reset border
+    card.style.border = '';
+    card.style.boxShadow = '';
+    // Reset options
+    card.querySelectorAll('.quiz-opt').forEach(o => {
+      o.classList.remove('correct','wrong','selected');
+      o.style.pointerEvents = '';
+    });
+    // Remove feedback
+    card.querySelectorAll('.quiz-feedback').forEach(f => f.remove());
+    // Reset submit button
+    const btn = card.querySelector('.quiz-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Submit Answer'; }
+  });
+  showNotif('Questions reset — try again!');
+  // Scroll to first quiz
+  const firstQ = document.getElementById(moduleQuizIds[0]);
+  if (firstQ) firstQ.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function completeModule(idx) {
@@ -2116,7 +2129,7 @@ function showStatDetail(type) {
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
         <thead><tr style="background:var(--bg);"><th style="padding:7px 10px;text-align:left;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">Name</th><th style="padding:7px 10px;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">JK</th><th style="padding:7px 10px;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">Role</th><th style="padding:7px 10px;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">Registered</th><th style="padding:7px 10px;color:var(--text-muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);">Days</th></tr></thead>
         <tbody>
-        ${(function(){var colorMap={error:'#DC2626',warn:'#92400E',navy:'var(--navy)',success:'#166534'};var rows=[['Rahim Tejani','Katy JK','Transportation','Apr 28, 2026','33','error'],['Hassan Dewji','Sugarland JK','Adult JK Vol.','May 1, 2026','30','error'],['Zafar Moledina','Katy JK','S&S Volunteer','May 3, 2026','28','error'],['Nawaz Rashid','Memorial JK','Adult JK Vol.','May 16, 2026','15','warn'],['Layla Ahmed','Houston JK','Youth Vol.','May 18, 2026','13','warn'],['Tariq Ismail','Sugarland JK','Transportation','May 20, 2026','11','navy'],['Omar Devji','Katy JK','Adult JK Vol.','May 22, 2026','9','navy'],['Yasmin Alibhai','Memorial JK','Youth Vol.','May 25, 2026','6','success']];return rows.map(function(r){return '<tr style="border-bottom:1px solid var(--border)"><td style="padding:7px 10px;font-weight:600;color:var(--navy)">'+r[0]+'</td><td style="padding:7px 10px;color:var(--text-muted)">'+r[1]+'</td><td style="padding:7px 10px">'+r[2]+'</td><td style="padding:7px 10px;color:var(--text-muted)">'+r[3]+'</td><td style="padding:7px 10px;font-weight:700;color:'+(colorMap[r[5]]||'var(--navy)')+'">'+r[4]+'d</td></tr>';}).join('');})()}
+        ${(function(){var colorMap={error:'#DC2626',warn:'#92400E',navy:'var(--navy)',success:'#166634'};var rows=[['Rahim Tejani','Katy JK','Transportation','Apr 28, 2026','33','error'],['Hassan Dewji','Sugarland JK','Adult JK Vol.','May 1, 2026','30','error'],['Zafar Moledina','Katy JK','S&S Volunteer','May 3, 2026','28','error'],['Nawaz Rashid','Memorial JK','Adult JK Vol.','May 16, 2026','15','warn'],['Layla Ahmed','Houston JK','Youth Vol.','May 18, 2026','13','warn'],['Tariq Ismail','Sugarland JK','Transportation','May 20, 2026','11','navy'],['Omar Devji','Katy JK','Adult JK Vol.','May 22, 2026','9','navy'],['Yasmin Alibhai','Memorial JK','Youth Vol.','May 25, 2026','6','success']];return rows.map(function(r){return '<tr style="border-bottom:1px solid var(--border)"><td style="padding:7px 10px;font-weight:600;color:var(--navy)">'+r[0]+'</td><td style="padding:7px 10px;color:var(--text-muted)">'+r[1]+'</td><td style="padding:7px 10px">'+r[2]+'</td><td style="padding:7px 10px;color:var(--text-muted)">'+r[3]+'</td><td style="padding:7px 10px;font-weight:700;color:'+(colorMap[r[5]]||'var(--navy)')+'">'+r[4]+'d</td></tr>';}).join('');})()}
         </tbody>
       </table>`,
       footer:`<button onclick="closeModal();showNotif('📧 Reminders sent to all 23 volunteers')" style="padding:8px 16px;background:var(--bg2);color:var(--navy);border:1.5px solid var(--navy);border-radius:6px;font-size:13px;cursor:pointer;">Send All Reminders</button>
